@@ -1,9 +1,13 @@
-import React from 'react';
+import { useContext } from 'react';
+import { GlobalContext } from '../../contexts/GlobalContext';
 import './Container.scss';
 
 function Container() {
+
+  const theme = useContext(GlobalContext);
+
   return (
-    <div className="container">
+    <div className={`container theme-${theme}`}>
       <p>Aquí arranca la app chaval</p>
     </div>
   );
