@@ -1,0 +1,24 @@
+@import '../../global.scss';
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  height: 100px;
+
+  &__logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 260px;
+    height: 58px;
+    background-image: url('../../assets/img/logo.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}

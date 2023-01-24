@@ -1,4 +1,18 @@
+@import '../../global.scss';
+
 .container {
-    position: relative;
-    padding: 20px;
+  position: relative;
+  min-height: 100vh;
+  padding: 20px;
+  padding-top: 100px;
+  box-sizing: border-box;
+
+  &.theme-default {
+    background-color: $color--theme1-bg;
+
+    p,
+    label {
+      color: $color--theme1-text;
+    }
+  }
 }
