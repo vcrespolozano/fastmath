@@ -6,13 +6,33 @@
   padding: 20px;
   padding-top: 100px;
   box-sizing: border-box;
+  background-color: $color--bg;
 
   &.theme-default {
-    background-color: $color--theme1-bg;
-
     p,
     label {
       color: $color--theme1-text;
+    }
+  }
+
+  &.theme-orange {
+    p,
+    label {
+      color: $color--theme2-text;
+    }
+  }
+
+  &.theme-red {
+    p,
+    label {
+      color: $color--theme3-text;
+    }
+  }
+
+  &.theme-blue {
+    p,
+    label {
+      color: $color--theme4-text;
     }
   }
 }

@@ -1,0 +1,21 @@
+@import '../../global.scss';
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: $footerHeight;
+  margin: 0 20px;
+  text-align: center;
+  z-index: 1;
+
+  label {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+  }
+}

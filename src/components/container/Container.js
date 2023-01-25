@@ -1,16 +1,19 @@
 import { useContext } from 'react';
 import { GlobalContext } from '../../contexts/GlobalContext';
+import { Footer } from '../footer/Footer';
+import GameContainer from '../GameContainer/GameContainer';
 import { Header } from '../header/Header';
 import './Container.scss';
 
 function Container() {
 
-  const theme = useContext(GlobalContext);
+  const context = useContext(GlobalContext);
 
   return (
-    <div className={`container theme-${theme}`}>
+    <div className={`container theme-${context.theme}`}>
       <Header />
-      <p>Aquí arranca la app chaval</p>
+      <GameContainer />
+      <Footer />
     </div>
   );
 }

@@ -5,8 +5,8 @@
   top: 0;
   left: 0;
   right: 0;
-  padding: 20px;
-  height: 100px;
+  margin: 20px;
+  height: $headerHeight;
 
   &__logo {
     position: absolute;
