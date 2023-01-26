@@ -1,0 +1,36 @@
+@import '../../../global.scss';
+
+.button {
+  display: inline-block;
+  position: relative;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;
+  border: none;
+  z-index: 1;
+
+  &:focus {
+    outline: none;
+  }
+
+  &.theme-default {
+    background-color: $color--theme1-solid;
+    color: $color--theme1-text;
+  }
+
+  &.theme-orange {
+    background-color: $color--theme2-solid;
+    color: $color--theme2-text;
+  }
+
+  &.theme-red {
+    background-color: $color--theme3-solid;
+    color: $color--theme3-text;
+  }
+
+  &.theme-blue {
+    background-color: $color--theme4-solid;
+    color: $color--theme4-text;
+  }
+}

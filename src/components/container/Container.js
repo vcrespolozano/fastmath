@@ -5,7 +5,7 @@ import GameContainer from '../GameContainer/GameContainer';
 import { Header } from '../header/Header';
 import './Container.scss';
 
-function Container() {
+const Container = () => {
 
   const context = useContext(GlobalContext);
 
