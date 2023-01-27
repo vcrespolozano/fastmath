@@ -1,0 +1,15 @@
+@import '../../global.scss';
+
+.gameSelector {
+  position: relative;
+  max-width: $gameWidth;
+  margin: 30px auto;
+  z-index: 1;
+
+  &__mode {
+    display: flex;
+    margin-bottom: 25px;
+    justify-content: center;
+    gap: 10px;
+  }
+}

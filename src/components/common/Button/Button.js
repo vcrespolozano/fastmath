@@ -1,9 +1,9 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import { GlobalContext } from '../../../contexts/GlobalContext';
 import './Button.scss';
 
-const Button = ({label, onClick, className, width, height}) => {
+const Button = ({label, onClick, className, width, height, selected}) => {
 
   const context = useContext(GlobalContext);
 
@@ -13,7 +13,7 @@ const Button = ({label, onClick, className, width, height}) => {
 
   return (
     <button
-      className={`button theme-${context.theme} ${className ? className : ''}`}
+      className={`button theme-${context.theme} ${selected ? 'selected' : ''} ${className ? className : ''}`}
       style={{ width: `${width}px`, height: `${height}px` }}
       onClick={onClick}
     >

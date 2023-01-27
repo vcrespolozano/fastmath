@@ -1,3 +1,6 @@
+// TODO: FONTS
+
+// VARS
 $color--white: #fff;
 $color--common-grey: #7e7e7e;
 $color--bg: #111;
@@ -7,19 +10,27 @@ $footerHeight: 45px;
 
 $color--theme1-solid: #333;
 $color--theme1-text: #fff;
-$color--theme1-other: #ededed;
+$color--theme1-other: #b5b5b5;
 
 $color--theme2-solid: #333;
 $color--theme2-text: #ff9844;
-$color--theme2-other: #ededed;
+$color--theme2-other: #a7622a;
 
 $color--theme3-solid: #333;
 $color--theme3-text: #b80000;
-$color--theme3-other: #ededed;
+$color--theme3-other: #690000;
 
 $color--theme4-solid: #333;
 $color--theme4-text: #499eff;
-$color--theme4-other: #ededed;
+$color--theme4-other: #2c619e;
+
+// MIXINS
+@mixin transition($duration: 250ms) {
+  -webkit-transition: all $duration linear;
+  -moz-transition: all $duration linear;
+  -o-transition: all $duration linear;
+  transition: all $duration linear;
+}
 
 body {
   margin: 0;

@@ -7,30 +7,62 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   outline: none;
-  border: none;
+  background-color: transparent;
+  border: 2px solid black;
+  font-size: 15px;
+  cursor: pointer;
   z-index: 1;
+  @include transition;
 
   &:focus {
     outline: none;
   }
 
   &.theme-default {
-    background-color: $color--theme1-solid;
     color: $color--theme1-text;
+    border-color: $color--theme1-text;
+
+    &:hover,
+    &.selected {
+      color: $color--bg;
+      border-color: $color--theme1-other;
+      background-color: $color--theme1-text;
+    }
   }
 
   &.theme-orange {
-    background-color: $color--theme2-solid;
     color: $color--theme2-text;
+    border-color: $color--theme2-text;
+
+    &:hover,
+    &.selected {
+      color: $color--bg;
+      border-color: $color--theme2-other;
+      background-color: $color--theme2-text;
+    }
   }
 
   &.theme-red {
-    background-color: $color--theme3-solid;
     color: $color--theme3-text;
+    border-color: $color--theme3-text;
+
+    &:hover,
+    &.selected {
+      color: $color--bg;
+      border-color: $color--theme3-other;
+      background-color: $color--theme3-text;
+    }
   }
 
   &.theme-blue {
-    background-color: $color--theme4-solid;
     color: $color--theme4-text;
+    border-color: $color--theme4-text;
+
+    &:hover,
+    &.selected {
+      color: $color--bg;
+      border-color: $color--theme4-other;
+      background-color: $color--theme4-text;
+    }
   }
 }
