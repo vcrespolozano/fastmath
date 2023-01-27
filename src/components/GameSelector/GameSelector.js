@@ -1,9 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { GlobalContext } from '../../contexts/GlobalContext';
 import { APP_GAME_MODES, APP_GAME_DIFFICULTIES } from '../../constants/constants';
 import Button from '../common/Button/Button';
+import Text, {
+  TEXT_SIZE,
+  TEXT_WEIGHT,
+  TEXT_KIND,
+  TEXT_DISPLAY,
+  TEXT_ALIGN,
+} from '../common/Text/Text';
 import './GameSelector.scss';
 
 const GameSelector = () => {
+
+  const context = useContext(GlobalContext);
 
   const [modeSelected, setModeSelected] = useState(null);
   const [difficultySelected, setDifficultySelected] = useState(null);
@@ -21,29 +31,76 @@ const GameSelector = () => {
   }
 
   return (
-    <div className="gameSelector">
+    <div className={`gameSelector theme-${context.theme}`}>
       <div className="gameSelector__mode">
-        <Button
-          label="Normal"
-          width={200}
-          height={55}
-          onClick={() => selectGameMode(APP_GAME_MODES.NORMAL)}
+        <Text
+          value="Modo de juego"
+          size={TEXT_SIZE.BIG}
+          weight={TEXT_WEIGHT.MEDIUM}
+          kind={TEXT_KIND.PARAGRAPH}
+          display={TEXT_DISPLAY.BLOCK}
+          align={TEXT_ALIGN.CENTER}
+          className="gameSelector__title"
+          marginBottom
         />
-        <Button
-          label="Contrareloj"
-          width={200}
-          height={55}
-          onClick={() => selectGameMode(APP_GAME_MODES.CONTRARELOJ)}
-        />
-        <Button
-          label="Sin fallos"
-          width={200}
-          height={55}
-          onClick={() => selectGameMode(APP_GAME_MODES.SIN_FALLOS)}
-        />
+        <div className="gameSelector__mode_buttons">
+          <Button
+            label="Clásico"
+            width={200}
+            height={55}
+            onClick={() => selectGameMode(APP_GAME_MODES.CLASSIC)}
+            selected={modeSelected === APP_GAME_MODES.CLASSIC}
+          />
+          <Button
+            label="Contrareloj"
+            width={200}
+            height={55}
+            onClick={() => selectGameMode(APP_GAME_MODES.CONTRARELOJ)}
+            selected={modeSelected === APP_GAME_MODES.CONTRARELOJ}
+          />
+          <Button
+            label="Sin fallos"
+            width={200}
+            height={55}
+            onClick={() => selectGameMode(APP_GAME_MODES.SIN_FALLOS)}
+            selected={modeSelected === APP_GAME_MODES.SIN_FALLOS}
+          />
+        </div>
       </div>
       <div className="gameSelector__difficulty">
-
+        <Text
+          value="Dificultad"
+          size={TEXT_SIZE.BIG}
+          weight={TEXT_WEIGHT.MEDIUM}
+          kind={TEXT_KIND.PARAGRAPH}
+          display={TEXT_DISPLAY.BLOCK}
+          align={TEXT_ALIGN.CENTER}
+          className="gameSelector__title"
+          marginBottom
+        />
+        <div className="gameSelector__difficulty_buttons">
+          <Button
+            label="Fácil"
+            width={200}
+            height={55}
+            onClick={() => selectDifficulty(APP_GAME_DIFFICULTIES.FACIL)}
+            selected={difficultySelected === APP_GAME_DIFFICULTIES.FACIL}
+          />
+          <Button
+            label="Normal"
+            width={200}
+            height={55}
+            onClick={() => selectDifficulty(APP_GAME_DIFFICULTIES.NORMAL)}
+            selected={difficultySelected === APP_GAME_DIFFICULTIES.NORMAL}
+          />
+          <Button
+            label="Difícil"
+            width={200}
+            height={55}
+            onClick={() => selectDifficulty(APP_GAME_DIFFICULTIES.DIFICIL)}
+            selected={difficultySelected === APP_GAME_DIFFICULTIES.DIFICIL}
+          />
+        </div>
       </div>
       <Button
         label="Empezar"

@@ -3,7 +3,8 @@
 .gameContainer {
   position: relative;
   max-width: $gameWidth;
-  max-height: calc(100% - $headerHeight - $footerHeight);
+  padding-top: 30px;
+  max-height: calc(100% - 145px);
   margin: 0 auto;
   z-index: 1;
 }

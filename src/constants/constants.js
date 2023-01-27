@@ -6,7 +6,7 @@ export const APP_THEMES = {
 }
 
 export const APP_GAME_MODES = {
-  NORMAL: 'normal',
+  CLASSIC: 'clasico',
   CONTRARELOJ: 'contrareloj',
   SIN_FALLOS: 'sin_fallos',
 }

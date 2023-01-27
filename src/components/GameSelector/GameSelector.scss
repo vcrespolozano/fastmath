@@ -1,15 +1,88 @@
 @import '../../global.scss';
 
 .gameSelector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: relative;
   max-width: $gameWidth;
   margin: 30px auto;
   z-index: 1;
 
+  &__title {
+    position: absolute;
+    left: 50%;
+    top: -15px;
+    transform: translateX(-50%);
+    padding: 0 10px;
+    background-color: $color--bg;
+  }
+
   &__mode {
+    position: relative;
     display: flex;
-    margin-bottom: 25px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    margin-bottom: 40px;
+    border: 3px solid $color--white;
     justify-content: center;
     gap: 10px;
+    z-index: 1;
+
+    &_buttons {
+      display: flex;
+      flex-direction: row;
+      gap: 15px;
+    }
+  }
+
+  &__difficulty {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    margin-bottom: 40px;
+    border: 3px solid $color--white;
+    justify-content: center;
+    gap: 10px;
+    z-index: 1;
+
+    &_buttons {
+      display: flex;
+      flex-direction: row;
+      gap: 15px;
+    }
+  }
+
+  &.theme-default {
+    .gameSelector__mode,
+    .gameSelector__difficulty {
+      border-color: $color--theme1-text;
+    }
+  }
+
+  &.theme-orange {
+    .gameSelector__mode,
+    .gameSelector__difficulty {
+      border-color: $color--theme2-text;
+    }
+  }
+
+  &.theme-red {
+    .gameSelector__mode,
+    .gameSelector__difficulty {
+      border-color: $color--theme3-text;
+    }
+  }
+
+  &.theme-blue {
+    .gameSelector__mode,
+    .gameSelector__difficulty {
+      border-color: $color--theme4-text;
+    }
   }
 }

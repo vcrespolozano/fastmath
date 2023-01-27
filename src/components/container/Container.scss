@@ -10,28 +10,36 @@
 
   &.theme-default {
     p,
-    label {
+    label,
+    a,
+    span {
       color: $color--theme1-text;
     }
   }
 
   &.theme-orange {
     p,
-    label {
+    label,
+    a,
+    span {
       color: $color--theme2-text;
     }
   }
 
   &.theme-red {
     p,
-    label {
+    label,
+    a,
+    span {
       color: $color--theme3-text;
     }
   }
 
   &.theme-blue {
     p,
-    label {
+    label,
+    a,
+    span {
       color: $color--theme4-text;
     }
   }
