@@ -1,6 +1,8 @@
 import { createContext } from 'react';
 
 export const GlobalContext = createContext({
-  theme: null,
-  setTheme: (theme) => {}
+  theme: 'default',
+  setTheme: (theme) => {},
+  countDownEnabled: false,
+  setCountDownEnabled: (countDownEnabled) => {},
 });

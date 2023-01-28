@@ -2,18 +2,20 @@ import { useContext } from 'react';
 import { GlobalContext } from '../../contexts/GlobalContext';
 import { Footer } from '../footer/Footer';
 import GameContainer from '../GameContainer/GameContainer';
+import Countdown from '../Countdown/Countdown';
 import { Header } from '../header/Header';
 import './Container.scss';
 
 const Container = () => {
 
-  const context = useContext(GlobalContext);
+  const { theme, countDownEnabled } = useContext(GlobalContext);
 
   return (
-    <div className={`container theme-${context.theme}`}>
+    <div className={`container theme-${theme}`}>
       <Header />
       <GameContainer />
       <Footer />
+      {countDownEnabled && <Countdown />}
     </div>
   );
 }

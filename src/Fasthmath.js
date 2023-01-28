@@ -9,9 +9,17 @@ const currentTheme = localStorage.getItem('appTheme') || 'default';
 function Fastmath() {
 
   const [theme, setTheme] = useState(currentTheme);
+  const [countDownEnabled, setCountDownEnabled] = useState(false);
+
+  const context = {
+    theme,
+    setTheme,
+    countDownEnabled,
+    setCountDownEnabled
+  }
 
   return (
-    <GlobalContext.Provider value={{theme, setTheme}}>
+    <GlobalContext.Provider value={context}>
       <Container />
     </GlobalContext.Provider>
   );

@@ -17,8 +17,32 @@
     margin: auto;
     width: 260px;
     height: 58px;
-    background-image: url('../../assets/img/logo.png');
     background-repeat: no-repeat;
     background-size: contain;
+    @include transition;
+  }
+
+  &.theme-default {
+    .header__logo {
+      background-image: url('../../assets/img/logo.png');
+    }
+  }
+
+  &.theme-orange {
+    .header__logo {
+      background-image: url('../../assets/img/logo-orange.png');
+    }
+  }
+
+  &.theme-red {
+    .header__logo {
+      background-image: url('../../assets/img/logo-red.png');
+    }
+  }
+
+  &.theme-blue {
+    .header__logo {
+      background-image: url('../../assets/img/logo-blue.png');
+    }
   }
 }

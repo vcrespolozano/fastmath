@@ -16,3 +16,5 @@ export const APP_GAME_DIFFICULTIES = {
   NORMAL: 'normal',
   DIFICIL: 'dificil',
 }
+
+export const NUM_OPERATIONS = 10;
