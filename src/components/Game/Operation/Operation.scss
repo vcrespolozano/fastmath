@@ -1,6 +1,30 @@
 @import '../../../global.scss';
 
 .operation {
-  position: relative;
-  z-index: 1;
+  position       : relative;
+  display        : flex;
+  flex-direction : row;
+  align-items    : center;
+  justify-content: center;
+  padding        : 15px 10px;
+  gap            : 15px;
+  text-align     : center;
+  z-index        : 1;
+
+  &.solved-right {
+    background-color: rgba(0, 185, 108, .7);
+  }
+  &.solved-wrong {
+    background-color: rgba(185, 0, 0, 0.7);
+  }
+
+  &__number {
+    font-size: 50px;
+    min-width: 56px;
+  }
+
+  &__operator {
+    font-size: 50px;
+    min-width: 56px;
+  }
 }

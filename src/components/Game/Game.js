@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import Operation from './Operation/Operation';
 import OperationsContainer from './OperationsContainer/OperationsContainer';
+import Keyboard from './Keyboard/Keyboard';
 import { randomMathOperation, getRandomNumber } from '../../handlers/maths';
 import { NUM_OPERATIONS, APP_GAME_DIFFICULTIES } from '../../constants/constants';
 import './Game.scss';
@@ -8,6 +8,10 @@ import './Game.scss';
 const Game = ({mode, difficulty}) => {
 
   const [operations, setOperations] = useState([]);
+  const [showingOperations, setShowingOperations] = useState([]);
+  const [currentOperation, setCurrentOperation] = useState(null);
+  const [currentOperationIndex, setCurrentOperationIndex] = useState(null);
+  const [gameEnded, setGameEnded] = useState(false);
 
   useEffect(() => {
     if (operations.length === 0) {
@@ -35,22 +39,64 @@ const Game = ({mode, difficulty}) => {
     }
   }, [mode, difficulty]);
 
+  useEffect(() => {
+    if (operations.length === NUM_OPERATIONS && !currentOperation) {
+      setCurrentOperation(operations[0]);
+      setCurrentOperationIndex(0);
+      const auxShowingOperations = [operations[0]];
+      setShowingOperations(auxShowingOperations);
+    }
+  }, [operations, currentOperation]);
+
+  const nextOperation = (previousOperatorClicked) => {
+    if (currentOperationIndex !== null && currentOperationIndex <= NUM_OPERATIONS - 1) {
+      const auxShowingOperations = showingOperations;
+      // Resuelvo la operación actual
+      const auxCurrentOperationIndex = currentOperationIndex;
+      const auxCurrentOperation = currentOperation;
+      auxCurrentOperation.operatorSelected = previousOperatorClicked;
+      auxShowingOperations[auxCurrentOperationIndex] = auxCurrentOperation;
+
+      if (currentOperationIndex === NUM_OPERATIONS - 1) {
+        // Finalizo el juego
+        setShowingOperations([
+          ...auxShowingOperations,
+        ]);
+        endGame();
+      } else {
+        // Preparo la siguiente operación
+        setShowingOperations([
+          ...auxShowingOperations,
+          operations[auxCurrentOperationIndex+1],
+        ]);
+        setCurrentOperationIndex(auxCurrentOperationIndex+1);
+        setCurrentOperation(operations[auxCurrentOperationIndex+1]);
+      }
+    }
+  }
+
+  const endGame = () => {
+    setGameEnded(true);
+    console.log('Se acabó');
+  }
+
+  const checkResult = (fnOperatorClicked) => {
+    if (currentOperation && fnOperatorClicked) {
+      if (currentOperation.operator === fnOperatorClicked) {
+        console.log('Correcto');
+      } else {
+        console.log('Error');
+      }
+      if (currentOperationIndex !== null && currentOperationIndex <= NUM_OPERATIONS - 1) {
+        nextOperation(fnOperatorClicked);
+      }
+    }
+  }
+
   return (
     <div className="game">
-      <OperationsContainer>
-        {
-          operations.length === NUM_OPERATIONS && (
-            operations.map((itemOperation, index) => {
-              return <Operation
-                op1={itemOperation.op1}
-                op2={itemOperation.op2}
-                operator={itemOperation.operator}
-                result={itemOperation.result}
-              />
-            })
-          )
-        }
-      </OperationsContainer>
+      <OperationsContainer operations={showingOperations} />
+      <Keyboard onClick={checkResult} />
     </div>
   )
 }

@@ -1,0 +1,25 @@
+@import '../../../global.scss';
+
+.keyboard {
+  display        : flex;
+  position       : relative;
+  flex-direction : row;
+  gap            : 15px;
+  align-items    : center;
+  justify-content: center;
+  padding        : 20px;
+  margin         : 30px auto;
+  border         : 3px solid $color--white;
+  z-index        : 1;
+
+  &__key {
+    display    : block;
+    width      : 60px;
+    height     : 60px;
+    border     : 2px solid $color--white;
+    line-height: 56px;
+    font-size  : 24px;
+    text-align : center;
+    cursor     : pointer;
+  }
+}
