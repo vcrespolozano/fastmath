@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import OperationsContainer from './OperationsContainer/OperationsContainer';
 import Keyboard from './Keyboard/Keyboard';
+import Crono from './Crono/Crono';
 import { randomMathOperation, getRandomNumber } from '../../handlers/maths';
 import { NUM_OPERATIONS, APP_GAME_DIFFICULTIES } from '../../constants/constants';
 import './Game.scss';
@@ -31,6 +32,8 @@ const Game = ({mode, difficulty}) => {
           case APP_GAME_DIFFICULTIES.DIFICIL:
             maxDigits1 = getRandomNumber(3);
             maxDigits2 = getRandomNumber(3);
+            break;
+          default:
             break;
         }
         auxOperations.push(randomMathOperation(maxDigits1, maxDigits2));
@@ -95,6 +98,10 @@ const Game = ({mode, difficulty}) => {
 
   return (
     <div className="game">
+      <Crono
+        start={!gameEnded}
+        stop={gameEnded}
+      />
       <OperationsContainer operations={showingOperations} />
       <Keyboard onClick={checkResult} />
     </div>

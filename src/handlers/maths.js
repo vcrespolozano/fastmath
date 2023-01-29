@@ -9,6 +9,19 @@ export const getRandomNumberDigits = (numOfDigits, avoidOne) => {
   return Math.floor(Math.random() * Math.pow(10, numOfDigits)) + 1;
 }
 
+export const hasInverseOperation = (result, op1, op2, operator) => {
+  if (op1 + op2 === result && operator !== '+') {
+    return true;
+  } else if (op1 - op2 === result && operator !== '-') {
+    return true;
+  } else if (op1 * op2 === result && operator !== '×') {
+    return true;
+  } else if (op1 / op2 === result && operator !== '÷') {
+    return true;
+  }
+  return false;
+}
+
 export const randomMathOperation = (numOfDigits1, numOfDigits2) => {
   const num1 = getRandomNumberDigits(numOfDigits1, false);
   let num2 = getRandomNumberDigits(numOfDigits2, false);
@@ -17,13 +30,6 @@ export const randomMathOperation = (numOfDigits1, numOfDigits2) => {
     // Quitamos divisiónes y multiplicaciones con el 1
     num2 = getRandomNumberDigits(numOfDigits2, true);
   }
-  // TODO: FALTA CONTROLAR OPERACIONES QUE PUEDAN ADMITIR MÁS DE UN OPERADOR PARA OBTENER EL RESULTADO
-
-
-
-
-
-
 
   const returnObj = {
     op1: num1,
@@ -65,6 +71,10 @@ export const randomMathOperation = (numOfDigits1, numOfDigits2) => {
         return randomMathOperation(numOfDigits1, numOfDigits2);
       }
       break;
+  }
+  // Para evitar operaciones con más de un operador posible
+  if (hasInverseOperation(returnObj.result, returnObj.op1, returnObj.op2, returnObj.operator)) {
+    return randomMathOperation(numOfDigits1, numOfDigits2);
   }
   return returnObj;
 }

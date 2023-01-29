@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { GlobalContext } from '../../../contexts/GlobalContext';
 import './Button.scss';
