@@ -4,7 +4,6 @@ import { Footer } from '../footer/Footer';
 import GameContainer from '../GameContainer/GameContainer';
 import Countdown from '../Countdown/Countdown';
 import { Header } from '../header/Header';
-import './Container.scss';
 
 const Container = () => {
 

@@ -1,6 +1,4 @@
-import 'animate.css';
 import { useEffect, useState } from 'react';
-import './Operation.scss';
 
 const Operation = ({op1, op2, operator, operatorSent, result, last}) => {
 

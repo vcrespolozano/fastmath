@@ -1,7 +1,6 @@
 import { useContext } from 'react';
 import { GlobalContext } from '../../../contexts/GlobalContext';
 import { APP_THEMES } from '../../../constants/constants';
-import './ThemeSelector.scss';
 
 function ThemeSelector() {
 

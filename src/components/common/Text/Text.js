@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import './Text.scss';
 
 const TEXT_SIZE = {
   SMALL: 'size_small',

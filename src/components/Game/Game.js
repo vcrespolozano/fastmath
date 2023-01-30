@@ -4,7 +4,6 @@ import Keyboard from './Keyboard/Keyboard';
 import Crono from './Crono/Crono';
 import { randomMathOperation, getRandomNumber } from '../../handlers/maths';
 import { NUM_OPERATIONS, APP_GAME_DIFFICULTIES } from '../../constants/constants';
-import './Game.scss';
 
 const Game = ({mode, difficulty}) => {
 

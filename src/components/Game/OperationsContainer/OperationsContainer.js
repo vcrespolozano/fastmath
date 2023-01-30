@@ -1,7 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { animateScroll as scroll } from "react-scroll";
 import Operation from '../Operation/Operation';
-import './OperationsContainer.scss';
 
 const OperationsContainer = ({operations}) => {
 

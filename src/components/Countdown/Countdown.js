@@ -1,7 +1,5 @@
 import { useContext } from 'react';
 import { GlobalContext } from '../../contexts/GlobalContext';
-import './Countdown.scss';
-import 'animate.css';
 import { useEffect, useState } from 'react';
 
 const Countdown = () => {

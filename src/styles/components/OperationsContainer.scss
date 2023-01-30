@@ -1,10 +1,8 @@
-@use '../../../assets/sass/global.scss' as *;
-
 .operationsContainer {
   position       : relative;
   display        : flex;
   flex-direction : column;
-  height         : 400px;
+  height         : 300px;
   overflow       : hidden;
   justify-content: flex-end;
   scroll-behavior: smooth;

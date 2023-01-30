@@ -10,7 +10,6 @@ import Text, {
   TEXT_ALIGN,
 } from '../common/Text/Text';
 import Game from '../Game/Game';
-import './GameSelector.scss';
 
 const GameSelector = () => {
 

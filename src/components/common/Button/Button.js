@@ -1,7 +1,6 @@
 import { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { GlobalContext } from '../../../contexts/GlobalContext';
-import './Button.scss';
 
 const Button = ({label, onClick, className, width, height, selected}) => {
 

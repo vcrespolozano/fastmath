@@ -1,5 +1,4 @@
 import GameSelector from '../GameSelector/GameSelector';
-import './GameContainer.scss';
 
 const GameContainer = () => {
 

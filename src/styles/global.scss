@@ -1,0 +1,23 @@
+// APP COMMON
+@import './fonts';
+@import './vars';
+@import './mixins';
+@import './base';
+
+// GLOBAL COMPONENTS
+@import './components/Button.scss';
+@import './components/Text.scss';
+
+// COMPONENTS
+@import './components/Header.scss';
+@import './components/ThemeSelector.scss';
+@import './components/Footer.scss';
+@import './components/Container.scss';
+@import './components/GameContainer.scss';
+@import './components/Countdown.scss';
+@import './components/Crono.scss';
+@import './components/Game.scss';
+@import './components/GameSelector.scss';
+@import './components/Keyboard.scss';
+@import './components/Operation.scss';
+@import './components/OperationsContainer.scss';

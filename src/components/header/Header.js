@@ -1,4 +1,3 @@
-import './Header.scss';
 import { useContext } from 'react';
 import { GlobalContext } from '../../contexts/GlobalContext';
 import ThemeSelector from './ThemeSelector/ThemeSelector';
