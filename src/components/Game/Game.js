@@ -40,7 +40,7 @@ const Game = ({mode, difficulty}) => {
       }
       setOperations(auxOperations);
     }
-  }, [mode, difficulty]);
+  }, [operations, mode, difficulty]);
 
   useEffect(() => {
     if (operations.length === NUM_OPERATIONS && !currentOperation) {

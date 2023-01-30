@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { GlobalContext } from './contexts/GlobalContext';
 import Container from './components/container/Container';
-import './global.scss';
 
 // Reading and Setting theme
 const currentTheme = localStorage.getItem('appTheme') || 'default';
