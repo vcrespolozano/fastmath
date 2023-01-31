@@ -5,4 +5,10 @@ export const GlobalContext = createContext({
   setTheme: (theme) => {},
   countDownEnabled: false,
   setCountDownEnabled: (countDownEnabled) => {},
+  mode: null,
+  setMode: (mode) => {},
+  difficulty: null,
+  setDifficulty: (difficulty) => {},
+  gameStarted: false,
+  setGameStarted: (gameStarted) => {}
 });

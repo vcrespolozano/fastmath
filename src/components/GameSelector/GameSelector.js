@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { GlobalContext } from '../../contexts/GlobalContext';
 import { APP_GAME_MODES, APP_GAME_DIFFICULTIES } from '../../constants/constants';
 import Button from '../common/Button/Button';
@@ -13,25 +13,30 @@ import Game from '../Game/Game';
 
 const GameSelector = () => {
 
-  const { theme, setCountDownEnabled } = useContext(GlobalContext);
-
-  const [modeSelected, setModeSelected] = useState(null);
-  const [difficultySelected, setDifficultySelected] = useState(null);
-  const [gameStarted, setGameStarted] = useState(false);
+  const {
+    theme,
+    setCountDownEnabled,
+    mode,
+    setMode,
+    difficulty,
+    setDifficulty,
+    gameStarted,
+    setGameStarted,
+  } = useContext(GlobalContext);
 
   const startGame = () => {
-    if (modeSelected && difficultySelected) {
+    if (mode && difficulty) {
       setCountDownEnabled(true);
       setTimeout(setGameStarted, 4000, true);
     }
   }
 
   const selectGameMode = (mode) => {
-    setModeSelected(mode);
+    setMode(mode);
   }
 
   const selectDifficulty = (difficulty) => {
-    setDifficultySelected(difficulty);
+    setDifficulty(difficulty);
   }
 
   return (
@@ -55,21 +60,21 @@ const GameSelector = () => {
                 width={200}
                 height={55}
                 onClick={() => selectGameMode(APP_GAME_MODES.CLASSIC)}
-                selected={modeSelected === APP_GAME_MODES.CLASSIC}
+                selected={mode === APP_GAME_MODES.CLASSIC}
               />
               <Button
                 label="Contrareloj"
                 width={200}
                 height={55}
                 onClick={() => selectGameMode(APP_GAME_MODES.CONTRARELOJ)}
-                selected={modeSelected === APP_GAME_MODES.CONTRARELOJ}
+                selected={mode === APP_GAME_MODES.CONTRARELOJ}
               />
               <Button
                 label="Sin fallos"
                 width={200}
                 height={55}
                 onClick={() => selectGameMode(APP_GAME_MODES.SIN_FALLOS)}
-                selected={modeSelected === APP_GAME_MODES.SIN_FALLOS}
+                selected={mode === APP_GAME_MODES.SIN_FALLOS}
               />
             </div>
           </div>
@@ -90,21 +95,21 @@ const GameSelector = () => {
                 width={200}
                 height={55}
                 onClick={() => selectDifficulty(APP_GAME_DIFFICULTIES.FACIL)}
-                selected={difficultySelected === APP_GAME_DIFFICULTIES.FACIL}
+                selected={difficulty === APP_GAME_DIFFICULTIES.FACIL}
               />
               <Button
                 label="Normal"
                 width={200}
                 height={55}
                 onClick={() => selectDifficulty(APP_GAME_DIFFICULTIES.NORMAL)}
-                selected={difficultySelected === APP_GAME_DIFFICULTIES.NORMAL}
+                selected={difficulty === APP_GAME_DIFFICULTIES.NORMAL}
               />
               <Button
                 label="Difícil"
                 width={200}
                 height={55}
                 onClick={() => selectDifficulty(APP_GAME_DIFFICULTIES.DIFICIL)}
-                selected={difficultySelected === APP_GAME_DIFFICULTIES.DIFICIL}
+                selected={difficulty === APP_GAME_DIFFICULTIES.DIFICIL}
               />
             </div>
           </div>
@@ -117,13 +122,13 @@ const GameSelector = () => {
         </>
       )}
       {
-        modeSelected
-        && difficultySelected
+        mode
+        && difficulty
         && gameStarted
         && (
           <Game
-            mode={modeSelected}
-            difficulty={difficultySelected}
+            mode={mode}
+            difficulty={difficulty}
           />
         )
       }

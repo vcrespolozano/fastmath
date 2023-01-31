@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 
-const Crono = ({start, stop}) => {
+const Crono = ({start, stop, setGameSeconds}) => {
   const [time, setTime] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
   const intervalRef = useRef(null);
@@ -10,6 +10,7 @@ const Crono = ({start, stop}) => {
       setIsRunning(true);
       intervalRef.current = setInterval(() => {
         setTime(time => time + 1);
+        setGameSeconds(time => time + 1);
       }, 1000);
     } else if (stop && isRunning) {
       clearInterval(intervalRef.current);

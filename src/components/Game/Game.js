@@ -4,6 +4,7 @@ import Keyboard from './Keyboard/Keyboard';
 import Crono from './Crono/Crono';
 import { randomMathOperation, getRandomNumber } from '../../handlers/maths';
 import { NUM_OPERATIONS, APP_GAME_DIFFICULTIES } from '../../constants/constants';
+import GameResults from './GameResults/GameResults';
 
 const Game = ({mode, difficulty}) => {
 
@@ -12,6 +13,7 @@ const Game = ({mode, difficulty}) => {
   const [currentOperation, setCurrentOperation] = useState(null);
   const [currentOperationIndex, setCurrentOperationIndex] = useState(null);
   const [gameEnded, setGameEnded] = useState(false);
+  const [gameSeconds, setGameSeconds] = useState(0);
 
   useEffect(() => {
     if (operations.length === 0) {
@@ -64,7 +66,7 @@ const Game = ({mode, difficulty}) => {
         setShowingOperations([
           ...auxShowingOperations,
         ]);
-        endGame();
+        setGameEnded(true);
       } else {
         // Preparo la siguiente operación
         setShowingOperations([
@@ -77,13 +79,19 @@ const Game = ({mode, difficulty}) => {
     }
   }
 
-  const endGame = () => {
-    setGameEnded(true);
-    console.log('Se acabó');
+  const checkLastOperation = () => {
+    if (showingOperations.length === NUM_OPERATIONS) {
+      const lastOperation = showingOperations[NUM_OPERATIONS-1];
+      if (lastOperation.operatorSelected) {
+        return true;
+      }
+    }
+    return false;
   }
 
   const checkResult = (fnOperatorClicked) => {
-    if (currentOperation && fnOperatorClicked) {
+    const lastOperationSolved = checkLastOperation();
+    if (!lastOperationSolved && currentOperation && fnOperatorClicked) {
       if (currentOperation.operator === fnOperatorClicked) {
         console.log('Correcto');
       } else {
@@ -97,12 +105,27 @@ const Game = ({mode, difficulty}) => {
 
   return (
     <div className="game">
-      <Crono
-        start={!gameEnded}
-        stop={gameEnded}
-      />
-      <OperationsContainer operations={showingOperations} />
-      <Keyboard onClick={checkResult} />
+      {
+        !gameEnded && (
+          <>
+            <Crono
+              start={!gameEnded}
+              stop={gameEnded}
+              setGameSeconds={setGameSeconds}
+            />
+            <OperationsContainer operations={showingOperations} />
+            <Keyboard onClick={checkResult} />
+          </>
+        )
+      }
+      {
+        gameEnded && (
+          <GameResults
+            operationsSolved={showingOperations}
+            time={gameSeconds}
+          />
+        )
+      }
     </div>
   )
 }
