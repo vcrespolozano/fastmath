@@ -1,4 +1,31 @@
 .gameResults {
-  position: relative;
-  z-index: 1;
+  display       : flex;
+  flex-direction: column;
+  align-items   : center;
+  position      : relative;
+  margin        : 30px auto;
+  padding       : 25px;
+  gap           : 15px;
+  border        : 3px solid $color--white;
+  z-index       : 1;
+
+  &__time {
+    padding: 0 10px;
+  }
+
+  &.theme-default {
+    border-color: $color--theme1-text;
+  }
+
+  &.theme-orange {
+    border-color: $color--theme2-text;
+  }
+
+  &.theme-red {
+    border-color: $color--theme3-text;
+  }
+
+  &.theme-blue {
+    border-color: $color--theme4-text;
+  }
 }

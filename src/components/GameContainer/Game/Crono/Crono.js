@@ -1,4 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
+import Text, {
+  TEXT_SIZE,
+  TEXT_WEIGHT,
+  TEXT_KIND,
+  TEXT_DISPLAY,
+  TEXT_ALIGN,
+} from '../../../common/Text/Text';
 
 const Crono = ({start, stop, setGameSeconds}) => {
   const [time, setTime] = useState(0);
@@ -28,7 +35,15 @@ const Crono = ({start, stop, setGameSeconds}) => {
   const secondsStr = seconds.toString().padStart(2, "0");
 
   return (
-    <div className="crono">{minutesStr}:{secondsStr}</div>
+    <Text
+      value={`${minutesStr}:${secondsStr}`}
+      size={TEXT_SIZE.NORMAL}
+      weight={TEXT_WEIGHT.REGULAR}
+      kind={TEXT_KIND.PARAGRAPH}
+      display={TEXT_DISPLAY.BLOCK}
+      align={TEXT_ALIGN.CENTER}
+      className="crono"
+    />
   );
 }
 

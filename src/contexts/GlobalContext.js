@@ -10,5 +10,7 @@ export const GlobalContext = createContext({
   difficulty: null,
   setDifficulty: (difficulty) => {},
   gameStarted: false,
-  setGameStarted: (gameStarted) => {}
+  setGameStarted: (gameStarted) => {},
+  gameEnded: false,
+  setGameEnded: (gameEnded) => {}
 });

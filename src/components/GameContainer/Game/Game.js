@@ -1,19 +1,28 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import { GlobalContext } from '../../../contexts/GlobalContext';
 import OperationsContainer from './OperationsContainer/OperationsContainer';
 import Keyboard from './Keyboard/Keyboard';
 import Crono from './Crono/Crono';
-import { randomMathOperation, getRandomNumber } from '../../handlers/maths';
-import { NUM_OPERATIONS, APP_GAME_DIFFICULTIES } from '../../constants/constants';
-import GameResults from './GameResults/GameResults';
+import { randomMathOperation, getRandomNumber } from '../../../handlers/maths';
+import { NUM_OPERATIONS, APP_GAME_DIFFICULTIES } from '../../../constants/constants';
 
-const Game = ({mode, difficulty}) => {
+const Game = ({
+  mode,
+  difficulty,
+  operationsSolved,
+  setOperationsSolved,
+  setTimeUsed,
+  gameEnded,
+  setGameEnded,
+}) => {
+
+  const {
+    setGameStarted,
+  } = useContext(GlobalContext);
 
   const [operations, setOperations] = useState([]);
-  const [showingOperations, setShowingOperations] = useState([]);
   const [currentOperation, setCurrentOperation] = useState(null);
   const [currentOperationIndex, setCurrentOperationIndex] = useState(null);
-  const [gameEnded, setGameEnded] = useState(false);
-  const [gameSeconds, setGameSeconds] = useState(0);
 
   useEffect(() => {
     if (operations.length === 0) {
@@ -47,30 +56,31 @@ const Game = ({mode, difficulty}) => {
     if (operations.length === NUM_OPERATIONS && !currentOperation) {
       setCurrentOperation(operations[0]);
       setCurrentOperationIndex(0);
-      const auxShowingOperations = [operations[0]];
-      setShowingOperations(auxShowingOperations);
+      const auxSolvedOperations = [operations[0]];
+      setOperationsSolved(auxSolvedOperations);
     }
   }, [operations, currentOperation]);
 
   const nextOperation = (previousOperatorClicked) => {
     if (currentOperationIndex !== null && currentOperationIndex <= NUM_OPERATIONS - 1) {
-      const auxShowingOperations = showingOperations;
+      const auxSolvedOperations = operationsSolved;
       // Resuelvo la operación actual
       const auxCurrentOperationIndex = currentOperationIndex;
       const auxCurrentOperation = currentOperation;
       auxCurrentOperation.operatorSelected = previousOperatorClicked;
-      auxShowingOperations[auxCurrentOperationIndex] = auxCurrentOperation;
+      auxSolvedOperations[auxCurrentOperationIndex] = auxCurrentOperation;
 
       if (currentOperationIndex === NUM_OPERATIONS - 1) {
         // Finalizo el juego
-        setShowingOperations([
-          ...auxShowingOperations,
+        setOperationsSolved([
+          ...auxSolvedOperations,
         ]);
         setGameEnded(true);
+        setGameStarted(false);
       } else {
         // Preparo la siguiente operación
-        setShowingOperations([
-          ...auxShowingOperations,
+        setOperationsSolved([
+          ...auxSolvedOperations,
           operations[auxCurrentOperationIndex+1],
         ]);
         setCurrentOperationIndex(auxCurrentOperationIndex+1);
@@ -80,8 +90,8 @@ const Game = ({mode, difficulty}) => {
   }
 
   const checkLastOperation = () => {
-    if (showingOperations.length === NUM_OPERATIONS) {
-      const lastOperation = showingOperations[NUM_OPERATIONS-1];
+    if (operationsSolved.length === NUM_OPERATIONS) {
+      const lastOperation = operationsSolved[NUM_OPERATIONS-1];
       if (lastOperation.operatorSelected) {
         return true;
       }
@@ -92,11 +102,6 @@ const Game = ({mode, difficulty}) => {
   const checkResult = (fnOperatorClicked) => {
     const lastOperationSolved = checkLastOperation();
     if (!lastOperationSolved && currentOperation && fnOperatorClicked) {
-      if (currentOperation.operator === fnOperatorClicked) {
-        console.log('Correcto');
-      } else {
-        console.log('Error');
-      }
       if (currentOperationIndex !== null && currentOperationIndex <= NUM_OPERATIONS - 1) {
         nextOperation(fnOperatorClicked);
       }
@@ -105,27 +110,13 @@ const Game = ({mode, difficulty}) => {
 
   return (
     <div className="game">
-      {
-        !gameEnded && (
-          <>
-            <Crono
-              start={!gameEnded}
-              stop={gameEnded}
-              setGameSeconds={setGameSeconds}
-            />
-            <OperationsContainer operations={showingOperations} />
-            <Keyboard onClick={checkResult} />
-          </>
-        )
-      }
-      {
-        gameEnded && (
-          <GameResults
-            operationsSolved={showingOperations}
-            time={gameSeconds}
-          />
-        )
-      }
+      <Crono
+        start={!gameEnded}
+        stop={gameEnded}
+        setGameSeconds={setTimeUsed}
+      />
+      <OperationsContainer operations={operationsSolved} />
+      <Keyboard onClick={checkResult} />
     </div>
   )
 }
