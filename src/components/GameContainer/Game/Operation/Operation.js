@@ -9,8 +9,7 @@ const Operation = ({op1, op2, operator, operatorSent, result, last}) => {
       const auxClass = operator === operatorSent ? 'solved-right' : 'solved-wrong';
       setOperationClass(auxClass);
     }
-  }, [operator, operatorSent])
-  
+  }, [operator, operatorSent]);
 
   return (
     <div className={`operation ${last ? 'animate__animated animate__slideInUp' : ''} ${operationClass}`}>

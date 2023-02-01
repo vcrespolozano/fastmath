@@ -19,5 +19,11 @@
     font-size  : 24px;
     text-align : center;
     cursor     : pointer;
+
+    &:hover {
+      color           : $color--bg;
+      border-color    : $color--theme1-other;
+      background-color: $color--theme1-text;
+    }
   }
 }
