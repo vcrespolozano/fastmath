@@ -4,7 +4,7 @@ import { GlobalContext } from '../../../contexts/GlobalContext';
 
 const Button = ({label, onClick, className, width, height, selected}) => {
 
-  const context = useContext(GlobalContext);
+  const { theme } = useContext(GlobalContext);
 
   if (!label || !onClick) {
     return null;
@@ -12,7 +12,7 @@ const Button = ({label, onClick, className, width, height, selected}) => {
 
   return (
     <button
-      className={`button theme-${context.theme} ${selected ? 'selected' : ''} ${className ? className : ''}`}
+      className={`button theme-${theme} ${selected ? 'selected' : ''} ${className ? className : ''}`}
       style={{ width: `${width}px`, height: `${height}px` }}
       onClick={onClick}
     >

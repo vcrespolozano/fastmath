@@ -1,44 +1,8 @@
 .container {
-  position: relative;
-  min-height: 100vh;
-  padding: 20px;
-  padding-top: 100px;
-  box-sizing: border-box;
+  position        : relative;
+  min-height      : 100vh;
+  padding         : 20px;
+  padding-top     : 140px;
+  box-sizing      : border-box;
   background-color: $color--bg;
-
-  &.theme-default {
-    p,
-    label,
-    a,
-    span {
-      color: $color--theme1-text;
-    }
-  }
-
-  &.theme-orange {
-    p,
-    label,
-    a,
-    span {
-      color: $color--theme2-text;
-    }
-  }
-
-  &.theme-red {
-    p,
-    label,
-    a,
-    span {
-      color: $color--theme3-text;
-    }
-  }
-
-  &.theme-blue {
-    p,
-    label,
-    a,
-    span {
-      color: $color--theme4-text;
-    }
-  }
 }

@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { FaRegClock } from 'react-icons/fa';
 import Text, {
   TEXT_SIZE,
   TEXT_WEIGHT,
@@ -35,15 +36,18 @@ const Crono = ({start, stop, setGameSeconds}) => {
   const secondsStr = seconds.toString().padStart(2, "0");
 
   return (
-    <Text
-      value={`${minutesStr}:${secondsStr}`}
-      size={TEXT_SIZE.NORMAL}
-      weight={TEXT_WEIGHT.REGULAR}
-      kind={TEXT_KIND.PARAGRAPH}
-      display={TEXT_DISPLAY.BLOCK}
-      align={TEXT_ALIGN.CENTER}
-      className="crono"
-    />
+    <div className="crono">
+      <FaRegClock className="crono__icon" size="20px" />
+      <Text
+        value={`${minutesStr}:${secondsStr}`}
+        size={TEXT_SIZE.BIG}
+        weight={TEXT_WEIGHT.REGULAR}
+        kind={TEXT_KIND.PARAGRAPH}
+        display={TEXT_DISPLAY.BLOCK}
+        align={TEXT_ALIGN.CENTER}
+        className="crono__timer"
+      />
+    </div>
   );
 }
 

@@ -19,6 +19,7 @@
     font-size  : 24px;
     text-align : center;
     cursor     : pointer;
+    @include transition;
 
     &:hover {
       color           : $color--bg;

@@ -1,4 +1,6 @@
+import { useContext } from 'react';
 import PropTypes from 'prop-types';
+import { GlobalContext } from '../../../contexts/GlobalContext';
 
 const TEXT_SIZE = {
   SMALL: 'size_small',
@@ -17,6 +19,7 @@ const TEXT_KIND = {
   PARAGRAPH: 'PARAGRAPH',
   SPAN: 'SPAN',
   DIV: 'DIV',
+  LABEL: 'LABEL',
 }
 
 const TEXT_DISPLAY = {
@@ -42,18 +45,23 @@ const Text = ({
   marginTop,
   marginBottom,
 }) => {
+  
+  const { theme } = useContext(GlobalContext);
 
   if (!value) {
     return null;
   }
 
+
   switch (kind) {
     case TEXT_KIND.PARAGRAPH:
-      return <p className={`text ${size} ${weight} ${align} ${display} ${className} ${marginTop ? 'margin_top' : ''} ${marginBottom ? 'margin_bottom' : ''}`}>{value}</p>;
+      return <p className={`text theme-${theme} ${size} ${weight} ${align} ${display} ${className} ${marginTop ? 'margin_top' : ''} ${marginBottom ? 'margin_bottom' : ''}`}>{value}</p>;
     case TEXT_KIND.SPAN:
-      return <span className={`text ${size} ${weight} ${align} ${display} ${className} ${marginTop ? 'margin_top' : ''} ${marginBottom ? 'margin_bottom' : ''}`}>{value}</span>;
+      return <span className={`text theme-${theme} ${size} ${weight} ${align} ${display} ${className} ${marginTop ? 'margin_top' : ''} ${marginBottom ? 'margin_bottom' : ''}`}>{value}</span>;
     case TEXT_KIND.DIV:
-      return <div className={`text ${size} ${weight} ${align} ${display} ${className} ${marginTop ? 'margin_top' : ''} ${marginBottom ? 'margin_bottom' : ''}`}>{value}</div>;
+      return <div className={`text theme-${theme} ${size} ${weight} ${align} ${display} ${className} ${marginTop ? 'margin_top' : ''} ${marginBottom ? 'margin_bottom' : ''}`}>{value}</div>;
+    case TEXT_KIND.LABEL:
+      return <label className={`text theme-${theme} ${size} ${weight} ${align} ${display} ${className} ${marginTop ? 'margin_top' : ''} ${marginBottom ? 'margin_bottom' : ''}`}>{value}</label>;
   }
 
   return null;

@@ -1,31 +1,44 @@
 .countdown {
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
+  position        : fixed;
+  left            : 0;
+  right           : 0;
+  top             : 0;
+  bottom          : 0;
   background-color: $color--bg;
-  opacity: .95;
-  z-index: 10;
+  opacity         : .95;
+  z-index         : 10;
 
   &__item {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    width: 120px;
-    height: 70px;
+    position   : absolute;
+    left       : 0;
+    right      : 0;
+    top        : 0;
+    bottom     : 0;
+    margin     : auto;
+    width      : 120px;
+    height     : 70px;
     line-height: 70px;
-    text-align: center;
-    display: block;
-    font-size: 60px;
-    color: $color--white;
+    text-align : center;
+    display    : block;
+    font-size  : 60px;
+    color      : $color--white;
 
     &.hidden {
-      opacity: 0;
+      opacity   : 0;
       visibility: hidden;
     }
+  }
+
+  &.theme-default {
+    color: $color--theme1-text;
+  }
+  &.theme-orange {
+    color: $color--theme2-text;
+  }
+  &.theme-red {
+    color: $color--theme3-text;
+  }
+  &.theme-blue {
+    color: $color--theme4-text;
   }
 }

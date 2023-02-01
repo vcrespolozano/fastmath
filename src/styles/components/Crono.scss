@@ -1,4 +1,17 @@
 .crono {
-  position: relative;
-  z-index: 1;
+  position       : relative;
+  display        : flex;
+  flex-direction : row;
+  gap            : 10px;
+  align-items    : center;
+  justify-content: center;
+  padding        : 10px;
+  border         : 3px solid $color--white;
+  max-width      : 260px;
+  margin         : 0 auto;
+  z-index        : 1;
+
+  &__icon {
+    color: $color--white;
+  }
 }
