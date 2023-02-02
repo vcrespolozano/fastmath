@@ -1,18 +1,27 @@
 import { useEffect, useState } from 'react';
 
-const Operation = ({op1, op2, operator, operatorSent, result, last}) => {
+const Operation = ({
+  op1,
+  op2,
+  operator,
+  operatorSent,
+  result,
+  last,
+  theme
+}) => {
 
   const [operationClass, setOperationClass] = useState(null);
 
   useEffect(() => {
+    let auxClass = `operation theme-${theme} ${last ? 'animate__animated animate__slideInUp' : ''}`;
     if (operatorSent && operator) {
-      const auxClass = operator === operatorSent ? 'solved-right' : 'solved-wrong';
-      setOperationClass(auxClass);
+      auxClass += operator === operatorSent ? ' solved-right' : ' solved-wrong';
     }
-  }, [operator, operatorSent]);
+    setOperationClass(auxClass);
+  }, [last, operator, operatorSent, theme]);
 
   return (
-    <div className={`operation ${last ? 'animate__animated animate__slideInUp' : ''} ${operationClass}`}>
+    <div className={operationClass}>
       <span className="operation__number">{op1}</span>
       <span className="operation__operator">{operatorSent || '?'}</span>
       <span className="operation__number">{op2}</span>

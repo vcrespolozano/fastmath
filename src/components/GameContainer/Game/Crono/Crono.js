@@ -1,5 +1,6 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useContext } from 'react';
 import { FaRegClock } from 'react-icons/fa';
+import { GlobalContext } from '../../../../contexts/GlobalContext';
 import Text, {
   TEXT_SIZE,
   TEXT_WEIGHT,
@@ -9,6 +10,9 @@ import Text, {
 } from '../../../common/Text/Text';
 
 const Crono = ({start, stop, setGameSeconds}) => {
+
+  const { theme } = useContext(GlobalContext);
+
   const [time, setTime] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
   const intervalRef = useRef(null);
@@ -36,7 +40,7 @@ const Crono = ({start, stop, setGameSeconds}) => {
   const secondsStr = seconds.toString().padStart(2, "0");
 
   return (
-    <div className="crono">
+    <div className={`crono theme-${theme}`}>
       <FaRegClock className="crono__icon" size="20px" />
       <Text
         value={`${minutesStr}:${secondsStr}`}

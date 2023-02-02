@@ -16,15 +16,66 @@
     height     : 60px;
     border     : 2px solid $color--white;
     line-height: 56px;
-    font-size  : 24px;
+    font-size  : 28px;
     text-align : center;
     cursor     : pointer;
     @include transition;
+  }
 
-    &:hover {
-      color           : $color--bg;
-      border-color    : $color--theme1-other;
-      background-color: $color--theme1-text;
+  &.theme-default {
+    border-color: $color--theme1-text;
+
+    .keyboard__key {
+      color       : $color--theme1-text;
+      border-color: $color--theme1-text;
+  
+      &:hover {
+        color           : $color--bg;
+        border-color    : $color--theme1-other;
+        background-color: $color--theme1-text;
+      }
+    }
+  }
+  &.theme-orange {
+    border-color: $color--theme2-text;
+
+    .keyboard__key {
+      color       : $color--theme2-text;
+      border-color: $color--theme2-text;
+  
+      &:hover {
+        color           : $color--bg;
+        border-color    : $color--theme2-other;
+        background-color: $color--theme2-text;
+      }
+    }
+  }
+  &.theme-red {
+    border-color: $color--theme3-text;
+
+    .keyboard__key {
+      color       : $color--theme3-text;
+      border-color: $color--theme3-text;
+  
+      &:hover {
+        color           : $color--bg;
+        border-color    : $color--theme3-other;
+        background-color: $color--theme3-text;
+      }
+    }
+  }
+  &.theme-blue {
+    border-color: $color--theme4-text;
+
+    .keyboard__key {
+      color       : $color--theme4-text;
+      border-color: $color--theme4-text;
+  
+      &:hover {
+        color           : $color--bg;
+        border-color    : $color--theme4-other;
+        background-color: $color--theme4-text;
+      }
     }
   }
 }

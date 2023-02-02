@@ -9,6 +9,19 @@
   text-align     : center;
   z-index        : 1;
 
+  &.theme-default {
+    color: $color--theme1-text;
+  }
+  &.theme-orange {
+    color: $color--theme2-text;
+  }
+  &.theme-red {
+    color: $color--theme3-text;
+  }
+  &.theme-blue {
+    color: $color--theme4-text;
+  }
+
   &.solved-right {
     background-color: rgba(0, 185, 108, .7);
   }
