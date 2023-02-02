@@ -14,15 +14,19 @@ const GameContainer = () => {
     setMode,
     setDifficulty,
     setGameEnded,
+    setGameStarted,
   } = useContext(GlobalContext);
 
   const [operationsSolved, setOperationsSolved] = useState([]);
   const [timeUsed, setTimeUsed] = useState(0);
 
-  const resetGame = () => {
+  const resetGame = (quitting) => {
     setGameEnded(false);
     setOperationsSolved([]);
     setTimeUsed(0);
+    if (quitting) {
+      setGameStarted(false);
+    }
   }
 
   return (
@@ -44,6 +48,7 @@ const GameContainer = () => {
           setTimeUsed={setTimeUsed}
           gameEnded={gameEnded}
           setGameEnded={setGameEnded}
+          resetFunction={() => resetGame(true)}
         />
       )}
       {!gameStarted && gameEnded && (
@@ -52,7 +57,7 @@ const GameContainer = () => {
           time={timeUsed}
           mode={mode}
           difficulty={difficulty}
-          resetFunction={resetGame}
+          resetFunction={() => resetGame(false)}
         />
       )}
     </div>

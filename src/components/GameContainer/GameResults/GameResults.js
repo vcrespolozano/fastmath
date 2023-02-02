@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { NUM_OPERATIONS } from '../../../constants/constants';
+import { GlobalContext } from '../../../contexts/GlobalContext';
 import Button from '../../common/Button/Button';
 import Text, {
   TEXT_SIZE,
@@ -18,6 +19,8 @@ export const GameResults = ({
 }) => {
 
   const currentScores = localStorage.getItem('appScores') || null;
+
+  const { theme } = useContext(GlobalContext);
 
   const [rightAnswers, setRightAnswers] = useState(0);
   const [wrongAnswers, setWrongAnswers] = useState(0);
@@ -84,7 +87,7 @@ export const GameResults = ({
   }, [timeStr, rightAnswers, wrongAnswers]);
 
   return (
-    <div className="gameResults">
+    <div className={`gameResults theme-${theme}`}>
       <Text
         value={`Has tardado: ${timeStr}`}
         size={TEXT_SIZE.BIG}

@@ -2,7 +2,15 @@ import { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { GlobalContext } from '../../../contexts/GlobalContext';
 
-const Button = ({label, onClick, className, width, height, selected}) => {
+const Button = ({
+  label,
+  onClick,
+  className,
+  width,
+  height,
+  selected,
+  disabled
+}) => {
 
   const { theme } = useContext(GlobalContext);
 
@@ -14,7 +22,7 @@ const Button = ({label, onClick, className, width, height, selected}) => {
     <button
       className={`button theme-${theme} ${selected ? 'selected' : ''} ${className ? className : ''}`}
       style={{ width: `${width}px`, height: `${height}px` }}
-      onClick={onClick}
+      onClick={!disabled ? onClick : null}
     >
       {label}
     </button>

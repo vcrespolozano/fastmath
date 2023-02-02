@@ -12,5 +12,7 @@ export const GlobalContext = createContext({
   gameStarted: false,
   setGameStarted: (gameStarted) => {},
   gameEnded: false,
-  setGameEnded: (gameEnded) => {}
+  setGameEnded: (gameEnded) => {},
+  showInstructions: false,
+  setShowInstructions: (showInstructions) => {}
 });

@@ -30,15 +30,23 @@
   }
 
   &.theme-default {
-    color: $color--theme1-text;
+    .countdown__item {
+      color: $color--theme1-text;
+    }
   }
   &.theme-orange {
-    color: $color--theme2-text;
+    .countdown__item {
+      color: $color--theme2-text;
+    }
   }
   &.theme-red {
-    color: $color--theme3-text;
+    .countdown__item {
+      color: $color--theme3-text;
+    }
   }
   &.theme-blue {
-    color: $color--theme4-text;
+    .countdown__item {
+      color: $color--theme4-text;
+    }
   }
 }

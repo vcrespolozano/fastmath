@@ -21,6 +21,7 @@ const GameSelector = ({
     theme,
     setCountDownEnabled,
     setGameStarted,
+    setShowInstructions,
   } = useContext(GlobalContext);
 
   const startGame = () => {
@@ -40,6 +41,12 @@ const GameSelector = ({
 
   return (
     <div className={`gameSelector theme-${theme}`}>
+      <Button
+        label="¿Qué es FastMath?"
+        width={220}
+        height={55}
+        onClick={() => setShowInstructions(true)}
+      />
       <div className="gameSelector__mode">
         <Text
           value="Modo de juego"
@@ -65,6 +72,7 @@ const GameSelector = ({
             height={55}
             onClick={() => selectGameMode(APP_GAME_MODES.CONTRARELOJ)}
             selected={mode === APP_GAME_MODES.CONTRARELOJ}
+            disabled
           />
           <Button
             label="Sin fallos"
@@ -72,6 +80,7 @@ const GameSelector = ({
             height={55}
             onClick={() => selectGameMode(APP_GAME_MODES.SIN_FALLOS)}
             selected={mode === APP_GAME_MODES.SIN_FALLOS}
+            disabled
           />
         </div>
       </div>

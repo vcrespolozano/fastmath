@@ -4,10 +4,10 @@ import ThemeSelector from './ThemeSelector/ThemeSelector';
 
 export const Header = () => {
 
-  const context = useContext(GlobalContext);
+  const { theme } = useContext(GlobalContext);
 
   return (
-    <div className={`header theme-${context.theme}`}>
+    <div className={`header theme-${theme}`}>
       <div className="header__logo"></div>
       <div className="header__options">
         <ThemeSelector />

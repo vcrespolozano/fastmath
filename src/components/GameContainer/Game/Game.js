@@ -3,6 +3,7 @@ import { GlobalContext } from '../../../contexts/GlobalContext';
 import OperationsContainer from './OperationsContainer/OperationsContainer';
 import Keyboard from './Keyboard/Keyboard';
 import Crono from './Crono/Crono';
+import Button from '../../common/Button/Button';
 import { randomMathOperation, getRandomNumber } from '../../../handlers/maths';
 import { NUM_OPERATIONS, APP_GAME_DIFFICULTIES } from '../../../constants/constants';
 
@@ -14,6 +15,7 @@ const Game = ({
   setTimeUsed,
   gameEnded,
   setGameEnded,
+  resetFunction,
 }) => {
 
   const {
@@ -117,6 +119,12 @@ const Game = ({
       />
       <OperationsContainer operations={operationsSolved} />
       <Keyboard onClick={checkResult} />
+      <Button
+        label="Salir"
+        width={200}
+        height={55}
+        onClick={resetFunction}
+      />
     </div>
   )
 }

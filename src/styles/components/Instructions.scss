@@ -1,0 +1,31 @@
+.modal {
+  position  : fixed;
+  left      : 0;
+  right     : 0;
+  top       : 0;
+  bottom    : 0;
+  background: rgba(0, 0, 0, .9);
+  z-index   : 11;
+
+  .instructions {
+    position        : absolute;
+    top             : 50%;
+    left            : 20px;
+    right           : 20px;
+    background-color: $color--bg;
+    max-width       : $gameWidth;
+    margin          : 0 auto;
+    border          : 2px solid $color--white;
+    padding         : 25px;
+    transform       : translateY(-50%);
+    z-index         : 1;
+
+    &__close {
+      position: absolute;
+      right   : 5px;
+      top     : 5px;
+      color   : $color--white;
+      cursor  : pointer;
+    }
+  }
+}
