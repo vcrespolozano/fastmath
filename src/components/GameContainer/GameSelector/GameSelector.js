@@ -10,23 +10,26 @@ import Text, {
   TEXT_ALIGN,
 } from '../../common/Text/Text';
 
-const GameSelector = ({
-  mode,
-  setMode,
-  difficulty,
-  setDifficulty,
-}) => {
+const GameSelector = () => {
 
   const {
     theme,
     setCountDownEnabled,
     setGameStarted,
     setShowInstructions,
+    mode,
+    setMode,
+    difficulty,
+    setDifficulty,
+    setTimeUsed,
   } = useContext(GlobalContext);
 
   const startGame = () => {
     if (mode && difficulty) {
       setCountDownEnabled(true);
+      if (mode === APP_GAME_MODES.CONTRARELOJ) {
+        setTimeUsed(60);
+      }
       setTimeout(setGameStarted, 4000, true);
     }
   }
@@ -67,12 +70,11 @@ const GameSelector = ({
             selected={mode === APP_GAME_MODES.CLASSIC}
           />
           <Button
-            label="Contrareloj"
+            label="Contrarreloj"
             width={200}
             height={55}
             onClick={() => selectGameMode(APP_GAME_MODES.CONTRARELOJ)}
             selected={mode === APP_GAME_MODES.CONTRARELOJ}
-            disabled
           />
           <Button
             label="Sin fallos"
@@ -80,7 +82,6 @@ const GameSelector = ({
             height={55}
             onClick={() => selectGameMode(APP_GAME_MODES.SIN_FALLOS)}
             selected={mode === APP_GAME_MODES.SIN_FALLOS}
-            disabled
           />
         </div>
       </div>

@@ -16,6 +16,8 @@ function Fastmath() {
   const [gameStarted, setGameStarted] = useState(false);
   const [gameEnded, setGameEnded] = useState(false);
   const [showInstructions, setShowInstructions] = useState(false);
+  const [operationsSolved, setOperationsSolved] = useState([]);
+  const [timeUsed, setTimeUsed] = useState(0);
 
   const context = {
     theme,
@@ -31,7 +33,11 @@ function Fastmath() {
     gameEnded,
     setGameEnded,
     showInstructions,
-    setShowInstructions
+    setShowInstructions,
+    operationsSolved,
+    setOperationsSolved,
+    timeUsed,
+    setTimeUsed
   }
 
   return (

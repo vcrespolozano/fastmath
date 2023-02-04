@@ -9,11 +9,11 @@ import Text, {
   TEXT_ALIGN,
 } from '../../../common/Text/Text';
 
-const Crono = ({start, stop, setGameSeconds}) => {
+const Crono = ({start, stop, setGameSeconds, timeTrial}) => {
 
   const { theme } = useContext(GlobalContext);
 
-  const [time, setTime] = useState(0);
+  const [time, setTime] = useState(timeTrial ? 60 : 0);
   const [isRunning, setIsRunning] = useState(false);
   const intervalRef = useRef(null);
   
@@ -21,8 +21,13 @@ const Crono = ({start, stop, setGameSeconds}) => {
     if (start && !isRunning) {
       setIsRunning(true);
       intervalRef.current = setInterval(() => {
-        setTime(time => time + 1);
-        setGameSeconds(time => time + 1);
+        if (!timeTrial) {
+          setTime(time => time + 1);
+          setGameSeconds(time => time + 1);
+        } else {
+          setTime(time => time - 1);
+          setGameSeconds(time => time - 1);
+        }
       }, 1000);
     } else if (stop && isRunning) {
       clearInterval(intervalRef.current);
