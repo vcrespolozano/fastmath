@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import parse from 'html-react-parser';
 import PropTypes from 'prop-types';
 import { GlobalContext } from '../../../contexts/GlobalContext';
 
@@ -32,6 +33,7 @@ const TEXT_ALIGN = {
   CENTER: 'align_center',
   LEFT: 'align_left',
   RIGHT: 'align_right',
+  JUSTIFY: 'align_justify',
 }
 
 const Text = ({
@@ -55,13 +57,13 @@ const Text = ({
 
   switch (kind) {
     case TEXT_KIND.PARAGRAPH:
-      return <p className={`text theme-${theme} ${size} ${weight} ${align} ${display} ${className} ${marginTop ? 'margin_top' : ''} ${marginBottom ? 'margin_bottom' : ''}`}>{value}</p>;
+      return <p className={`text theme-${theme} ${size} ${weight} ${align} ${display} ${className} ${marginTop ? 'margin_top' : ''} ${marginBottom ? 'margin_bottom' : ''}`}>{parse(value)}</p>;
     case TEXT_KIND.SPAN:
-      return <span className={`text theme-${theme} ${size} ${weight} ${align} ${display} ${className} ${marginTop ? 'margin_top' : ''} ${marginBottom ? 'margin_bottom' : ''}`}>{value}</span>;
+      return <span className={`text theme-${theme} ${size} ${weight} ${align} ${display} ${className} ${marginTop ? 'margin_top' : ''} ${marginBottom ? 'margin_bottom' : ''}`}>{parse(value)}</span>;
     case TEXT_KIND.DIV:
-      return <div className={`text theme-${theme} ${size} ${weight} ${align} ${display} ${className} ${marginTop ? 'margin_top' : ''} ${marginBottom ? 'margin_bottom' : ''}`}>{value}</div>;
+      return <div className={`text theme-${theme} ${size} ${weight} ${align} ${display} ${className} ${marginTop ? 'margin_top' : ''} ${marginBottom ? 'margin_bottom' : ''}`}>{parse(value)}</div>;
     case TEXT_KIND.LABEL:
-      return <label className={`text theme-${theme} ${size} ${weight} ${align} ${display} ${className} ${marginTop ? 'margin_top' : ''} ${marginBottom ? 'margin_bottom' : ''}`}>{value}</label>;
+      return <label className={`text theme-${theme} ${size} ${weight} ${align} ${display} ${className} ${marginTop ? 'margin_top' : ''} ${marginBottom ? 'margin_bottom' : ''}`}>{parse(value)}</label>;
   }
 
   return null;

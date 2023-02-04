@@ -14,7 +14,7 @@ export const Footer = () => {
     <div className="footer">
       <Text
         value={`© ${currentYear} FastMath`}
-        size={TEXT_SIZE.REGULAR}
+        size={TEXT_SIZE.NORMAL}
         weight={TEXT_WEIGHT.MEDIUM}
         kind={TEXT_KIND.LABEL}
         display={TEXT_DISPLAY.BLOCK}
