@@ -1,13 +1,29 @@
 .operationsContainer {
-  position       : relative;
-  display        : flex;
-  flex-direction : column;
-  height         : 300px;
-  overflow       : hidden;
-  justify-content: flex-end;
-  scroll-behavior: smooth;
-  width          : 100%;
-  z-index        : 1;
+  position        : relative;
+  display         : flex;
+  flex-direction  : column;
+  height          : 300px;
+  overflow        : hidden;
+  justify-content : flex-end;
+  scroll-behavior : smooth;
+  width           : 100%;
+  background-color: $color--bg;
+  border          : 3px solid $color--white;
+  margin-top      : 20px;
+  z-index         : 1;
+
+  &.theme-default {
+    border-color: $color--theme1-text;
+  }
+  &.theme-orange {
+    border-color: $color--theme2-text;
+  }
+  &.theme-red {
+    border-color: $color--theme3-text;
+  }
+  &.theme-blue {
+    border-color: $color--theme4-text;
+  }
 
   &:after {
     content   : '';
@@ -16,7 +32,7 @@
     right     : 0;
     top       : 0;
     bottom    : 0;
-    background: linear-gradient(0deg, rgba(17,17,17,0) 0%, rgba(17,17,17,0.35) 15%, rgba(17,17,17,0.9) 65%, rgba(17,17,17,1) 100%);
+    background: linear-gradient(0deg, rgba(17,17,17,0) 0%, rgba(17,17,17,0.35) 15%, rgba(17,17,17,0.9) 60%, rgba(17,17,17,1) 90%);
     z-index   : 2;
   }
 }

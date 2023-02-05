@@ -97,7 +97,7 @@ export const GameResults = ({
   }, [timeUsed]);
 
   useEffect(() => {
-    if (!scoreSaved && timeStr !== '' && (rightAnswers > 0 || wrongAnswers > 0)) {
+    if (!scoreSaved && (rightAnswers > 0 || wrongAnswers > 0)) {
       const date = new Date();
       const dateString = date.toLocaleDateString("es-ES", {day: "2-digit", month: "2-digit", year: "numeric"});
       const newResult = {

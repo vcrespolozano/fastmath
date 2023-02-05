@@ -20,7 +20,7 @@ const OperationsContainer = ({operations}) => {
   }, [operations]);
 
   return (
-    <div className="operationsContainer">
+    <div className={`operationsContainer theme-${theme}`}>
       {
         operations && operations.length > 0 && (
           operations.map((itemOperation, index) => {

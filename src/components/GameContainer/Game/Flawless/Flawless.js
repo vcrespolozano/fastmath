@@ -2,7 +2,6 @@ import { useEffect, useState, useContext } from 'react';
 import { GlobalContext } from '../../../../contexts/GlobalContext';
 import OperationsContainer from '../OperationsContainer/OperationsContainer';
 import Keyboard from '../Keyboard/Keyboard';
-import Crono from '../Crono/Crono';
 import { randomMathOperation, getRandomNumber } from '../../../../handlers/maths';
 import { APP_GAME_DIFFICULTIES } from '../../../../constants/constants';
 
@@ -13,9 +12,7 @@ const Flawless = () => {
     setGameStarted,
     operationsSolved,
     setOperationsSolved,
-    gameEnded,
     setGameEnded,
-    setTimeUsed,
   } = useContext(GlobalContext);
 
   const [currentOperation, setCurrentOperation] = useState(null);
@@ -97,11 +94,6 @@ const Flawless = () => {
 
   return (
     <>
-      <Crono
-        start={!gameEnded}
-        stop={gameEnded}
-        setGameSeconds={setTimeUsed}
-      />
       <OperationsContainer operations={operationsSolved} />
       <Keyboard onClick={checkResult} />
     </>
