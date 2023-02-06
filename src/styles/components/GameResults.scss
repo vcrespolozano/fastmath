@@ -1,27 +1,63 @@
 .gameResults {
-  display       : flex;
-  flex-direction: column;
-  align-items   : center;
-  position      : relative;
-  margin        : 30px auto;
-  padding       : 25px;
-  gap           : 15px;
-  border        : 3px solid $color--white;
-  z-index       : 1;
+  
+  position: relative;
+  margin  : 30px auto;
+  z-index : 1;
 
-  &.theme-default {
+  &__current {
+    position      : relative;
+    display       : flex;
+    flex-direction: column;
+    align-items   : center;
+    padding       : 25px;
+    gap           : 15px;
+    border        : 3px solid $color--white;
+    z-index       : 1;
+  }
+
+  &__historic {
+    position      : relative;
+    display       : flex;
+    flex-direction: column;
+    align-items   : center;
+    border        : 3px solid $color--white;
+    z-index       : 1;
+
+    &_tabs {
+      display       : flex;
+      width         : 100%;
+      flex-direction: row;
+
+      &_tab {
+        display   : block;
+        padding   : 10px;
+        width     : 33.333%;
+        color     : $color--white;
+        text-align: center;
+        cursor    : pointer;
+      }
+    }
+
+    &_scores {
+      position: relative;
+      padding : 25px;
+      z-index : 1;
+    }
+  }
+
+  &.theme-default .gameResults__current {
     border-color: $color--theme1-text;
   }
 
-  &.theme-orange {
+  &.theme-orange .gameResults__current  {
     border-color: $color--theme2-text;
   }
 
-  &.theme-red {
+  &.theme-red .gameResults__current  {
     border-color: $color--theme3-text;
   }
 
-  &.theme-blue {
+  &.theme-blue .gameResults__current  {
     border-color: $color--theme4-text;
   }
 }
