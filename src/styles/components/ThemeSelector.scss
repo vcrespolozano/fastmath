@@ -1,20 +1,15 @@
 .themeSelector {
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin: auto 0;
-  height: 30px;
+  order: 2;
 
   &__option {
-    display: inline-block;
+    display       : inline-block;
     vertical-align: middle;
-    border-radius: 100%;
-    width: 20px;
-    height: 20px;
-    border: 2px solid $color--common-grey;
-    margin: 5px;
-    cursor: pointer;
+    border-radius : 100%;
+    width         : 20px;
+    height        : 20px;
+    border        : 2px solid $color--common-grey;
+    margin        : 5px;
+    cursor        : pointer;
 
     &.default {
       background-color: $color--theme1-text;

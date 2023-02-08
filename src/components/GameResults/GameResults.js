@@ -1,14 +1,14 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { APP_GAME_DIFFICULTIES, APP_GAME_MODES } from '../../../constants/constants';
-import { GlobalContext } from '../../../contexts/GlobalContext';
-import Button from '../../common/Button/Button';
+import { APP_GAME_DIFFICULTIES, APP_GAME_MODES } from '../../constants/constants';
+import { GlobalContext } from '../../contexts/GlobalContext';
+import Button from '../common/Button/Button';
 import Text, {
   TEXT_SIZE,
   TEXT_WEIGHT,
   TEXT_KIND,
   TEXT_DISPLAY,
   TEXT_ALIGN,
-} from '../../common/Text/Text';
+} from '../common/Text/Text';
 
 const DIFFICULTY_LABELS = {
   FACIL: 'Fácil',
@@ -22,9 +22,7 @@ const MODE_LABELS = {
   SIN_FALLOS: 'Sin fallos',
 }
 
-export const GameResults = ({
-  resetFunction
-}) => {
+export const GameResults = () => {
 
   const currentScores = localStorage.getItem('appScores') || null;
 
@@ -33,7 +31,12 @@ export const GameResults = ({
     operationsSolved,
     timeUsed,
     difficulty,
-    mode
+    mode,
+    setGameEnded,
+    setGameStarted,
+    setOperationsSolved,
+    setTimeUsed,
+    setShowResults,
   } = useContext(GlobalContext);
 
   const [scores, setScores] = useState(null);
@@ -45,6 +48,7 @@ export const GameResults = ({
   const [difficultyLabel, setDifficultyLabel] = useState(null);
   const [showingScores, setShowingScores] = useState(APP_GAME_MODES.CLASSIC);
   const [showingScoresArr, setShowingScoresArr] = useState([]);
+  const [resultId, setResultId] = useState(null);
 
   useEffect(() => {
     if (currentScores) {
@@ -138,7 +142,7 @@ export const GameResults = ({
       const secondsStr = seconds.toString();
       let auxTimeStr = `${secondsStr} segundos`;
       if (minutes > 0) {
-        auxTimeStr = `${minutesStr} minutos ${secondsStr} segundos`;
+        auxTimeStr = `${minutesStr} minuto/s ${secondsStr} segundos`;
       }
       setTimeStr(auxTimeStr);
     }
@@ -148,13 +152,15 @@ export const GameResults = ({
     if (!scoreSaved && (rightAnswers > 0 || wrongAnswers > 0)) {
       const date = new Date();
       const dateString = date.toLocaleDateString("es-ES", {day: "2-digit", month: "2-digit", year: "numeric"});
+      const auxResultId = Date.now();
       const newResult = {
         "date": dateString,
         "rightAnswers": rightAnswers,
         "wrongAnswers": wrongAnswers,
         "time": timeStr,
         "mode": mode,
-        "difficulty": difficulty
+        "difficulty": difficulty,
+        "id": auxResultId,
       }
       let resultsUpdated = [];
       if (currentScores) {
@@ -169,7 +175,16 @@ export const GameResults = ({
       }
       const resultsUpdatedJSON = { results: resultsUpdated };
       localStorage.setItem('appScores', JSON.stringify(resultsUpdatedJSON));
+      const auxScores = scores;
+      if (mode === APP_GAME_MODES.CLASSIC) {
+        auxScores.clasico.push(newResult);
+      } else if (mode === APP_GAME_MODES.CONTRARELOJ) {
+        auxScores.contrarreloj.push(newResult);
+      } else if (mode === APP_GAME_MODES.SIN_FALLOS) {
+        auxScores.sinFallos.push(newResult);
+      }
       setScoreSaved(true);
+      setResultId(auxResultId);
     }
   }, [timeStr, rightAnswers, wrongAnswers]);
 
@@ -177,66 +192,16 @@ export const GameResults = ({
     setShowingScores(scoresMode);
   }
 
+  const back = () => {
+    setGameEnded(false);
+    setOperationsSolved([]);
+    setTimeUsed(0);
+    setGameStarted(false);
+    setShowResults(false);
+  }
+
   return (
     <div className={`gameResults theme-${theme}`}>
-      {operationsSolved && operationsSolved.length > 0 && (
-        <div className="gameResults__current">
-          {modeLabel && (
-            <Text
-              value={modeLabel}
-              size={TEXT_SIZE.BIG}
-              weight={TEXT_WEIGHT.REGULAR}
-              kind={TEXT_KIND.PARAGRAPH}
-              display={TEXT_DISPLAY.BLOCK}
-              align={TEXT_ALIGN.CENTER}
-            />
-          )}
-          {difficultyLabel && (
-            <Text
-              value={difficultyLabel}
-              size={TEXT_SIZE.BIG}
-              weight={TEXT_WEIGHT.REGULAR}
-              kind={TEXT_KIND.PARAGRAPH}
-              display={TEXT_DISPLAY.BLOCK}
-              align={TEXT_ALIGN.CENTER}
-            />
-          )}
-          {timeStr > 0 && (
-            <Text
-              value={`Has tardado: ${timeStr}`}
-              size={TEXT_SIZE.BIG}
-              weight={TEXT_WEIGHT.REGULAR}
-              kind={TEXT_KIND.PARAGRAPH}
-              display={TEXT_DISPLAY.BLOCK}
-              align={TEXT_ALIGN.CENTER}
-            />
-          )}
-          <Text
-            value={`Aciertos: ${rightAnswers}`}
-            size={TEXT_SIZE.BIG}
-            weight={TEXT_WEIGHT.REGULAR}
-            kind={TEXT_KIND.PARAGRAPH}
-            display={TEXT_DISPLAY.BLOCK}
-            align={TEXT_ALIGN.CENTER}
-            className="gameResults__correct"
-          />
-          <Text
-            value={`Fallos: ${wrongAnswers}`}
-            size={TEXT_SIZE.BIG}
-            weight={TEXT_WEIGHT.REGULAR}
-            kind={TEXT_KIND.PARAGRAPH}
-            display={TEXT_DISPLAY.BLOCK}
-            align={TEXT_ALIGN.CENTER}
-            className="gameResults__wrong"
-          />
-          <Button
-            label="Volver a jugar"
-            width={200}
-            height={55}
-            onClick={resetFunction}
-          />
-        </div>
-      )}
       <div className="gameResults__historic">
         <div className="gameResults__historic_tabs">
           <span className={`gameResults__historic_tabs_tab ${showingScores === APP_GAME_MODES.CLASSIC ? 'on' : ''}`} onClick={() => switchScoresMode(APP_GAME_MODES.CLASSIC)}>{MODE_LABELS.CLASICO}</span>
@@ -244,11 +209,11 @@ export const GameResults = ({
           <span className={`gameResults__historic_tabs_tab ${showingScores === APP_GAME_MODES.SIN_FALLOS ? 'on' : ''}`} onClick={() => switchScoresMode(APP_GAME_MODES.SIN_FALLOS)}>{MODE_LABELS.SIN_FALLOS}</span>
         </div>
         <div className="gameResults__historic_scores">
-          {showingScoresArr && showingScoresArr.map((scoreRow) => {
+          {showingScoresArr && showingScoresArr.length > 0 && showingScoresArr.map((scoreRow) => {
             return (
-              <div className="gameResults__historic_scores_row">
+              <div className={`gameResults__historic_scores_row ${scoreRow.id === resultId ? 'current' : ''}`}>
                 <Text
-                  value={`${scoreRow.date} ${scoreRow.difficulty} ${scoreRow.mode} ${scoreRow.rightAnswers} ${scoreRow.time} ${scoreRow.wrongAnswers}`}
+                  value={`Dificultad: ${scoreRow.difficulty}. Aciertos: ${scoreRow.rightAnswers}.${scoreRow.mode !== APP_GAME_MODES.SIN_FALLOS ? ` Fallos: ${scoreRow.wrongAnswers}.` : ''}${scoreRow.mode === APP_GAME_MODES.CLASSIC ? ` Tiempo: ${scoreRow.time}` : ''}`}
                   size={TEXT_SIZE.NORMAL}
                   weight={TEXT_WEIGHT.REGULAR}
                   kind={TEXT_KIND.PARAGRAPH}
@@ -258,8 +223,26 @@ export const GameResults = ({
               </div>
             )
           })}
+          {(!showingScoresArr || showingScoresArr.length === 0) && (
+            <div className="gameResults__historic_scores_row">
+              <Text
+                value="Todavía no has jugado en este modo"
+                size={TEXT_SIZE.NORMAL}
+                weight={TEXT_WEIGHT.REGULAR}
+                kind={TEXT_KIND.PARAGRAPH}
+                display={TEXT_DISPLAY.BLOCK}
+                align={TEXT_ALIGN.CENTER}
+              />
+            </div>
+          )}
         </div>
       </div>
+      <Button
+        label="Volver"
+        width={200}
+        height={55}
+        onClick={back}
+      />
     </div>
   )
 }

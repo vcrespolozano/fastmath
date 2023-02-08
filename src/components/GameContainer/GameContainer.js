@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { GlobalContext } from '../../contexts/GlobalContext';
 import GameSelector from './GameSelector/GameSelector';
 import Game from './Game/Game';
-import GameResults from './GameResults/GameResults';
 
 const GameContainer = () => {
 
@@ -32,11 +31,6 @@ const GameContainer = () => {
       {gameStarted && !gameEnded && (
         <Game
           resetFunction={() => resetGame(true)}
-        />
-      )}
-      {!gameStarted && gameEnded && (
-        <GameResults
-          resetFunction={() => resetGame(false)}
         />
       )}
     </div>

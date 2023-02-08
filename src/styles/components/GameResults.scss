@@ -1,19 +1,8 @@
 .gameResults {
-  
-  position: relative;
-  margin  : 30px auto;
-  z-index : 1;
-
-  &__current {
-    position      : relative;
-    display       : flex;
-    flex-direction: column;
-    align-items   : center;
-    padding       : 25px;
-    gap           : 15px;
-    border        : 3px solid $color--white;
-    z-index       : 1;
-  }
+  max-width: $gameWidth;;
+  position : relative;
+  margin   : 30px auto;
+  z-index  : 1;
 
   &__historic {
     position      : relative;
@@ -26,38 +15,105 @@
     &_tabs {
       display       : flex;
       width         : 100%;
+      border-bottom : 3px solid $color--white;
       flex-direction: row;
 
       &_tab {
         display   : block;
         padding   : 10px;
-        width     : 33.333%;
+        width     : 33.334%;
         color     : $color--white;
         text-align: center;
         cursor    : pointer;
+        @include transition;
       }
     }
 
     &_scores {
       position: relative;
-      padding : 25px;
+      width   : 100%;
       z-index : 1;
+
+      &_row {
+        padding      : 10px 20px;
+        border-bottom: 1px solid $color--white;
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
     }
   }
 
-  &.theme-default .gameResults__current {
+  &.theme-default .gameResults__historic {
     border-color: $color--theme1-text;
+
+    .gameResults__historic_tabs {
+      border-color: $color--theme1-text;
+
+      .gameResults__historic_tabs_tab {
+        color: $color--theme1-text;
+
+        &.on,
+        &:hover {
+          background-color: $color--theme1-text;
+          color: $color--bg;
+        }
+      }
+    }
   }
 
-  &.theme-orange .gameResults__current  {
+  &.theme-orange .gameResults__historic  {
     border-color: $color--theme2-text;
+
+    .gameResults__historic_tabs {
+      border-color: $color--theme2-text;
+
+      .gameResults__historic_tabs_tab {
+        color: $color--theme2-text;
+
+        &.on,
+        &:hover {
+          background-color: $color--theme2-text;
+          color: $color--bg;
+        }
+      }
+    }
   }
 
-  &.theme-red .gameResults__current  {
+  &.theme-red .gameResults__historic  {
     border-color: $color--theme3-text;
+
+    .gameResults__historic_tabs {
+      border-color: $color--theme3-text;
+
+      .gameResults__historic_tabs_tab {
+        color: $color--theme3-text;
+
+        &.on,
+        &:hover {
+          background-color: $color--theme3-text;
+          color: $color--bg;
+        }
+      }
+    }
   }
 
-  &.theme-blue .gameResults__current  {
+  &.theme-blue .gameResults__historic  {
     border-color: $color--theme4-text;
+
+    .gameResults__historic_tabs {
+      border-color: $color--theme4-text;
+
+      .gameResults__historic_tabs_tab {
+        color: $color--theme4-text;
+
+        &.on,
+        &:hover {
+          background-color: $color--theme4-text;
+          color: $color--bg;
+        }
+      }
+    }
   }
 }

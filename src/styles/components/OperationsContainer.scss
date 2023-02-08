@@ -8,22 +8,8 @@
   scroll-behavior : smooth;
   width           : 100%;
   background-color: $color--bg;
-  border          : 3px solid $color--white;
   margin-top      : 20px;
   z-index         : 1;
-
-  &.theme-default {
-    border-color: $color--theme1-text;
-  }
-  &.theme-orange {
-    border-color: $color--theme2-text;
-  }
-  &.theme-red {
-    border-color: $color--theme3-text;
-  }
-  &.theme-blue {
-    border-color: $color--theme4-text;
-  }
 
   &:after {
     content   : '';

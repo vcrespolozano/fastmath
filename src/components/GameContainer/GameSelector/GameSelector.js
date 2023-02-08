@@ -59,7 +59,6 @@ const GameSelector = () => {
           display={TEXT_DISPLAY.BLOCK}
           align={TEXT_ALIGN.CENTER}
           className="gameSelector__title"
-          marginBottom
         />
         <div className="gameSelector__mode_buttons">
           <Button
@@ -94,7 +93,6 @@ const GameSelector = () => {
           display={TEXT_DISPLAY.BLOCK}
           align={TEXT_ALIGN.CENTER}
           className="gameSelector__title"
-          marginBottom
         />
         <div className="gameSelector__difficulty_buttons">
           <Button

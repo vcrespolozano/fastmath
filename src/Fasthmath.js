@@ -18,6 +18,8 @@ function Fastmath() {
   const [showInstructions, setShowInstructions] = useState(false);
   const [operationsSolved, setOperationsSolved] = useState([]);
   const [timeUsed, setTimeUsed] = useState(0);
+  const [showResults, setShowResults] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
 
   const context = {
     theme,
@@ -37,7 +39,11 @@ function Fastmath() {
     operationsSolved,
     setOperationsSolved,
     timeUsed,
-    setTimeUsed
+    setTimeUsed,
+    showResults,
+    setShowResults,
+    showMenu,
+    setShowMenu,
   }
 
   return (

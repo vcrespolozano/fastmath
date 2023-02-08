@@ -9,28 +9,51 @@
   text-align     : center;
   z-index        : 1;
 
+  &:after {
+    content : '';
+    position: absolute;
+    left    : 0;
+    right   : 0;
+    top     : 0;
+    height  : 1px;
+    z-index : 1;
+  }
+
   &.theme-default {
-    color     : $color--theme1-text;
-    border-top: 1px solid $color--theme1-text;
+    color: $color--theme1-text;
+
+    &:after {
+      background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 35%, rgba(255,255,255,1) 65%, rgba(255,255,255,0) 100%);
+    }
+    
   }
   &.theme-orange {
-    color     : $color--theme2-text;
-    border-top: 1px solid $color--theme2-text;
+    color: $color--theme2-text;
+
+    &:after {
+      background: linear-gradient(90deg, rgba(255,152,68,0) 0%, rgba(255,152,68,1) 35%, rgba(255,152,68,1) 65%, rgba(255,152,68,0) 100%);
+    }
   }
   &.theme-red {
-    color     : $color--theme3-text;
-    border-top: 1px solid $color--theme3-text;
+    color: $color--theme3-text;
+
+    &:after {
+      background: linear-gradient(90deg, rgba(184,0,0,0) 0%, rgba(184,0,0,1) 35%, rgba(184,0,0,1) 65%, rgba(184,0,0,0) 100%);
+    }
   }
   &.theme-blue {
-    color     : $color--theme4-text;
-    border-top: 1px solid $color--theme4-text;
+    color: $color--theme4-text;
+
+    &:after {
+      background: linear-gradient(90deg, rgba(73,158,255,0) 0%, rgba(73,158,255,1) 35%, rgba(73,158,255,1) 65%, rgba(73,158,255,0) 100%);
+    }
   }
 
   &.solved-right {
-    background-color: rgba(0, 185, 108, .7);
+    background: linear-gradient(90deg, rgba(0,185,108,0) 0%, rgba(0, 211, 123, 0.8) 40%, rgba(0, 211, 123, 0.8) 60%, rgba(0,185,108,0) 100%);
   }
   &.solved-wrong {
-    background-color: rgba(185, 0, 0, 0.7);
+    background: linear-gradient(90deg, rgba(185,0,0,0) 0%, rgba(255, 39, 39, 0.8) 40%, rgba(255, 39, 39, 0.8) 60%, rgba(185,0,0,0) 100%);
   }
 
   &__number {

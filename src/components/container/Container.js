@@ -5,18 +5,27 @@ import GameContainer from '../GameContainer/GameContainer';
 import Countdown from '../Countdown/Countdown';
 import { Header } from '../header/Header';
 import Instructions from '../Instructions/Instructions';
+import GameResults from '../GameResults/GameResults';
+import Menu from '../Menu/Menu';
 
 const Container = () => {
 
-  const { countDownEnabled, showInstructions } = useContext(GlobalContext);
+  const {
+    countDownEnabled,
+    showInstructions,
+    showResults,
+    showMenu
+  } = useContext(GlobalContext);
 
   return (
     <div className="container">
       <Header />
-      <GameContainer />
+      {!showResults && <GameContainer />}
       <Footer />
       {countDownEnabled && <Countdown />}
       {showInstructions && <Instructions />}
+      {showResults && <GameResults />}
+      {showMenu && <Menu />}
     </div>
   );
 }

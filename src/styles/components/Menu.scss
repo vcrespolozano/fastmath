@@ -1,0 +1,42 @@
+.menu {
+  position        : fixed;
+  top             : 0;
+  bottom          : 0;
+  right           : 0;
+  width           : 100%;
+  max-width       : 280px;
+  border-left     : 1px solid $color--white;
+  background-color: $color--bg;
+  padding         : 20px;
+  z-index         : 11;
+
+  &__close {
+    display         : flex;
+    justify-content : center;
+    align-items     : center;
+    position        : absolute;
+    top             : 18px;
+    left            : -18px;
+    width           : 36px;
+    height          : 36px;
+    border          : 1px solid $color--white;
+    color           : $color--white;
+    background-color: $color--bg;
+    text-align      : center;
+    cursor          : pointer;
+    z-index         : 1;
+  }
+
+  &.theme-default {
+    border-color: $color--theme1-text;
+  }
+  &.theme-orange {
+    border-color: $color--theme2-text;
+  }
+  &.theme-red {
+    border-color: $color--theme3-text;
+  }
+  &.theme-blue {
+    border-color: $color--theme4-text;
+  }
+}

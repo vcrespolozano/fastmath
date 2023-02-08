@@ -17,6 +17,7 @@ const TimeTrial = () => {
     setGameEnded,
     setTimeUsed,
     timeUsed,
+    setShowResults
   } = useContext(GlobalContext);
 
   const [currentOperation, setCurrentOperation] = useState(null);
@@ -85,6 +86,7 @@ const TimeTrial = () => {
       // Finalizo el juego
       setGameEnded(true);
       setGameStarted(false);
+      setShowResults(true);
     }
   }, [timeUsed]);
 

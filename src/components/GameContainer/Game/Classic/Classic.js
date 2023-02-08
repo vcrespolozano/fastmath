@@ -16,6 +16,7 @@ const Classic = () => {
     gameEnded,
     setGameEnded,
     setTimeUsed,
+    setShowResults
   } = useContext(GlobalContext);
 
   const [operations, setOperations] = useState([]);
@@ -75,6 +76,7 @@ const Classic = () => {
         ]);
         setGameEnded(true);
         setGameStarted(false);
+        setShowResults(true);
       } else {
         // Preparo la siguiente operación
         setOperationsSolved([

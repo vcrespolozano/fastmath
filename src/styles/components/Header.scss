@@ -1,28 +1,44 @@
 .header {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  margin: 20px;
-  height: $headerHeight;
+  top     : 0;
+  left    : 0;
+  right   : 0;
+  margin  : 20px;
+  height  : $headerHeight;
 
   &__logo {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    width: 260px;
-    height: 58px;
+    position         : absolute;
+    top              : 0;
+    left             : 0;
+    right            : 0;
+    bottom           : 0;
+    margin           : auto;
+    width            : 260px;
+    height           : 58px;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size  : contain;
     @include transition;
+  }
+
+  &__launchMenu {
+    position: absolute;
+    right   : 0;
+    top     : 0;
+    bottom  : 0;
+    margin  : auto 0;
+    height  : 30px;
+    width   : 30px;
+    cursor  : pointer;
+    color   : $color--white;
+    z-index : 1;
   }
 
   &.theme-default {
     .header__logo {
       background-image: url('../../assets/img/logo.png');
+    }
+    .header__launchMenu {
+      color   : $color--theme1-text;
     }
   }
 
@@ -30,17 +46,26 @@
     .header__logo {
       background-image: url('../../assets/img/logo-orange.png');
     }
+    .header__launchMenu {
+      color   : $color--theme2-text;
+    }
   }
 
   &.theme-red {
     .header__logo {
       background-image: url('../../assets/img/logo-red.png');
     }
+    .header__launchMenu {
+      color   : $color--theme3-text;
+    }
   }
 
   &.theme-blue {
     .header__logo {
       background-image: url('../../assets/img/logo-blue.png');
+    }
+    .header__launchMenu {
+      color   : $color--theme4-text;
     }
   }
 }

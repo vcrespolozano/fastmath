@@ -13,6 +13,7 @@ const Flawless = () => {
     operationsSolved,
     setOperationsSolved,
     setGameEnded,
+    setShowResults
   } = useContext(GlobalContext);
 
   const [currentOperation, setCurrentOperation] = useState(null);
@@ -71,6 +72,7 @@ const Flawless = () => {
         ]);
         setGameEnded(true);
         setGameStarted(false);
+        setShowResults(true);
       } else {
         // Preparo la siguiente operación
         if (maxDigits1 && maxDigits2) {

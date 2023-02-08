@@ -1,17 +1,20 @@
 import { useContext } from 'react';
 import { GlobalContext } from '../../contexts/GlobalContext';
-import ThemeSelector from './ThemeSelector/ThemeSelector';
+import { FiMenu } from 'react-icons/fi';
 
 export const Header = () => {
 
-  const { theme } = useContext(GlobalContext);
+  const { theme, setShowMenu } = useContext(GlobalContext);
 
   return (
     <div className={`header theme-${theme}`}>
       <div className="header__logo"></div>
-      <div className="header__options">
-        <ThemeSelector />
-      </div>
+      <span
+        className="header__launchMenu"
+        onClick={() => setShowMenu(true)}
+      >
+        <FiMenu size="30px" />
+      </span>
     </div>
   )
 }
