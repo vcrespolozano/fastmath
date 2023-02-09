@@ -20,25 +20,47 @@
     @include transition;
   }
 
-  &__launchMenu {
-    position: absolute;
-    right   : 0;
-    top     : 0;
-    bottom  : 0;
-    margin  : auto 0;
-    height  : 30px;
-    width   : 30px;
-    cursor  : pointer;
-    color   : $color--white;
-    z-index : 1;
+  &__options {
+    position       : absolute;
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+    right          : 0;
+    top            : 0;
+    bottom         : 0;
+    margin         : auto 0;
+    cursor         : pointer;
+    color          : $color--white;
+    gap            : 10px;
+    z-index        : 1;
+
+    &_showResults {
+      display        : flex;
+      justify-content: center;
+      align-items    : center;
+      width          : 50px;
+      height         : 50px;
+      border         : 2px solid white;
+      text-align     : center;
+      @include transition;
+    }
   }
 
   &.theme-default {
     .header__logo {
       background-image: url('../../assets/img/logo.png');
     }
-    .header__launchMenu {
-      color   : $color--theme1-text;
+    .header__options {
+      &_showResults {
+        color       : $color--theme1-text;
+        border-color: $color--theme1-text;
+
+        &:hover {
+          color           : $color--bg;
+          border-color    : $color--theme1-other;
+          background-color: $color--theme1-text;
+        }
+      }
     }
   }
 
@@ -46,8 +68,17 @@
     .header__logo {
       background-image: url('../../assets/img/logo-orange.png');
     }
-    .header__launchMenu {
-      color   : $color--theme2-text;
+    .header__options {
+      &_showResults {
+        color       : $color--theme2-text;
+        border-color: $color--theme2-text;
+
+        &:hover {
+          color           : $color--bg;
+          border-color    : $color--theme2-other;
+          background-color: $color--theme2-text;
+        }
+      }
     }
   }
 
@@ -55,8 +86,17 @@
     .header__logo {
       background-image: url('../../assets/img/logo-red.png');
     }
-    .header__launchMenu {
-      color   : $color--theme3-text;
+    .header__options {
+      &_showResults {
+        color       : $color--theme3-text;
+        border-color: $color--theme3-text;
+
+        &:hover {
+          color           : $color--bg;
+          border-color    : $color--theme3-other;
+          background-color: $color--theme3-text;
+        }
+      }
     }
   }
 
@@ -64,8 +104,28 @@
     .header__logo {
       background-image: url('../../assets/img/logo-blue.png');
     }
-    .header__launchMenu {
-      color   : $color--theme4-text;
+    .header__options {
+      &_showResults {
+        color       : $color--theme4-text;
+        border-color: $color--theme4-text;
+
+        &:hover {
+          color           : $color--bg;
+          border-color    : $color--theme4-other;
+          background-color: $color--theme4-text;
+        }
+      }
+    }
+  }
+}
+
+@include tablet {
+  .header {
+    height: $headerHeightMobile;
+  
+    &__logo {
+      width : 210px;
+      height: 45px;
     }
   }
 }

@@ -9,6 +9,19 @@ import Text, {
   TEXT_DISPLAY,
   TEXT_ALIGN,
 } from '../../common/Text/Text';
+import ComboBox from '../../common/ComboBox/ComboBox';
+
+const MODES_ARR = [
+  {key: APP_GAME_MODES.CLASSIC, label: 'Clásico'},
+  {key: APP_GAME_MODES.CONTRARELOJ, label: 'Contrarreloj'},
+  {key: APP_GAME_MODES.SIN_FALLOS, label: 'Sin fallos'},
+]
+
+const DIFFICULTIES_ARR = [
+  {key: APP_GAME_DIFFICULTIES.FACIL, label: 'Fácil'},
+  {key: APP_GAME_DIFFICULTIES.NORMAL, label: 'Normal'},
+  {key: APP_GAME_DIFFICULTIES.DIFICIL, label: 'Difícil'},
+]
 
 const GameSelector = () => {
 
@@ -34,14 +47,6 @@ const GameSelector = () => {
     }
   }
 
-  const selectGameMode = (mode) => {
-    setMode(mode);
-  }
-
-  const selectDifficulty = (difficulty) => {
-    setDifficulty(difficulty);
-  }
-
   return (
     <div className={`gameSelector theme-${theme}`}>
       <Button
@@ -52,7 +57,7 @@ const GameSelector = () => {
       />
       <div className="gameSelector__mode">
         <Text
-          value="Modo de juego"
+          value="Selecciona modo"
           size={TEXT_SIZE.BIG}
           weight={TEXT_WEIGHT.MEDIUM}
           kind={TEXT_KIND.PARAGRAPH}
@@ -60,33 +65,16 @@ const GameSelector = () => {
           align={TEXT_ALIGN.CENTER}
           className="gameSelector__title"
         />
-        <div className="gameSelector__mode_buttons">
-          <Button
-            label="Clásico"
-            width={200}
-            height={55}
-            onClick={() => selectGameMode(APP_GAME_MODES.CLASSIC)}
-            selected={mode === APP_GAME_MODES.CLASSIC}
-          />
-          <Button
-            label="Contrarreloj"
-            width={200}
-            height={55}
-            onClick={() => selectGameMode(APP_GAME_MODES.CONTRARELOJ)}
-            selected={mode === APP_GAME_MODES.CONTRARELOJ}
-          />
-          <Button
-            label="Sin fallos"
-            width={200}
-            height={55}
-            onClick={() => selectGameMode(APP_GAME_MODES.SIN_FALLOS)}
-            selected={mode === APP_GAME_MODES.SIN_FALLOS}
-          />
-        </div>
+        <ComboBox
+          options={MODES_ARR}
+          handleSelect={setMode}
+          id="combo_modes"
+          className="gameSelector__mode_combo"
+        />
       </div>
       <div className="gameSelector__difficulty">
         <Text
-          value="Dificultad"
+          value="Selecciona dificultad"
           size={TEXT_SIZE.BIG}
           weight={TEXT_WEIGHT.MEDIUM}
           kind={TEXT_KIND.PARAGRAPH}
@@ -94,35 +82,19 @@ const GameSelector = () => {
           align={TEXT_ALIGN.CENTER}
           className="gameSelector__title"
         />
-        <div className="gameSelector__difficulty_buttons">
-          <Button
-            label="Fácil"
-            width={200}
-            height={55}
-            onClick={() => selectDifficulty(APP_GAME_DIFFICULTIES.FACIL)}
-            selected={difficulty === APP_GAME_DIFFICULTIES.FACIL}
-          />
-          <Button
-            label="Normal"
-            width={200}
-            height={55}
-            onClick={() => selectDifficulty(APP_GAME_DIFFICULTIES.NORMAL)}
-            selected={difficulty === APP_GAME_DIFFICULTIES.NORMAL}
-          />
-          <Button
-            label="Difícil"
-            width={200}
-            height={55}
-            onClick={() => selectDifficulty(APP_GAME_DIFFICULTIES.DIFICIL)}
-            selected={difficulty === APP_GAME_DIFFICULTIES.DIFICIL}
-          />
-        </div>
+        <ComboBox
+          options={DIFFICULTIES_ARR}
+          handleSelect={setDifficulty}
+          id="combo_difficulties"
+          className="gameSelector__difficulty_combo"
+        />
       </div>
       <Button
-        label="Empezar"
+        label="¡Jugar!"
         width={200}
         height={55}
         onClick={startGame}
+        className="gameSelector__startButton"
       />
     </div>
   )

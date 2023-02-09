@@ -5,3 +5,9 @@
   -o-transition: all $duration linear;
   transition: all $duration linear;
 }
+
+@mixin tablet($max-width: 768px) {
+  @media (max-width: $max-width) {
+    @content;
+  }
+}

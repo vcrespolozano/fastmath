@@ -20,13 +20,7 @@
     margin         : 55px 0 40px;
     justify-content: center;
     gap            : 10px;
-    z-index        : 1;
-
-    &_buttons {
-      display       : flex;
-      flex-direction: row;
-      gap           : 15px;
-    }
+    z-index        : 3;
   }
 
   &__difficulty {
@@ -38,13 +32,12 @@
     margin-bottom  : 40px;
     justify-content: center;
     gap            : 10px;
-    z-index        : 1;
+    z-index        : 2;
+  }
 
-    &_buttons {
-      display       : flex;
-      flex-direction: row;
-      gap           : 15px;
-    }
+  &__startButton {
+    position: relative;
+    z-index: 1;
   }
 
   &.theme-default {

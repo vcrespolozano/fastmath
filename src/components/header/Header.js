@@ -1,20 +1,19 @@
 import { useContext } from 'react';
 import { GlobalContext } from '../../contexts/GlobalContext';
-import { FiMenu } from 'react-icons/fi';
+import { BiTrophy } from 'react-icons/bi';
+import ThemeSelector from './ThemeSelector/ThemeSelector';
 
 export const Header = () => {
 
-  const { theme, setShowMenu } = useContext(GlobalContext);
+  const { theme, setShowResults } = useContext(GlobalContext);
 
   return (
     <div className={`header theme-${theme}`}>
       <div className="header__logo"></div>
-      <span
-        className="header__launchMenu"
-        onClick={() => setShowMenu(true)}
-      >
-        <FiMenu size="30px" />
-      </span>
+      <div className="header__options">
+        <ThemeSelector />
+        <span title="Ver resultados" className="header__options_showResults" onClick={() => setShowResults(true)}><BiTrophy size="24px" /></span>
+      </div>
     </div>
   )
 }

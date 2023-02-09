@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { APP_GAME_DIFFICULTIES, APP_GAME_MODES } from '../../constants/constants';
+import { APP_GAME_MODES } from '../../constants/constants';
 import { GlobalContext } from '../../contexts/GlobalContext';
 import Button from '../common/Button/Button';
 import Text, {
@@ -44,8 +44,6 @@ export const GameResults = () => {
   const [wrongAnswers, setWrongAnswers] = useState(0);
   const [timeStr, setTimeStr] = useState('');
   const [scoreSaved, setScoreSaved] = useState(false);
-  const [modeLabel, setModeLabel] = useState(null);
-  const [difficultyLabel, setDifficultyLabel] = useState(null);
   const [showingScores, setShowingScores] = useState(APP_GAME_MODES.CLASSIC);
   const [showingScoresArr, setShowingScoresArr] = useState([]);
   const [resultId, setResultId] = useState(null);
@@ -94,27 +92,6 @@ export const GameResults = () => {
       setShowingScoresArr(auxShowingScoresArr);
     }
   }, [showingScores, scores]);
-
-  useEffect(() => {
-    if (mode) {
-      let auxModeLabel = MODE_LABELS.CLASICO;
-      if (mode === APP_GAME_MODES.CONTRARELOJ) {
-        auxModeLabel = MODE_LABELS.CONTRARELOJ;
-      } else if (mode === APP_GAME_MODES.SIN_FALLOS) {
-        auxModeLabel = MODE_LABELS.SIN_FALLOS;
-      }
-      setModeLabel(auxModeLabel);
-    }
-    if (difficulty) {
-      let auxDifficultyLabel = DIFFICULTY_LABELS.FACIL;
-      if (difficulty === APP_GAME_DIFFICULTIES.NORMAL) {
-        auxDifficultyLabel = DIFFICULTY_LABELS.NORMAL;
-      } else if (difficulty === APP_GAME_DIFFICULTIES.DIFICIL) {
-        auxDifficultyLabel = DIFFICULTY_LABELS.DIFICIL;
-      }
-      setDifficultyLabel(auxDifficultyLabel);
-    }
-  }, [mode, difficulty]);
 
   useEffect(() => {
     if (operationsSolved.length > 0) {
@@ -209,9 +186,9 @@ export const GameResults = () => {
           <span className={`gameResults__historic_tabs_tab ${showingScores === APP_GAME_MODES.SIN_FALLOS ? 'on' : ''}`} onClick={() => switchScoresMode(APP_GAME_MODES.SIN_FALLOS)}>{MODE_LABELS.SIN_FALLOS}</span>
         </div>
         <div className="gameResults__historic_scores">
-          {showingScoresArr && showingScoresArr.length > 0 && showingScoresArr.map((scoreRow) => {
+          {showingScoresArr && showingScoresArr.length > 0 && showingScoresArr.map((scoreRow, index) => {
             return (
-              <div className={`gameResults__historic_scores_row ${scoreRow.id === resultId ? 'current' : ''}`}>
+              <div key={`result-${index}`} className={`gameResults__historic_scores_row ${scoreRow.id === resultId ? 'current' : ''}`}>
                 <Text
                   value={`Dificultad: ${scoreRow.difficulty}. Aciertos: ${scoreRow.rightAnswers}.${scoreRow.mode !== APP_GAME_MODES.SIN_FALLOS ? ` Fallos: ${scoreRow.wrongAnswers}.` : ''}${scoreRow.mode === APP_GAME_MODES.CLASSIC ? ` Tiempo: ${scoreRow.time}` : ''}`}
                   size={TEXT_SIZE.NORMAL}

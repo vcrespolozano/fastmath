@@ -16,7 +16,7 @@
     max-width                        : $gameWidth;
     margin                           : 0 auto;
     border                           : 2px solid $color--white;
-    padding                          : 20px 50px;
+    padding                          : 50px;
     transform                        : translateY(-50%);
     animation                        : popEnter;
     animation-duration               : 500ms;
@@ -66,6 +66,13 @@
         position: relative;
         margin  : 40px 0;
         z-index : 1;
+
+        &:first-child {
+          margin-top: 0;
+        }
+        &:last-child {
+          margin-bottom: 0;
+        }
       }
 
       &_title {
@@ -178,4 +185,16 @@
   50% { transform: translateY(-50%) scale(0.5); opacity: 0.50; }
   75% { transform: translateY(-50%) scale(0.75); opacity: 0.75; }
   100% { transform: translateY(-50%) scale(1); opacity: 1; }
+}
+
+@include tablet {
+  .modal {
+    .instructions {
+      padding: 35px 25px;
+      &__content {
+        max-height: 450px;
+        overflow  : auto;
+      }
+    }
+  }
 }

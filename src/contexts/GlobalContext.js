@@ -21,6 +21,7 @@ export const GlobalContext = createContext({
   setTimeUsed: (timeUsed) => {},
   showResults: false,
   setShowResults: (showResults) => {},
-  showMenu: false,
-  setShowMenu: (showMenu) => {},
+  openedComboBoxId: null,
+  setOpenedComboBoxId: (openedComboBoxId) => {},
+  windowSize: null,
 });

@@ -6,7 +6,6 @@ import Countdown from '../Countdown/Countdown';
 import { Header } from '../header/Header';
 import Instructions from '../Instructions/Instructions';
 import GameResults from '../GameResults/GameResults';
-import Menu from '../Menu/Menu';
 
 const Container = () => {
 
@@ -14,7 +13,6 @@ const Container = () => {
     countDownEnabled,
     showInstructions,
     showResults,
-    showMenu
   } = useContext(GlobalContext);
 
   return (
@@ -25,7 +23,6 @@ const Container = () => {
       {countDownEnabled && <Countdown />}
       {showInstructions && <Instructions />}
       {showResults && <GameResults />}
-      {showMenu && <Menu />}
     </div>
   );
 }
