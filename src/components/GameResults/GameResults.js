@@ -44,7 +44,7 @@ export const GameResults = () => {
   const [wrongAnswers, setWrongAnswers] = useState(0);
   const [timeStr, setTimeStr] = useState('');
   const [scoreSaved, setScoreSaved] = useState(false);
-  const [showingScores, setShowingScores] = useState(APP_GAME_MODES.CLASSIC);
+  const [showingScores, setShowingScores] = useState(null);
   const [showingScoresArr, setShowingScoresArr] = useState([]);
   const [resultId, setResultId] = useState(null);
 
@@ -68,18 +68,25 @@ export const GameResults = () => {
           }
         });
         setScores(auxScores);
-        if (showingScores) {
-          let auxShowingScoresArr = auxScores.clasico;
-          if (showingScores === APP_GAME_MODES.CONTRARELOJ) {
-            auxShowingScoresArr = auxScores.contrarreloj;
-          } else if (showingScores === APP_GAME_MODES.SIN_FALLOS) {
-            auxShowingScoresArr = auxScores.sinFallos;
-          }
-          setShowingScoresArr(auxShowingScoresArr);
-        }
       }
     }
   }, [currentScores]);
+
+  useEffect(() => {
+    if (scores && mode) {
+      let auxShowingScores = APP_GAME_MODES.CLASSIC;
+      let auxShowingScoresArr = scores.clasico;
+      if (mode === APP_GAME_MODES.CONTRARELOJ) {
+        auxShowingScores = APP_GAME_MODES.CONTRARELOJ;
+        auxShowingScoresArr = scores.contrarreloj;
+      } else if (mode === APP_GAME_MODES.SIN_FALLOS) {
+        auxShowingScores = APP_GAME_MODES.SIN_FALLOS;
+        auxShowingScoresArr = scores.sinFallos;
+      }
+      setShowingScores(auxShowingScores);
+      setShowingScoresArr(auxShowingScoresArr);
+    }
+  }, [mode, scores]);
 
   useEffect(() => {
     if (showingScores && scores) {
@@ -163,7 +170,7 @@ export const GameResults = () => {
       setScoreSaved(true);
       setResultId(auxResultId);
     }
-  }, [timeStr, rightAnswers, wrongAnswers]);
+  }, [timeStr, rightAnswers, wrongAnswers, currentScores, difficulty, mode, scoreSaved, scores]);
 
   const switchScoresMode = (scoresMode) => {
     setShowingScores(scoresMode);

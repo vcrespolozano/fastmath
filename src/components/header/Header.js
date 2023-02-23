@@ -10,10 +10,8 @@ export const Header = () => {
   return (
     <div className={`header theme-${theme}`}>
       <div className="header__logo"></div>
-      <div className="header__options">
-        <ThemeSelector />
-        <span title="Ver resultados" className="header__options_showResults" onClick={() => setShowResults(true)}><BiTrophy size="24px" /></span>
-      </div>
+      <ThemeSelector />
+      <span title="Ver resultados" className="header__showResults" onClick={() => setShowResults(true)}><BiTrophy size="24px" /></span>
     </div>
   )
 }

@@ -3,7 +3,7 @@ import { FiChevronDown } from 'react-icons/fi';
 import PropTypes from 'prop-types';
 import { GlobalContext } from '../../../contexts/GlobalContext';
 
-const ComboBox = ({options, handleSelect, className, id}) => {
+const ComboBox = ({options, indexSelected, handleSelect, className, id}) => {
 
   const { theme, openedComboBoxId, setOpenedComboBoxId } = useContext(GlobalContext);
 
@@ -11,10 +11,14 @@ const ComboBox = ({options, handleSelect, className, id}) => {
   const [comboOpen, setComboOpen] = useState(false);
 
   useEffect(() => {
-    if (Array.isArray(options) && options.length > 0 && !selectedOption) {
-      setSelectedOption(options[0]);
+    if (Array.isArray(options) && options.length > 0) {
+      if (!indexSelected) {
+        setSelectedOption(options[0]);
+      } else {
+        setSelectedOption(options[indexSelected]);
+      }
     }
-  }, [options, selectedOption]);
+  }, [options, indexSelected]);
 
   useEffect(() => {
     if (id !== openedComboBoxId) {

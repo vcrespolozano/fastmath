@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { GlobalContext } from '../../../contexts/GlobalContext';
 import { APP_GAME_MODES, APP_GAME_DIFFICULTIES } from '../../../constants/constants';
 import Button from '../../common/Button/Button';
@@ -37,6 +37,23 @@ const GameSelector = () => {
     setTimeUsed,
   } = useContext(GlobalContext);
 
+  const [modeSelected, setModeSelected] = useState(null);
+  const [difficultySelected, setDifficultySelected] = useState(null);
+
+  useEffect(() => {
+    if (mode) {
+      const auxModeSelected = MODES_ARR.findIndex(modeItem => modeItem.key === mode);
+      setModeSelected(auxModeSelected);
+    }
+  }, [mode]);
+  
+  useEffect(() => {
+    if (difficulty) {
+      const auxDifficultySelected = DIFFICULTIES_ARR.findIndex(difficultyItem => difficultyItem.key === difficulty);
+      setDifficultySelected(auxDifficultySelected);
+    }
+  }, [difficulty]);
+
   const startGame = () => {
     if (mode && difficulty) {
       setCountDownEnabled(true);
@@ -70,6 +87,7 @@ const GameSelector = () => {
           handleSelect={setMode}
           id="combo_modes"
           className="gameSelector__mode_combo"
+          indexSelected={modeSelected}
         />
       </div>
       <div className="gameSelector__difficulty">
@@ -87,6 +105,7 @@ const GameSelector = () => {
           handleSelect={setDifficulty}
           id="combo_difficulties"
           className="gameSelector__difficulty_combo"
+          indexSelected={difficultySelected}
         />
       </div>
       <Button
