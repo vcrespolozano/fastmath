@@ -53,15 +53,15 @@ export const GameResults = () => {
   const [resultId, setResultId] = useState(null);
 
   useEffect(() => {
+    let auxScores = {
+      clasico: [],
+      contrarreloj: [],
+      sinFallos: []
+    }
     if (currentScores) {
       const currentScoresParsed = JSON.parse(currentScores);
       const { results } = currentScoresParsed;
       if (results && results.length > 0) {
-        let auxScores = {
-          clasico: [],
-          contrarreloj: [],
-          sinFallos: []
-        }
         results.forEach((itemResult) => {
           if (itemResult.mode === APP_GAME_MODES.CLASSIC) {
             auxScores.clasico.push(itemResult);
@@ -71,9 +71,9 @@ export const GameResults = () => {
             auxScores.sinFallos.push(itemResult);
           }
         });
-        setScores(auxScores);
       }
     }
+    setScores(auxScores);
   }, [currentScores]);
 
   useEffect(() => {
