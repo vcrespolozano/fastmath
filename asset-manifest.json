@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/static/css/main.24c2d786.css",
-    "main.js": "/static/js/main.7c9753b3.js",
+    "main.js": "/static/js/main.cbed7f0c.js",
     "static/media/Unbounded-Medium.ttf": "/static/media/Unbounded-Medium.dfeb2212862fe279c770.ttf",
     "static/media/Unbounded-Light.ttf": "/static/media/Unbounded-Light.e3a3b80220c351c823ee.ttf",
     "static/media/Unbounded-Regular.ttf": "/static/media/Unbounded-Regular.d2a446434fd598e4bb22.ttf",
     "index.html": "/index.html",
     "main.24c2d786.css.map": "/static/css/main.24c2d786.css.map",
-    "main.7c9753b3.js.map": "/static/js/main.7c9753b3.js.map"
+    "main.cbed7f0c.js.map": "/static/js/main.cbed7f0c.js.map"
   },
   "entrypoints": [
     "static/css/main.24c2d786.css",
-    "static/js/main.7c9753b3.js"
+    "static/js/main.cbed7f0c.js"
   ]
 }
