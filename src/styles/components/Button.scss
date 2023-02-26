@@ -20,7 +20,14 @@
     color: $color--theme1-text;
     border-color: $color--theme1-text;
 
-    &:hover,
+    @media (hover: hover) {
+      &:hover {
+        color: $color--bg;
+        border-color: $color--theme1-other;
+        background-color: $color--theme1-text;
+      }
+    }
+
     &.selected {
       color: $color--bg;
       border-color: $color--theme1-other;
@@ -32,7 +39,15 @@
     color: $color--theme2-text;
     border-color: $color--theme2-text;
 
-    &:hover,
+    
+    @media (hover: hover) {
+      &:hover {
+        color: $color--bg;
+        border-color: $color--theme2-other;
+        background-color: $color--theme2-text;
+      }
+    }
+
     &.selected {
       color: $color--bg;
       border-color: $color--theme2-other;
@@ -44,7 +59,14 @@
     color: $color--theme3-text;
     border-color: $color--theme3-text;
 
-    &:hover,
+    @media (hover: hover) {
+      &:hover {
+        color: $color--bg;
+        border-color: $color--theme3-other;
+        background-color: $color--theme3-text;
+      }
+    }
+
     &.selected {
       color: $color--bg;
       border-color: $color--theme3-other;
@@ -56,7 +78,14 @@
     color: $color--theme4-text;
     border-color: $color--theme4-text;
 
-    &:hover,
+    @media (hover: hover) {
+      &:hover {
+        color: $color--bg;
+        border-color: $color--theme4-other;
+        background-color: $color--theme4-text;
+      }
+    }
+
     &.selected {
       color: $color--bg;
       border-color: $color--theme4-other;

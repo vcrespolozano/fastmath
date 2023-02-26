@@ -24,6 +24,8 @@
     position  : absolute;
     right     : 0;
     top       : 0;
+    bottom    : 0;
+    margin    : auto 0;
     width     : 50px;
     height    : 50px;
     color     : $color--white;
@@ -32,22 +34,33 @@
     z-index   : 1;
     cursor    : pointer;
     @include transition;
+
+    svg {
+      height: 100%;
+    }
+  }
+
+  .themeSelector {
+    position: absolute;
+    top     : 0;
+    bottom  : 0;
+    right   : 60px;
+    margin  : auto 0;
+    z-index : 1;
   }
 
   &.theme-default {
     .header__logo {
       background-image: url('../../assets/img/logo.png');
     }
-    .header__options {
-      &_showResults {
-        color       : $color--theme1-text;
-        border-color: $color--theme1-text;
+    .header__showResults {
+      color       : $color--theme1-text;
+      border-color: $color--theme1-text;
 
-        &:hover {
-          color           : $color--bg;
-          border-color    : $color--theme1-other;
-          background-color: $color--theme1-text;
-        }
+      &:hover {
+        color           : $color--bg;
+        border-color    : $color--theme1-other;
+        background-color: $color--theme1-text;
       }
     }
   }
@@ -56,16 +69,14 @@
     .header__logo {
       background-image: url('../../assets/img/logo-orange.png');
     }
-    .header__options {
-      &_showResults {
-        color       : $color--theme2-text;
-        border-color: $color--theme2-text;
+    .header__showResults {
+      color       : $color--theme2-text;
+      border-color: $color--theme2-text;
 
-        &:hover {
-          color           : $color--bg;
-          border-color    : $color--theme2-other;
-          background-color: $color--theme2-text;
-        }
+      &:hover {
+        color           : $color--bg;
+        border-color    : $color--theme2-other;
+        background-color: $color--theme2-text;
       }
     }
   }
@@ -74,16 +85,14 @@
     .header__logo {
       background-image: url('../../assets/img/logo-red.png');
     }
-    .header__options {
-      &_showResults {
-        color       : $color--theme3-text;
-        border-color: $color--theme3-text;
+    .header__showResults {
+      color       : $color--theme3-text;
+      border-color: $color--theme3-text;
 
-        &:hover {
-          color           : $color--bg;
-          border-color    : $color--theme3-other;
-          background-color: $color--theme3-text;
-        }
+      &:hover {
+        color           : $color--bg;
+        border-color    : $color--theme3-other;
+        background-color: $color--theme3-text;
       }
     }
   }
@@ -92,16 +101,14 @@
     .header__logo {
       background-image: url('../../assets/img/logo-blue.png');
     }
-    .header__options {
-      &_showResults {
-        color       : $color--theme4-text;
-        border-color: $color--theme4-text;
+    .header__showResults {
+      color       : $color--theme4-text;
+      border-color: $color--theme4-text;
 
-        &:hover {
-          color           : $color--bg;
-          border-color    : $color--theme4-other;
-          background-color: $color--theme4-text;
-        }
+      &:hover {
+        color           : $color--bg;
+        border-color    : $color--theme4-other;
+        background-color: $color--theme4-text;
       }
     }
   }
@@ -109,11 +116,31 @@
 
 @include tablet {
   .header {
-    height: $headerHeightMobile;
-  
+    margin: 35px 20px 20px;
+    height: 90px;
+ 
     &__logo {
-      width : 210px;
-      height: 45px;
+      margin: 0 auto;
+      width : 248px;
+      height: 55px;
+    }
+
+    &__showResults {
+      position: fixed;
+      right   : 0;
+      top     : 0;
+      bottom  : auto;
+      margin  : 0;
+      width   : 40px;
+      height  : 40px;
+    }
+
+    .themeSelector {
+      right    : 0;
+      left     : 0;
+      margin   : 0 auto;
+      max-width: 120px;
+      top      : 65px;
     }
   }
 }

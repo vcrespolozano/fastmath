@@ -1,6 +1,10 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { APP_GAME_MODES } from '../../constants/constants';
+import { APP_GAME_DIFFICULTIES, APP_GAME_MODES } from '../../constants/constants';
 import { GlobalContext } from '../../contexts/GlobalContext';
+import { BsSpeedometer2 } from 'react-icons/bs';
+import { AiOutlineCheck } from 'react-icons/ai';
+import { RxCross1 } from 'react-icons/rx';
+import { BiTimeFive } from 'react-icons/bi';
 import Button from '../common/Button/Button';
 import Text, {
   TEXT_SIZE,
@@ -124,9 +128,9 @@ export const GameResults = () => {
       const minutesStr = minutes.toString();
       const seconds = timeUsed % 60;
       const secondsStr = seconds.toString();
-      let auxTimeStr = `${secondsStr} segundos`;
+      let auxTimeStr = `${secondsStr}s`;
       if (minutes > 0) {
-        auxTimeStr = `${minutesStr} minuto/s ${secondsStr} segundos`;
+        auxTimeStr = `${minutesStr}m ${secondsStr}s`;
       }
       setTimeStr(auxTimeStr);
     }
@@ -184,6 +188,16 @@ export const GameResults = () => {
     setShowResults(false);
   }
 
+  const getDifficultyLabel = (difficulty) => {
+    let difficultyLabel = DIFFICULTY_LABELS.FACIL;
+    if (difficulty === APP_GAME_DIFFICULTIES.NORMAL) {
+      difficultyLabel = DIFFICULTY_LABELS.NORMAL;
+    } else if (difficulty === APP_GAME_DIFFICULTIES.DIFICIL) {
+      difficultyLabel = DIFFICULTY_LABELS.DIFICIL;
+    }
+    return difficultyLabel;
+  }
+
   return (
     <div className={`gameResults theme-${theme}`}>
       <div className="gameResults__historic">
@@ -196,14 +210,14 @@ export const GameResults = () => {
           {showingScoresArr && showingScoresArr.length > 0 && showingScoresArr.map((scoreRow, index) => {
             return (
               <div key={`result-${index}`} className={`gameResults__historic_scores_row ${scoreRow.id === resultId ? 'current' : ''}`}>
-                <Text
-                  value={`Dificultad: ${scoreRow.difficulty}. Aciertos: ${scoreRow.rightAnswers}.${scoreRow.mode !== APP_GAME_MODES.SIN_FALLOS ? ` Fallos: ${scoreRow.wrongAnswers}.` : ''}${scoreRow.mode === APP_GAME_MODES.CLASSIC ? ` Tiempo: ${scoreRow.time}` : ''}`}
-                  size={TEXT_SIZE.NORMAL}
-                  weight={TEXT_WEIGHT.REGULAR}
-                  kind={TEXT_KIND.PARAGRAPH}
-                  display={TEXT_DISPLAY.BLOCK}
-                  align={TEXT_ALIGN.LEFT}
-                />
+                <span className="score_info"><BsSpeedometer2 size={20} />{getDifficultyLabel(scoreRow.difficulty)}</span>
+                <span className="score_info"><AiOutlineCheck size={20} />{scoreRow.rightAnswers}</span>
+                {showingScores !== APP_GAME_MODES.SIN_FALLOS && (
+                    <span className="score_info"><RxCross1 size={20} />{scoreRow.wrongAnswers}</span>
+                )}
+                {showingScores === APP_GAME_MODES.CLASSIC && (
+                  <span className="score_info"><BiTimeFive size={20} />{scoreRow.time}</span>
+                )}
               </div>
             )
           })}

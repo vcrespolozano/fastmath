@@ -1,5 +1,5 @@
 .gameResults {
-  max-width: $gameWidth;;
+  max-width: $gameWidth;
   position : relative;
   margin   : 30px auto;
   z-index  : 1;
@@ -23,6 +23,7 @@
         padding   : 10px;
         width     : 33.334%;
         color     : $color--white;
+        font-size : 15px;
         text-align: center;
         cursor    : pointer;
         @include transition;
@@ -30,13 +31,34 @@
     }
 
     &_scores {
-      position: relative;
-      width   : 100%;
-      z-index : 1;
+      position    : relative;
+      width       : 100%;
+      max-height  : 520px;
+      overflow-y  : auto;
+      z-index     : 1;
+
+      &::-webkit-scrollbar {
+        width: 2px;
+      }
+      &::-webkit-scrollbar-track {
+        background: lighten($color--bg, 5%);
+      }
 
       &_row {
-        padding      : 10px 20px;
-        border-bottom: 1px solid $color--white;
+        display        : flex;
+        justify-content: space-around;
+        gap            : 10px;
+        padding        : 10px 20px;
+        border-bottom  : 1px solid $color--white;
+
+        .score_info {
+          display        : flex;
+          justify-content: center;
+          align-items    : flex-start;
+          font-size      : 14px;
+          color          : $color--white;
+          gap            : 5px;
+        }
 
         &:last-child {
           border-bottom: none;
@@ -67,14 +89,26 @@
       }
     }
 
-    .gameResults__historic_scores_row {
-      border-color: $color--theme1-text;
+    .gameResults__historic_scores {
+      &::-webkit-scrollbar-thumb {
+        background: $color--theme1-text;
+      }
+      &::-webkit-scrollbar-thumb:hover {
+        background: $color--theme1-other;
+      }
+      &_row {
+        border-color: $color--theme1-text;
 
-      &.current {
-        background-color: $color--theme1-text;
+        .score_info {
+          color: $color--theme1-text;
+        }
   
-        .text.theme-default {
-          color: $color--bg;
+        &.current {
+          background-color: $color--theme1-text;
+    
+          .score_info {
+            color: $color--bg;
+          }
         }
       }
     }
@@ -97,14 +131,26 @@
       }
     }
 
-    .gameResults__historic_scores_row {
-      border-color: $color--theme2-text;
+    .gameResults__historic_scores {
+      &::-webkit-scrollbar-thumb {
+        background: $color--theme2-text;
+      }
+      &::-webkit-scrollbar-thumb:hover {
+        background: $color--theme2-other;
+      }
+      &_row {
+        border-color: $color--theme2-text;
 
-      &.current {
-        background-color: $color--theme2-text;
+        .score_info {
+          color: $color--theme2-text;
+        }
   
-        .text.theme-orange {
-          color: $color--bg;
+        &.current {
+          background-color: $color--theme2-text;
+    
+          .score_info {
+            color: $color--bg;
+          }
         }
       }
     }
@@ -127,14 +173,26 @@
       }
     }
 
-    .gameResults__historic_scores_row {
-      border-color: $color--theme3-text;
+    .gameResults__historic_scores {
+      &::-webkit-scrollbar-thumb {
+        background: $color--theme3-text;
+      }
+      &::-webkit-scrollbar-thumb:hover {
+        background: $color--theme3-other;
+      }
+      &_row {
+        border-color: $color--theme3-text;
 
-      &.current {
-        background-color: $color--theme3-text;
-
-        .text.theme-red {
-          color: $color--bg;
+        .score_info {
+          color: $color--theme3-text;
+        }
+  
+        &.current {
+          background-color: $color--theme3-text;
+    
+          .score_info {
+            color: $color--bg;
+          }
         }
       }
     }
@@ -157,15 +215,44 @@
       }
     }
 
-    .gameResults__historic_scores_row {
-      border-color: $color--theme4-text;
+    .gameResults__historic_scores {
+      &::-webkit-scrollbar-thumb {
+        background: $color--theme4-text;
+      }
+      &::-webkit-scrollbar-thumb:hover {
+        background: $color--theme4-other;
+      }
+      &_row {
+        border-color: $color--theme4-text;
 
-      &.current {
-        background-color: $color--theme4-text;
-  
-        .text.theme-blue {
-          color: $color--bg;
+        .score_info {
+          color: $color--theme4-text;
         }
+  
+        &.current {
+          background-color: $color--theme4-text;
+
+          .score_info {
+            color: $color--bg;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include tablet {
+  .gameResults {
+    &__historic {
+      border-width: 2px;
+      &_tabs {
+        border-width: 2px;
+        &_tab {
+          font-size: 14px;
+        }
+      }
+      &_scores {
+        max-height: 440px;
       }
     }
   }

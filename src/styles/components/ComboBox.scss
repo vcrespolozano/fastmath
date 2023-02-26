@@ -27,9 +27,11 @@
       z-index : 2;
     }
 
-    &:hover {
-      background-color: $color--white;
-      color           : $color--bg;
+    @media (hover: hover) {
+      &:hover {
+        background-color: $color--white;
+        color           : $color--bg;
+      }
     }
   }
 
@@ -62,9 +64,11 @@
       text-align: center;
       @include transition;
 
-      &:hover {
-        background-color: $color--white;
-        color           : $color--bg;
+      @media (hover: hover) {
+        &:hover {
+          background-color: $color--white;
+          color           : $color--bg;
+        }
       }
     }
   }
@@ -74,10 +78,12 @@
       border-color: $color--theme1-text;
       color       : $color--theme1-text;
 
-      &:hover {
-        border-color    : $color--theme1-other;
-        background-color: $color--theme1-text;
-        color           : $color--bg;
+      @media (hover: hover) {
+        &:hover {
+          border-color    : $color--theme1-other;
+          background-color: $color--theme1-text;
+          color           : $color--bg;
+        }
       }
     }
 
@@ -87,9 +93,11 @@
       &_option {
         color: $color--theme1-text;
 
-        &:hover {
-          background-color: $color--theme1-text;
-          color           : $color--bg;
+        @media (hover: hover) {
+          &:hover {
+            background-color: $color--theme1-text;
+            color           : $color--bg;
+          }
         }
       }
     }
@@ -99,10 +107,12 @@
       border-color: $color--theme2-text;
       color       : $color--theme2-text;
 
-      &:hover {
-        border-color    : $color--theme2-other;
-        background-color: $color--theme2-text;
-        color           : $color--bg;
+      @media (hover: hover) {
+        &:hover {
+          border-color    : $color--theme2-other;
+          background-color: $color--theme2-text;
+          color           : $color--bg;
+        }
       }
     }
 
@@ -112,9 +122,11 @@
       &_option {
         color: $color--theme2-text;
 
-        &:hover {
-          background-color: $color--theme2-text;
-          color           : $color--bg;
+        @media (hover: hover) {
+          &:hover {
+            background-color: $color--theme2-text;
+            color           : $color--bg;
+          }
         }
       }
     }
@@ -124,10 +136,12 @@
       border-color: $color--theme3-text;
       color       : $color--theme3-text;
 
-      &:hover {
-        border-color    : $color--theme3-other;
-        background-color: $color--theme3-text;
-        color           : $color--bg;
+      @media (hover: hover) {
+        &:hover {
+          border-color    : $color--theme3-other;
+          background-color: $color--theme3-text;
+          color           : $color--bg;
+        }
       }
     }
 
@@ -137,9 +151,11 @@
       &_option {
         color: $color--theme3-text;
 
-        &:hover {
-          background-color: $color--theme3-text;
-          color           : $color--bg;
+        @media (hover: hover) {
+          &:hover {
+            background-color: $color--theme3-text;
+            color           : $color--bg;
+          }
         }
       }
     }
@@ -149,10 +165,12 @@
       border-color: $color--theme4-text;
       color       : $color--theme4-text;
 
-      &:hover {
-        border-color    : $color--theme4-other;
-        background-color: $color--theme4-text;
-        color           : $color--bg;
+      @media (hover: hover) {
+        &:hover {
+          border-color    : $color--theme4-other;
+          background-color: $color--theme4-text;
+          color           : $color--bg;
+        }
       }
     }
 
@@ -162,10 +180,29 @@
       &_option {
         color: $color--theme4-text;
 
-        &:hover {
-          background-color: $color--theme4-text;
-          color           : $color--bg;
+        @media (hover: hover) {
+          &:hover {
+            background-color: $color--theme4-text;
+            color           : $color--bg;
+          }
         }
+      }
+    }
+  }
+}
+
+@include tablet {
+  .comboBox {
+    width : 90%;
+    margin: 0 auto;
+    
+    &__combo {
+      top  : 48px;
+      left : 0;
+      right: 0;
+  
+      &_option {
+        padding: 10px;
       }
     }
   }

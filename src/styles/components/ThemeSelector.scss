@@ -1,5 +1,6 @@
 .themeSelector {
   position: relative;
+  height  : 22px;
   z-index : 1;
 
   &__option {
@@ -9,7 +10,7 @@
     width         : 20px;
     height        : 20px;
     border        : 2px solid $color--common-grey;
-    margin        : 5px;
+    margin        : 0 5px;
     cursor        : pointer;
 
     &.default {

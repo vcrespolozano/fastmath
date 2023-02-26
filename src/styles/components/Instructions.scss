@@ -62,6 +62,13 @@
       position: relative;
       z-index: 1;
 
+      &::-webkit-scrollbar {
+        width: 2px;
+      }
+      &::-webkit-scrollbar-track {
+        background: lighten($color--bg, 5%);
+      }
+
       &_textBlock {
         position: relative;
         margin  : 40px 0;
@@ -114,6 +121,12 @@
         .instructions__content_title:after {
           background-color: $color--theme1-text;
         }
+        &::-webkit-scrollbar-thumb {
+          background: $color--theme1-text;
+        }
+        &::-webkit-scrollbar-thumb:hover {
+          background: $color--theme1-other;
+        }
       }
     }
     &.theme-orange {
@@ -133,6 +146,12 @@
       .instructions__content {  
         .instructions__content_title:after {
           background-color: $color--theme2-text;
+        }
+        &::-webkit-scrollbar-thumb {
+          background: $color--theme2-text;
+        }
+        &::-webkit-scrollbar-thumb:hover {
+          background: $color--theme2-other;
         }
       }
     }
@@ -154,6 +173,12 @@
         .instructions__content_title:after {
           background-color: $color--theme3-text;
         }
+        &::-webkit-scrollbar-thumb {
+          background: $color--theme3-text;
+        }
+        &::-webkit-scrollbar-thumb:hover {
+          background: $color--theme3-other;
+        }
       }
     }
     &.theme-blue {
@@ -174,6 +199,12 @@
         .instructions__content_title:after {
           background-color: $color--theme4-text;
         }
+        &::-webkit-scrollbar-thumb {
+          background: $color--theme4-text;
+        }
+        &::-webkit-scrollbar-thumb:hover {
+          background: $color--theme4-other;
+        }
       }
     }
   }
@@ -192,8 +223,9 @@
     .instructions {
       padding: 35px 25px;
       &__content {
-        max-height: 450px;
-        overflow  : auto;
+        max-height   : 450px;
+        overflow     : auto;
+        padding-right: 20px;
       }
     }
   }
