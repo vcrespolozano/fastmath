@@ -7,7 +7,6 @@ const Transition = () => {
 
   const {
     setTransition,
-    theme,
     setTransitionOver,
   } = useContext(GlobalContext);
 
@@ -19,7 +18,7 @@ const Transition = () => {
   }, [setTransition]);
 
   return (
-    <div className={`transition theme-${theme}`}>
+    <div className="transition">
       <div className="transition_container">
         <span className="transition__icon cross"><ImCross size="14px" /></span>
         <span className="transition__icon plus"><ImPlus size="14px" /></span>

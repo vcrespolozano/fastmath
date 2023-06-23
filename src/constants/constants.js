@@ -1,10 +1,3 @@
-export const APP_THEMES = {
-  DEFAULT: 'default',
-  ORANGE: 'orange',
-  RED: 'red',
-  BLUE: 'blue',
-}
-
 export const APP_GAME_MODES = {
   CLASSIC: 'clasico',
   CONTRARELOJ: 'contrareloj',
@@ -17,4 +10,4 @@ export const APP_GAME_DIFFICULTIES = {
   DIFICIL: 'dificil',
 }
 
-export const NUM_OPERATIONS = 10;
+export const NUM_OPERATIONS = 20;

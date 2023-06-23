@@ -1,11 +1,8 @@
-import React, { useRef, useEffect, useContext } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { animateScroll as scroll } from "react-scroll";
-import { GlobalContext } from '../../../../contexts/GlobalContext';
 import Operation from '../Operation/Operation';
 
 const OperationsContainer = ({operations}) => {
-
-  const { theme } = useContext(GlobalContext);
 
   const lastElementRef = useRef(null);
 
@@ -20,7 +17,7 @@ const OperationsContainer = ({operations}) => {
   }, [operations]);
 
   return (
-    <div className={`operationsContainer theme-${theme}`}>
+    <div className="operationsContainer">
       {
         operations && operations.length > 0 && (
           operations.map((itemOperation, index) => {
@@ -32,7 +29,6 @@ const OperationsContainer = ({operations}) => {
               operatorSent={itemOperation.operatorSelected}
               result={itemOperation.result}
               last={index === operations.length - 1}
-              theme={theme}
             />
           })
         )

@@ -6,19 +6,18 @@ const Operation = ({
   operator,
   operatorSent,
   result,
-  last,
-  theme
+  last
 }) => {
 
   const [operationClass, setOperationClass] = useState(null);
 
   useEffect(() => {
-    let auxClass = `operation theme-${theme} ${last ? 'animate__animated animate__slideInUp' : ''}`;
+    let auxClass = `operation ${last ? 'animate__animated animate__slideInUp' : ''}`;
     if (operatorSent && operator) {
       auxClass += operator === operatorSent ? ' solved-right' : ' solved-wrong';
     }
     setOperationClass(auxClass);
-  }, [last, operator, operatorSent, theme]);
+  }, [last, operator, operatorSent]);
 
   return (
     <div className={operationClass}>

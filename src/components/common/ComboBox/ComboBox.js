@@ -5,7 +5,7 @@ import { GlobalContext } from '../../../contexts/GlobalContext';
 
 const ComboBox = ({options, indexSelected, handleSelect, className, id}) => {
 
-  const { theme, openedComboBoxId, setOpenedComboBoxId } = useContext(GlobalContext);
+  const { openedComboBoxId, setOpenedComboBoxId } = useContext(GlobalContext);
 
   const [selectedOption, setSelectedOption] = useState(null);
   const [comboOpen, setComboOpen] = useState(false);
@@ -42,7 +42,7 @@ const ComboBox = ({options, indexSelected, handleSelect, className, id}) => {
   }
 
   return (
-    <div className={`comboBox theme-${theme} ${className || ''}`}>
+    <div className={`comboBox ${className || ''}`}>
       {selectedOption && (
         <div className="comboBox__selectedOption" onClick={openCombo}>{selectedOption.label} <FiChevronDown size="20px" /></div>
       )}

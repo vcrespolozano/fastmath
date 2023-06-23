@@ -21,32 +21,11 @@
     text-align : center;
     display    : block;
     font-size  : 60px;
-    color      : $color--white;
+    color      : $color-text;
 
     &.hidden {
       opacity   : 0;
       visibility: hidden;
-    }
-  }
-
-  &.theme-default {
-    .countdown__item {
-      color: $color--theme1-text;
-    }
-  }
-  &.theme-orange {
-    .countdown__item {
-      color: $color--theme2-text;
-    }
-  }
-  &.theme-red {
-    .countdown__item {
-      color: $color--theme3-text;
-    }
-  }
-  &.theme-blue {
-    .countdown__item {
-      color: $color--theme4-text;
     }
   }
 }

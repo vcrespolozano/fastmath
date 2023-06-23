@@ -6,7 +6,7 @@ const Countdown = () => {
 
   const [count, setCount] = useState(4);
 
-  const { setCountDownEnabled, theme } = useContext(GlobalContext);
+  const { setCountDownEnabled } = useContext(GlobalContext);
 
   const executeCountdown = () => {
     if (count > 0) {
@@ -23,7 +23,7 @@ const Countdown = () => {
   }, [count]);
 
   return (
-    <div className={`countdown theme-${theme}`}>
+    <div className="countdown">
       <span className={`countdown__item animate__animated ${count === 4 ? 'animate__zoomIn' : 'hidden animate__fadeOut'}`}>3</span>
       <span className={`countdown__item animate__animated ${count === 3 ? 'animate__zoomIn' : 'hidden animate__fadeOut'}`}>2</span>
       <span className={`countdown__item animate__animated ${count === 2 ? 'animate__zoomIn' : 'hidden animate__fadeOut'}`}>1</span>

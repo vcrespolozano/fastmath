@@ -31,7 +31,6 @@ export const GameResults = () => {
   const currentScores = localStorage.getItem('appScores') || null;
 
   const {
-    theme,
     operationsSolved,
     timeUsed,
     difficulty,
@@ -199,7 +198,7 @@ export const GameResults = () => {
   }
 
   return (
-    <div className={`gameResults theme-${theme}`}>
+    <div className="gameResults">
       <div className="gameResults__historic">
         <div className="gameResults__historic_tabs">
           <span className={`gameResults__historic_tabs_tab ${showingScores === APP_GAME_MODES.CLASSIC ? 'on' : ''}`} onClick={() => switchScoresMode(APP_GAME_MODES.CLASSIC)}>{MODE_LABELS.CLASICO}</span>

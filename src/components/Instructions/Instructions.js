@@ -13,11 +13,11 @@ import { instructionsData } from './textConstants';
 
 const Instructions = () => {
 
-  const { setShowInstructions, theme } = useContext(GlobalContext);
+  const { setShowInstructions } = useContext(GlobalContext);
 
   return (
     <div className="modal">
-      <div className={`instructions theme-${theme}`}>
+      <div className="instructions">
         <span 
           className="instructions__icon cross"
           onClick={() => setShowInstructions(false)}

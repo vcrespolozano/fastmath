@@ -1,6 +1,4 @@
-import { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { GlobalContext } from '../../../contexts/GlobalContext';
 
 const Button = ({
   label,
@@ -12,15 +10,13 @@ const Button = ({
   disabled
 }) => {
 
-  const { theme } = useContext(GlobalContext);
-
   if (!label || !onClick) {
     return null;
   }
 
   return (
     <button
-      className={`button theme-${theme} ${selected ? 'selected' : ''} ${className ? className : ''}`}
+      className={`button ${selected ? 'selected' : ''} ${className ? className : ''}`}
       style={{ width: `${width}px`, height: `${height}px` }}
       onClick={!disabled ? onClick : null}
     >

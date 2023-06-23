@@ -26,7 +26,6 @@ const DIFFICULTIES_ARR = [
 const GameSelector = () => {
 
   const {
-    theme,
     setCountDownEnabled,
     setGameStarted,
     setShowInstructions,
@@ -65,7 +64,7 @@ const GameSelector = () => {
   }
 
   return (
-    <div className={`gameSelector theme-${theme}`}>
+    <div className="gameSelector">
       <Button
         label="¿Qué es FastMath?"
         width={220}

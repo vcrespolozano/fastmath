@@ -39,34 +39,6 @@
     position: relative;
     z-index: 1;
   }
-
-  &.theme-default {
-    .gameSelector__mode,
-    .gameSelector__difficulty {
-      border-color: $color--theme1-text;
-    }
-  }
-
-  &.theme-orange {
-    .gameSelector__mode,
-    .gameSelector__difficulty {
-      border-color: $color--theme2-text;
-    }
-  }
-
-  &.theme-red {
-    .gameSelector__mode,
-    .gameSelector__difficulty {
-      border-color: $color--theme3-text;
-    }
-  }
-
-  &.theme-blue {
-    .gameSelector__mode,
-    .gameSelector__difficulty {
-      border-color: $color--theme4-text;
-    }
-  }
 }
 
 @include tablet {

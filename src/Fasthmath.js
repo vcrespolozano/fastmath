@@ -5,12 +5,8 @@ import 'animate.css';
 import './styles/global.scss';
 import { APP_GAME_DIFFICULTIES, APP_GAME_MODES } from './constants/constants';
 
-// Reading and Setting theme
-const currentTheme = localStorage.getItem('appTheme') || 'default';
-
 function Fastmath() {
 
-  const [theme, setTheme] = useState(currentTheme);
   const [countDownEnabled, setCountDownEnabled] = useState(false);
   const [mode, setMode] = useState(APP_GAME_MODES.CLASSIC);
   const [difficulty, setDifficulty] = useState(APP_GAME_DIFFICULTIES.FACIL);
@@ -34,8 +30,6 @@ function Fastmath() {
   }, []);
 
   const context = {
-    theme,
-    setTheme,
     countDownEnabled,
     setCountDownEnabled,
     mode,

@@ -10,9 +10,9 @@
     padding         : 0 15px;
     height          : 50px;
     line-height     : 48px;
-    border          : 2px solid $color--white;
+    border          : 2px solid $color-text;
     background-color: $color--bg;
-    color           : $color--white;
+    color           : $color-text;
     cursor          : pointer;
     text-align      : center;
     z-index         : 1;
@@ -29,7 +29,8 @@
 
     @media (hover: hover) {
       &:hover {
-        background-color: $color--white;
+        border-color    : $color-other;
+        background-color: $color-text;
         color           : $color--bg;
       }
     }
@@ -41,7 +42,7 @@
     left            : 0;
     right           : 0;
     background-color: $color--bg;
-    border          : 2px solid $color--white;
+    border          : 2px solid $color-text;
     z-index         : 2;
     @include transition;
 
@@ -58,7 +59,7 @@
     &_option {
       display   : block;
       width     : 100%;
-      color     : $color--white;
+      color     : $color-text;
       padding   : 10px;
       cursor    : pointer;
       text-align: center;
@@ -66,125 +67,8 @@
 
       @media (hover: hover) {
         &:hover {
-          background-color: $color--white;
+          background-color: $color-text;
           color           : $color--bg;
-        }
-      }
-    }
-  }
-
-  &.theme-default {
-    .comboBox__selectedOption {
-      border-color: $color--theme1-text;
-      color       : $color--theme1-text;
-
-      @media (hover: hover) {
-        &:hover {
-          border-color    : $color--theme1-other;
-          background-color: $color--theme1-text;
-          color           : $color--bg;
-        }
-      }
-    }
-
-    .comboBox__combo {
-      border-color: $color--theme1-text;
-    
-      &_option {
-        color: $color--theme1-text;
-
-        @media (hover: hover) {
-          &:hover {
-            background-color: $color--theme1-text;
-            color           : $color--bg;
-          }
-        }
-      }
-    }
-  }
-  &.theme-orange {
-    .comboBox__selectedOption {
-      border-color: $color--theme2-text;
-      color       : $color--theme2-text;
-
-      @media (hover: hover) {
-        &:hover {
-          border-color    : $color--theme2-other;
-          background-color: $color--theme2-text;
-          color           : $color--bg;
-        }
-      }
-    }
-
-    .comboBox__combo {
-      border-color: $color--theme2-text;
-    
-      &_option {
-        color: $color--theme2-text;
-
-        @media (hover: hover) {
-          &:hover {
-            background-color: $color--theme2-text;
-            color           : $color--bg;
-          }
-        }
-      }
-    }
-  }
-  &.theme-red {
-    .comboBox__selectedOption {
-      border-color: $color--theme3-text;
-      color       : $color--theme3-text;
-
-      @media (hover: hover) {
-        &:hover {
-          border-color    : $color--theme3-other;
-          background-color: $color--theme3-text;
-          color           : $color--bg;
-        }
-      }
-    }
-
-    .comboBox__combo {
-      border-color: $color--theme3-text;
-    
-      &_option {
-        color: $color--theme3-text;
-
-        @media (hover: hover) {
-          &:hover {
-            background-color: $color--theme3-text;
-            color           : $color--bg;
-          }
-        }
-      }
-    }
-  }
-  &.theme-blue {
-    .comboBox__selectedOption {
-      border-color: $color--theme4-text;
-      color       : $color--theme4-text;
-
-      @media (hover: hover) {
-        &:hover {
-          border-color    : $color--theme4-other;
-          background-color: $color--theme4-text;
-          color           : $color--bg;
-        }
-      }
-    }
-
-    .comboBox__combo {
-      border-color: $color--theme4-text;
-    
-      &_option {
-        color: $color--theme4-text;
-
-        @media (hover: hover) {
-          &:hover {
-            background-color: $color--theme4-text;
-            color           : $color--bg;
-          }
         }
       }
     }

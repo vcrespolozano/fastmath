@@ -32,8 +32,8 @@
     height          : 50px;
     text-align      : center;
     line-height     : 56px;
-    border          : 2px solid $color--white;
-    color           : $color--white;
+    border          : 2px solid $color-text;
+    color           : $color-text;
     background-color: $color--bg;
 
     &.cross {
@@ -55,31 +55,6 @@
 
     svg {
       height: 100%;
-    }
-  }
-
-  &.theme-default {
-    .instructions__icon {
-      border-color: $color--theme1-text;
-      color       : $color--theme1-text;
-    }
-  }
-  &.theme-orange {
-    .instructions__icon {
-      border-color: $color--theme2-text;
-      color       : $color--theme2-text;
-    }
-  }
-  &.theme-red {
-    .instructions__icon {
-      border-color: $color--theme3-text;
-      color       : $color--theme3-text;
-    }
-  }
-  &.theme-blue {
-    .instructions__icon {
-      border-color: $color--theme4-text;
-      color       : $color--theme4-text;
     }
   }
 }

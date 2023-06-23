@@ -1,14 +1,11 @@
-import React, { useContext } from 'react';
-import { GlobalContext } from '../../../../contexts/GlobalContext';
+import React from 'react';
 
 const Keyboard = ({onClick}) => {
-
-  const { theme } = useContext(GlobalContext);
 
   const operators = ['+', '-', '×', '÷'];
 
   return (
-    <div className={`keyboard theme-${theme}`}>
+    <div className="keyboard">
       {
         operators.map((key, index) => {
           return (

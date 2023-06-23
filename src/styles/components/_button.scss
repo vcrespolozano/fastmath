@@ -1,95 +1,33 @@
 .button {
-  display: inline-block;
-  position: relative;
-  appearance: none;
+  display           : inline-block;
+  position          : relative;
+  appearance        : none;
   -webkit-appearance: none;
-  -moz-appearance: none;
-  outline: none;
-  background-color: transparent;
-  border: 2px solid black;
-  font-size: 15px;
-  cursor: pointer;
-  z-index: 1;
+  -moz-appearance   : none;
+  outline           : none;
+  color             : $color-text;
+  background-color  : transparent;
+  border            : 2px solid $color-text;
+  font-size         : 15px;
+  cursor            : pointer;
+  z-index           : 1;
   @include transition;
+
+  @media (hover: hover) {
+    &:hover {
+      color           : $color--bg;
+      border-color    : $color-other;
+      background-color: $color-text;
+    }
+  }
+
+  &.selected {
+    color           : $color--bg;
+    border-color    : $color-other;
+    background-color: $color-text;
+  }
 
   &:focus {
     outline: none;
-  }
-
-  &.theme-default {
-    color: $color--theme1-text;
-    border-color: $color--theme1-text;
-
-    @media (hover: hover) {
-      &:hover {
-        color: $color--bg;
-        border-color: $color--theme1-other;
-        background-color: $color--theme1-text;
-      }
-    }
-
-    &.selected {
-      color: $color--bg;
-      border-color: $color--theme1-other;
-      background-color: $color--theme1-text;
-    }
-  }
-
-  &.theme-orange {
-    color: $color--theme2-text;
-    border-color: $color--theme2-text;
-
-    
-    @media (hover: hover) {
-      &:hover {
-        color: $color--bg;
-        border-color: $color--theme2-other;
-        background-color: $color--theme2-text;
-      }
-    }
-
-    &.selected {
-      color: $color--bg;
-      border-color: $color--theme2-other;
-      background-color: $color--theme2-text;
-    }
-  }
-
-  &.theme-red {
-    color: $color--theme3-text;
-    border-color: $color--theme3-text;
-
-    @media (hover: hover) {
-      &:hover {
-        color: $color--bg;
-        border-color: $color--theme3-other;
-        background-color: $color--theme3-text;
-      }
-    }
-
-    &.selected {
-      color: $color--bg;
-      border-color: $color--theme3-other;
-      background-color: $color--theme3-text;
-    }
-  }
-
-  &.theme-blue {
-    color: $color--theme4-text;
-    border-color: $color--theme4-text;
-
-    @media (hover: hover) {
-      &:hover {
-        color: $color--bg;
-        border-color: $color--theme4-other;
-        background-color: $color--theme4-text;
-      }
-    }
-
-    &.selected {
-      color: $color--bg;
-      border-color: $color--theme4-other;
-      background-color: $color--theme4-text;
-    }
   }
 }
