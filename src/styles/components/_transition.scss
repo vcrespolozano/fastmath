@@ -1,0 +1,101 @@
+.transition {
+  position                         : fixed;
+  left                             : 0;
+  right                            : 0;
+  top                              : 0;
+  bottom                           : 0;
+  animation-name                   : wink;
+  animation-duration               : 2s;
+  animation-timing-function        : linear;
+  -webkit-animation-timing-function: linear;
+  z-index                          : 11;
+
+  &_container {
+    position                         : absolute;
+    top                              : 0;
+    left                             : 0;
+    right                            : 0;
+    bottom                           : 0;
+    width                            : 180px;
+    height                           : 180px;
+    margin                           : auto;
+    animation                        : inOut;
+    animation-duration               : 2s;
+    animation-timing-function        : linear;
+    -webkit-animation-timing-function: linear;
+    z-index                          : 1;
+  }
+
+  &__icon {
+    position        : absolute;
+    width           : 50px;
+    height          : 50px;
+    text-align      : center;
+    line-height     : 56px;
+    border          : 2px solid $color--white;
+    color           : $color--white;
+    background-color: $color--bg;
+
+    &.cross {
+      right : 0;
+      top   : 0;
+    }
+    &.plus {
+      left: 0;
+      top : 0;
+    }
+    &.minus {
+      left  : 0;
+      bottom: 0;
+    }
+    &.divide {
+      right : 0;
+      bottom: 0;
+    }
+
+    svg {
+      height: 100%;
+    }
+  }
+
+  &.theme-default {
+    .instructions__icon {
+      border-color: $color--theme1-text;
+      color       : $color--theme1-text;
+    }
+  }
+  &.theme-orange {
+    .instructions__icon {
+      border-color: $color--theme2-text;
+      color       : $color--theme2-text;
+    }
+  }
+  &.theme-red {
+    .instructions__icon {
+      border-color: $color--theme3-text;
+      color       : $color--theme3-text;
+    }
+  }
+  &.theme-blue {
+    .instructions__icon {
+      border-color: $color--theme4-text;
+      color       : $color--theme4-text;
+    }
+  }
+}
+
+@keyframes wink {
+  0%   {background-color: rgba(0, 0, 0, 0);}
+  25%  {background-color: rgba(0, 0, 0, 0.5);}
+  50%  {background-color: rgba(0, 0, 0, 1);}
+  75%  {background-color: rgba(0, 0, 0, 0.5);}
+  100% {background-color: rgba(0, 0, 0, 0);}
+}
+
+@keyframes inOut {
+  0% {transform: rotate(0deg); opacity: 1;}
+  25% {transform: rotate(72deg); opacity: 1;}
+  50% {transform: rotate(144deg) scale(1.5); opacity: 0.5;}
+  75% {transform: rotate(216deg) scale(2); opacity: 0.25;}
+  100% {transform: rotate(288deg) scale(2.5); opacity: 0;}
+}

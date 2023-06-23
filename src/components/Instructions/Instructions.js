@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useContext } from 'react';
 import { ImCross, ImPlus, ImMinus } from 'react-icons/im';
 import { TiDivide } from 'react-icons/ti';
 import { GlobalContext } from '../../contexts/GlobalContext';

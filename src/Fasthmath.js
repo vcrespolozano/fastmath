@@ -22,6 +22,8 @@ function Fastmath() {
   const [showResults, setShowResults] = useState(false);
   const [openedComboBoxId, setOpenedComboBoxId] = useState(null);
   const [windowSize, setWindowSize] = useState(window.innerWidth);
+  const [transition, setTransition] = useState(false);
+  const [transitionOver, setTransitionOver] = useState(false);
 
   useEffect(() => {
     const handleResize = () => setWindowSize(window.innerWidth);
@@ -54,7 +56,11 @@ function Fastmath() {
     setShowResults,
     openedComboBoxId,
     setOpenedComboBoxId,
-    windowSize
+    windowSize,
+    transition,
+    setTransition,
+    transitionOver,
+    setTransitionOver,
   }
 
   return (

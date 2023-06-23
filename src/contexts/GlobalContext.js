@@ -24,4 +24,8 @@ export const GlobalContext = createContext({
   openedComboBoxId: null,
   setOpenedComboBoxId: (openedComboBoxId) => {},
   windowSize: null,
+  transition: false,
+  setTransition: (transition) => {},
+  transitionOver: false,
+  setTransitionOver: (transitionOver) => {},
 });

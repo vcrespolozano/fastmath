@@ -71,6 +71,8 @@ export const randomMathOperation = (numOfDigits1, numOfDigits2) => {
         return randomMathOperation(numOfDigits1, numOfDigits2);
       }
       break;
+    default:
+      break;
   }
   // Para evitar operaciones con más de un operador posible
   if (hasInverseOperation(returnObj.result, returnObj.op1, returnObj.op2, returnObj.operator)) {

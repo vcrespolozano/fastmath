@@ -64,9 +64,9 @@ const Text = ({
       return <div className={`text theme-${theme} ${size} ${weight} ${align} ${display} ${className} ${marginTop ? 'margin_top' : ''} ${marginBottom ? 'margin_bottom' : ''}`}>{parse(value)}</div>;
     case TEXT_KIND.LABEL:
       return <label className={`text theme-${theme} ${size} ${weight} ${align} ${display} ${className} ${marginTop ? 'margin_top' : ''} ${marginBottom ? 'margin_bottom' : ''}`}>{parse(value)}</label>;
+    default:
+      return <p className={`text theme-${theme} ${size} ${weight} ${align} ${display} ${className} ${marginTop ? 'margin_top' : ''} ${marginBottom ? 'margin_bottom' : ''}`}>{parse(value)}</p>;
   }
-
-  return null;
 }
 
 Text.propTypes = {

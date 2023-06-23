@@ -5,22 +5,23 @@
 @import './base';
 
 // GLOBAL COMPONENTS
-@import './components/Button.scss';
-@import './components/Text.scss';
-@import './components/ComboBox.scss';
+@import './components/button';
+@import './components/text';
+@import './components/comboBox';
+@import './components/transition';
 
 // COMPONENTS
-@import './components/Header.scss';
-@import './components/ThemeSelector.scss';
-@import './components/Footer.scss';
-@import './components/Container.scss';
-@import './components/GameContainer.scss';
-@import './components/Countdown.scss';
-@import './components/Crono.scss';
-@import './components/Game.scss';
-@import './components/GameSelector.scss';
-@import './components/Keyboard.scss';
-@import './components/Operation.scss';
-@import './components/OperationsContainer.scss';
-@import './components/GameResults.scss';
-@import './components/Instructions.scss';
+@import './components/header';
+@import './components/themeSelector';
+@import './components/footer';
+@import './components/container';
+@import './components/gameContainer';
+@import './components/countdown';
+@import './components/crono';
+@import './components/game';
+@import './components/gameSelector';
+@import './components/keyboard';
+@import './components/operation';
+@import './components/operationsContainer';
+@import './components/gameResults';
+@import './components/instructions';
