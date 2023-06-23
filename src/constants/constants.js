@@ -10,4 +10,4 @@ export const APP_GAME_DIFFICULTIES = {
   DIFICIL: 'dificil',
 }
 
-export const NUM_OPERATIONS = 20;
+export const NUM_OPERATIONS = 25;

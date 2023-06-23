@@ -1,8 +1,10 @@
 .gameContainer {
-  position   : relative;
-  max-width  : $gameWidth;
-  padding-top: 30px;
-  max-height : calc(100% - 185px);
-  margin     : 0 auto;
-  z-index    : 1;
+  position        : relative;
+  max-width       : $gameWidth;
+  padding         : 30px;
+  max-height      : calc(100% - 185px);
+  margin          : 0 auto;
+  background-color: $color-solid;
+  border-radius   : 15px;
+  z-index         : 1;
 }

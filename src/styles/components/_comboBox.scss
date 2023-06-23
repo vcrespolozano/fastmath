@@ -10,9 +10,9 @@
     padding         : 0 15px;
     height          : 50px;
     line-height     : 48px;
-    border          : 2px solid $color-text;
-    background-color: $color--bg;
-    color           : $color-text;
+    border-radius   : 10px;
+    background-color: $color-main;
+    color           : $color-text-white;
     cursor          : pointer;
     text-align      : center;
     z-index         : 1;
@@ -29,20 +29,18 @@
 
     @media (hover: hover) {
       &:hover {
-        border-color    : $color-other;
-        background-color: $color-text;
-        color           : $color--bg;
+        background-color: $color-secondary;
       }
     }
   }
 
   &__combo {
     position        : absolute;
-    top             : 48px;
+    top             : 42px;
     left            : 0;
     right           : 0;
-    background-color: $color--bg;
-    border          : 2px solid $color-text;
+    background-color: $color-secondary;
+    border-radius   : 0 0 10px 10px;
     z-index         : 2;
     @include transition;
 
@@ -59,7 +57,7 @@
     &_option {
       display   : block;
       width     : 100%;
-      color     : $color-text;
+      color     : $color-text-white;
       padding   : 10px;
       cursor    : pointer;
       text-align: center;
@@ -67,8 +65,7 @@
 
       @media (hover: hover) {
         &:hover {
-          background-color: $color-text;
-          color           : $color--bg;
+          background-color: $color-main;
         }
       }
     }

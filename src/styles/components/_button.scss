@@ -5,9 +5,10 @@
   -webkit-appearance: none;
   -moz-appearance   : none;
   outline           : none;
-  color             : $color-text;
-  background-color  : transparent;
-  border            : 2px solid $color-text;
+  color             : $color-text-white;
+  background-color  : $color-main;
+  border            : none;
+  border-radius     : 10px;
   font-size         : 15px;
   cursor            : pointer;
   z-index           : 1;
@@ -15,16 +16,12 @@
 
   @media (hover: hover) {
     &:hover {
-      color           : $color--bg;
-      border-color    : $color-other;
-      background-color: $color-text;
+      background-color: $color-secondary;
     }
   }
 
   &.selected {
-    color           : $color--bg;
-    border-color    : $color-other;
-    background-color: $color-text;
+    background-color: $color-secondary;
   }
 
   &:focus {

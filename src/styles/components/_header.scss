@@ -22,25 +22,24 @@
   }
 
   &__showResults {
-    position  : absolute;
-    right     : 0;
-    top       : 0;
-    bottom    : 0;
-    margin    : auto 0;
-    width     : 50px;
-    height    : 50px;
-    color     : $color-text;
-    border    : 2px solid $color-text;
-    text-align: center;
-    z-index   : 1;
-    cursor    : pointer;
+    position        : absolute;
+    right           : 0;
+    top             : 0;
+    bottom          : 0;
+    margin          : auto 0;
+    width           : 50px;
+    height          : 50px;
+    background-color: $color-main;
+    color           : $color-text-white;
+    border-radius   : 10px;
+    text-align      : center;
+    z-index         : 1;
+    cursor          : pointer;
     @include transition;
 
     @media (hover: hover) {
       &:hover {
-        color           : $color--bg;
-        border-color    : $color-other;
-        background-color: $color-text;
+        background-color: $color-secondary;
       }
     }
 

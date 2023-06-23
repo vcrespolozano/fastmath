@@ -1,14 +1,10 @@
 .transition {
-  position                         : fixed;
-  left                             : 0;
-  right                            : 0;
-  top                              : 0;
-  bottom                           : 0;
-  animation-name                   : wink;
-  animation-duration               : 2s;
-  animation-timing-function        : linear;
-  -webkit-animation-timing-function: linear;
-  z-index                          : 11;
+  position: fixed;
+  left    : 0;
+  right   : 0;
+  top     : 0;
+  bottom  : 0;
+  z-index : 11;
 
   &_container {
     position                         : absolute;
@@ -60,11 +56,11 @@
 }
 
 @keyframes wink {
-  0%   {background-color: rgba(0, 0, 0, 0);}
-  25%  {background-color: rgba(0, 0, 0, 0.5);}
-  50%  {background-color: rgba(0, 0, 0, 1);}
-  75%  {background-color: rgba(0, 0, 0, 0.5);}
-  100% {background-color: rgba(0, 0, 0, 0);}
+  0%   {background-color: rgba(233, 233, 233, 0);}
+  25%  {background-color: rgba(233, 233, 233, 0.5);}
+  50%  {background-color: rgba(233, 233, 233, 1);}
+  75%  {background-color: rgba(233, 233, 233, 0.5);}
+  100% {background-color: rgba(233, 233, 233, 0);}
 }
 
 @keyframes inOut {

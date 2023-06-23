@@ -15,7 +15,7 @@
     background-color                 : $color--bg;
     max-width                        : $gameWidth;
     margin                           : 0 auto;
-    border                           : 2px solid $color-text;
+    border-radius                    : 10px;
     padding                          : 50px;
     transform                        : translateY(-50%);
     animation                        : popEnter;
@@ -30,9 +30,9 @@
       height          : 40px;
       text-align      : center;
       line-height     : 36px;
-      color           : $color-text;
-      border          : 2px solid $color-text;
-      background-color: $color--bg;
+      color           : $color-text-white;
+      border-radius   : 10px;
+      background-color: $color-main;
 
       &.cross {
         right : -20px;
@@ -42,9 +42,7 @@
 
         @media (hover: hover) {
           &:hover {
-            border-color    : $color-other;
-            background-color: $color-text;
-            color           : $color--bg;
+            background-color: $color-secondary;
           }
         }
       }
@@ -107,13 +105,17 @@
           top             : 0;
           bottom          : 0;
           width           : 3px;
-          background-color: $color-text;
+          background-color: $color-main;
           z-index         : 1;
         }
       }
       &_description {
         margin-bottom: 10px;
         line-height  : 24px;
+
+        strong {
+          color: $color-main;
+        }
       }
     }
   }
