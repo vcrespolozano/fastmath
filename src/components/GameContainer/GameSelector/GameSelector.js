@@ -1,13 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { GlobalContext } from '../../../contexts/GlobalContext';
 import { APP_GAME_MODES, APP_GAME_DIFFICULTIES } from '../../../constants/constants';
-import Button from '../../common/Button/Button';
+import Button, { BUTTON_ICONS, BUTTON_COLOR } from '../../common/Button/Button';
 import Text, {
   TEXT_SIZE,
   TEXT_WEIGHT,
   TEXT_KIND,
   TEXT_DISPLAY,
   TEXT_ALIGN,
+  TEXT_COLOR,
 } from '../../common/Text/Text';
 import ComboBox from '../../common/ComboBox/ComboBox';
 
@@ -28,12 +29,14 @@ const GameSelector = () => {
   const {
     setCountDownEnabled,
     setGameStarted,
-    setShowInstructions,
     mode,
     setMode,
     difficulty,
     setDifficulty,
     setTimeUsed,
+    setShowResults,
+    setShowInstructions,
+    windowSize,
   } = useContext(GlobalContext);
 
   const [modeSelected, setModeSelected] = useState(null);
@@ -65,21 +68,16 @@ const GameSelector = () => {
 
   return (
     <div className="gameSelector">
-      <Button
-        label="¿Qué es FastMath?"
-        width={220}
-        height={55}
-        onClick={() => setShowInstructions(true)}
-      />
       <div className="gameSelector__mode">
         <Text
-          value="Selecciona modo"
+          value="Modo"
           size={TEXT_SIZE.BIG}
           weight={TEXT_WEIGHT.MEDIUM}
           kind={TEXT_KIND.PARAGRAPH}
           display={TEXT_DISPLAY.BLOCK}
           align={TEXT_ALIGN.CENTER}
           className="gameSelector__title"
+          color={TEXT_COLOR.SECONDARY}
         />
         <ComboBox
           options={MODES_ARR}
@@ -87,17 +85,19 @@ const GameSelector = () => {
           id="combo_modes"
           className="gameSelector__mode_combo"
           indexSelected={modeSelected}
+          width={windowSize > 768 ? '280px' : '100%'}
         />
       </div>
       <div className="gameSelector__difficulty">
         <Text
-          value="Selecciona dificultad"
+          value="Dificultad"
           size={TEXT_SIZE.BIG}
           weight={TEXT_WEIGHT.MEDIUM}
           kind={TEXT_KIND.PARAGRAPH}
           display={TEXT_DISPLAY.BLOCK}
           align={TEXT_ALIGN.CENTER}
           className="gameSelector__title"
+          color={TEXT_COLOR.SECONDARY}
         />
         <ComboBox
           options={DIFFICULTIES_ARR}
@@ -105,15 +105,35 @@ const GameSelector = () => {
           id="combo_difficulties"
           className="gameSelector__difficulty_combo"
           indexSelected={difficultySelected}
+          width={windowSize > 768 ? '280px' : '100%'}
         />
       </div>
       <Button
         label="¡Jugar!"
-        width={200}
+        width={windowSize > 768 ? '280px' : '100%'}
         height={55}
         onClick={startGame}
         className="gameSelector__startButton"
+        color={BUTTON_COLOR.SECONDARY}
       />
+      <div className="gameSelector__otherButtons">
+        <Button
+          label="Ayuda"
+          width={windowSize > 768 ? '280px' : '100%'}
+          height={55}
+          onClick={() => setShowInstructions(true)}
+          className="gameSelector__otherButtons_button"
+          icon={BUTTON_ICONS.INFO}
+        />
+        <Button
+          label="Resultados"
+          width={windowSize > 768 ? '280px' : '100%'}
+          height={55}
+          onClick={() => setShowResults(true)}
+          className="gameSelector__otherButtons_button"
+          icon={BUTTON_ICONS.SCORES}
+        />
+      </div>
     </div>
   )
 }

@@ -34,6 +34,13 @@ const TEXT_ALIGN = {
   JUSTIFY: 'align_justify',
 }
 
+const TEXT_COLOR = {
+  MAIN: 'color_main',
+  SECONDARY: 'color_secondary',
+  BLACK: 'color_black',
+  WHITE: 'color_white',
+}
+
 const Text = ({
   align,
   className,
@@ -44,6 +51,7 @@ const Text = ({
   weight,
   marginTop,
   marginBottom,
+  color,
 }) => {
 
   if (!value) {
@@ -53,15 +61,15 @@ const Text = ({
 
   switch (kind) {
     case TEXT_KIND.PARAGRAPH:
-      return <p className={`text ${size} ${weight} ${align} ${display} ${className} ${marginTop ? 'margin_top' : ''} ${marginBottom ? 'margin_bottom' : ''}`}>{parse(value)}</p>;
+      return <p className={`text ${size} ${weight} ${align} ${display} ${className} ${marginTop ? 'margin_top' : ''} ${marginBottom ? 'margin_bottom' : ''} ${color}`}>{parse(value)}</p>;
     case TEXT_KIND.SPAN:
-      return <span className={`text ${size} ${weight} ${align} ${display} ${className} ${marginTop ? 'margin_top' : ''} ${marginBottom ? 'margin_bottom' : ''}`}>{parse(value)}</span>;
+      return <span className={`text ${size} ${weight} ${align} ${display} ${className} ${marginTop ? 'margin_top' : ''} ${marginBottom ? 'margin_bottom' : ''} ${color}`}>{parse(value)}</span>;
     case TEXT_KIND.DIV:
-      return <div className={`text ${size} ${weight} ${align} ${display} ${className} ${marginTop ? 'margin_top' : ''} ${marginBottom ? 'margin_bottom' : ''}`}>{parse(value)}</div>;
+      return <div className={`text ${size} ${weight} ${align} ${display} ${className} ${marginTop ? 'margin_top' : ''} ${marginBottom ? 'margin_bottom' : ''} ${color}`}>{parse(value)}</div>;
     case TEXT_KIND.LABEL:
-      return <label className={`text ${size} ${weight} ${align} ${display} ${className} ${marginTop ? 'margin_top' : ''} ${marginBottom ? 'margin_bottom' : ''}`}>{parse(value)}</label>;
+      return <label className={`text ${size} ${weight} ${align} ${display} ${className} ${marginTop ? 'margin_top' : ''} ${marginBottom ? 'margin_bottom' : ''} ${color}`}>{parse(value)}</label>;
     default:
-      return <p className={`text ${size} ${weight} ${align} ${display} ${className} ${marginTop ? 'margin_top' : ''} ${marginBottom ? 'margin_bottom' : ''}`}>{parse(value)}</p>;
+      return <p className={`text ${size} ${weight} ${align} ${display} ${className} ${marginTop ? 'margin_top' : ''} ${marginBottom ? 'margin_bottom' : ''} ${color}`}>{parse(value)}</p>;
   }
 }
 
@@ -73,6 +81,7 @@ Text.propTypes = {
   display: PropTypes.string,
   align: PropTypes.string,
   className: PropTypes.string,
+  color: PropTypes.string,
 }
 
 Text.defaultProps = {
@@ -82,7 +91,8 @@ Text.defaultProps = {
   display: TEXT_DISPLAY.BLOCK,
   align: TEXT_ALIGN.LEFT,
   className: '',
+  color: TEXT_COLOR.MAIN
 }
 
 export default Text;
-export { TEXT_SIZE, TEXT_WEIGHT, TEXT_KIND, TEXT_DISPLAY, TEXT_ALIGN };
+export { TEXT_SIZE, TEXT_WEIGHT, TEXT_KIND, TEXT_DISPLAY, TEXT_ALIGN, TEXT_COLOR };

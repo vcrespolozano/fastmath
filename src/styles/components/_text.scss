@@ -1,6 +1,6 @@
 .text {
   position: relative;
-  color   : $color-text;
+  color   : $color-text-black;
   z-index : 1;
 
   &.size_small {
@@ -10,10 +10,10 @@
     font-size: 14px;
   }
   &.size_big {
-    font-size: 20px;
+    font-size: 18px;
   }
   &.size_title {
-    font-size: 24px;
+    font-size: 22px;
   }
 
   &.weight_light {
@@ -54,6 +54,19 @@
   }
   &.margin_bottom {
     margin-bottom: 25px;
+  }
+
+  &.color_main {
+    color: $color-main;
+  }
+  &.color_secondary {
+    color: $color-secondary;
+  }
+  &.color_black {
+    color: $color-text-black;
+  }
+  &.color_white {
+    color: $color-text-white;
   }
 }
 

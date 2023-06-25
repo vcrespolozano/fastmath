@@ -13,8 +13,8 @@
     display    : block;
     width      : 60px;
     height     : 60px;
-    color      : $color-text;
-    border     : 2px solid $color-text;
+    color      : $color-main;
+    border     : 2px solid $color-secondary;
     line-height: 56px;
     font-size  : 28px;
     text-align : center;
@@ -23,9 +23,8 @@
 
     @media (hover: hover) {
       &:hover {
-        color           : $color--bg;
-        border-color    : $color-other;
-        background-color: $color-text;
+        color           : $color-text-white;
+        background-color: $color-main;
       }
     }
   }

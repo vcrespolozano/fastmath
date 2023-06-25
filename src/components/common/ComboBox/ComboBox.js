@@ -3,7 +3,7 @@ import { FiChevronDown } from 'react-icons/fi';
 import PropTypes from 'prop-types';
 import { GlobalContext } from '../../../contexts/GlobalContext';
 
-const ComboBox = ({options, indexSelected, handleSelect, className, id}) => {
+const ComboBox = ({options, indexSelected, handleSelect, className, id, width}) => {
 
   const { openedComboBoxId, setOpenedComboBoxId } = useContext(GlobalContext);
 
@@ -42,7 +42,10 @@ const ComboBox = ({options, indexSelected, handleSelect, className, id}) => {
   }
 
   return (
-    <div className={`comboBox ${className || ''}`}>
+    <div
+      className={`comboBox ${className || ''}`}
+      style={{ width: `${width}` }}
+    >
       {selectedOption && (
         <div className="comboBox__selectedOption" onClick={openCombo}>{selectedOption.label} <FiChevronDown size="20px" /></div>
       )}

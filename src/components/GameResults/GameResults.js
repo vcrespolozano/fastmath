@@ -40,6 +40,7 @@ export const GameResults = () => {
     setOperationsSolved,
     setTimeUsed,
     setShowResults,
+    windowSize,
   } = useContext(GlobalContext);
 
   const [scores, setScores] = useState(null);
@@ -236,7 +237,7 @@ export const GameResults = () => {
       </div>
       <Button
         label="Volver"
-        width={200}
+        width={windowSize > 768 ? '200px' : '100%'}
         height={55}
         onClick={back}
       />

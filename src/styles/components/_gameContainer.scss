@@ -1,10 +1,23 @@
 .gameContainer {
-  position        : relative;
+  position        : absolute;
+  left            : 0;
+  right           : 0;
+  top             : 50%;
+  transform       : translateY(-50%);
   max-width       : $gameWidth;
-  padding         : 30px;
+  padding         : 50px;
   max-height      : calc(100% - 185px);
   margin          : 0 auto;
   background-color: $color-solid;
+  border-top      : 1px solid $color-main;
+  border-bottom   : 1px solid $color-main;
   border-radius   : 15px;
   z-index         : 1;
+}
+
+@include tablet {
+  .gameContainer {
+    width  : 95%;
+    padding: 25px;
+  }
 }

@@ -1,5 +1,9 @@
 .button {
-  display           : inline-block;
+  display           : flex;
+  align-items       : center;
+  justify-content   : center;
+  flex-wrap         : wrap;
+  gap               : 8px;
   position          : relative;
   appearance        : none;
   -webkit-appearance: none;
@@ -14,10 +18,26 @@
   z-index           : 1;
   @include transition;
 
+  &.color_main {
+    background-color: $color-main;
+  }
+  &.color_secondary {
+    background-color: $color-secondary;
+  }
+
   @media (hover: hover) {
-    &:hover {
+    &.color_main:hover {
       background-color: $color-secondary;
     }
+    &.color_secondary:hover {
+      background-color: $color-main;
+    }
+  }
+
+  &__icon {
+    display: inline-block;
+    width  : 24px;
+    height : 24px;
   }
 
   &.selected {

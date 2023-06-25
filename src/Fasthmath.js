@@ -21,9 +21,29 @@ function Fastmath() {
   const [transition, setTransition] = useState(false);
   const [transitionOver, setTransitionOver] = useState(false);
 
+  const closeOpenedElements = (event) => {
+    var target = event.target;
+    var classList = [];
+
+    while (target) {
+      if (target.classList) {
+        classList = classList.concat(Array.from(target.classList));
+      }
+      target = target.parentNode;
+    }
+
+    if (classList.length > 0) {
+      // Controlo para cerrar los comboBox
+      if (classList.indexOf('comboBox') === -1) {
+        setOpenedComboBoxId(null);
+      }
+    }
+  }
+
   useEffect(() => {
     const handleResize = () => setWindowSize(window.innerWidth);
     window.addEventListener('resize', handleResize);
+    document.addEventListener('click', closeOpenedElements);
     return () => {
       window.removeEventListener('resize', handleResize);
     };

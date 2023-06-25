@@ -12,6 +12,7 @@ const Game = ({
 
   const {
     mode,
+    windowSize,
   } = useContext(GlobalContext);
 
   return (
@@ -27,7 +28,7 @@ const Game = ({
       )}
       <Button
         label="Salir"
-        width={200}
+        width={windowSize > 768 ? '280px' : '100%'}
         height={55}
         onClick={resetFunction}
       />

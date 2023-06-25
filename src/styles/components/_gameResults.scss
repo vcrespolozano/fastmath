@@ -72,12 +72,12 @@
           justify-content: center;
           align-items    : flex-start;
           font-size      : 14px;
-          color          : $color-text;
+          color          : $color-text-black;
           gap            : 5px;
         }
 
         &.current {
-          background-color: $color-text;
+          background-color: $color-main;
     
           .score_info {
             color: $color--bg;

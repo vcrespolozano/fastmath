@@ -9,12 +9,16 @@
     width           : 100%;
     padding         : 0 15px;
     height          : 50px;
+    font-size       : 15px;
     line-height     : 48px;
     border-radius   : 10px;
     background-color: $color-main;
     color           : $color-text-white;
     cursor          : pointer;
     text-align      : center;
+    white-space     : nowrap;
+    text-overflow   : ellipsis;
+    overflow        : hidden;
     z-index         : 1;
     @include transition;
 
@@ -40,8 +44,11 @@
     left            : 0;
     right           : 0;
     background-color: $color-secondary;
+    border-top      : 1px solid $color-solid;
+    border-bottom   : 1px solid $color-solid;
     border-radius   : 0 0 10px 10px;
     z-index         : 2;
+    overflow        : hidden;
     @include transition;
 
     &.hidden {

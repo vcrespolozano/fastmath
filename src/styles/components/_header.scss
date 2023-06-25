@@ -21,30 +21,40 @@
     @include transition;
   }
 
-  &__showResults {
-    position        : absolute;
-    right           : 0;
-    top             : 0;
-    bottom          : 0;
-    margin          : auto 0;
-    width           : 50px;
-    height          : 50px;
-    background-color: $color-main;
-    color           : $color-text-white;
-    border-radius   : 10px;
-    text-align      : center;
-    z-index         : 1;
-    cursor          : pointer;
-    @include transition;
+  &__options {
+    position       : absolute;
+    display        : flex;
+    align-items    : center;
+    justify-content: space-between;
+    right          : 0;
+    top            : 0;
+    bottom         : 0;
+    border-radius  : 10px;
+    width          : 110px;
+    height         : 50px;
+    margin         : auto 0;
+    z-index        : 1;
 
-    @media (hover: hover) {
-      &:hover {
-        background-color: $color-secondary;
+    &_option {
+      display         : block;
+      width           : 50px;
+      height          : 50px;
+      background-color: $color-main;
+      color           : $color-text-white;
+      border-radius   : 10px;
+      text-align      : center;
+      cursor          : pointer;
+      @include transition;
+  
+      @media (hover: hover) {
+        &:hover {
+          background-color: $color-secondary;
+        }
       }
-    }
-
-    svg {
-      height: 100%;
+  
+      svg {
+        height: 100%;
+      }
     }
   }
 }
@@ -56,18 +66,14 @@
  
     &__logo {
       margin: 0 auto;
-      width : 248px;
-      height: 55px;
     }
 
-    &__showResults {
+    &__options {
       position: fixed;
       right   : 0;
       top     : 0;
       bottom  : auto;
       margin  : 0;
-      width   : 40px;
-      height  : 40px;
     }
   }
 }
