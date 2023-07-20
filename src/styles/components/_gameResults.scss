@@ -5,24 +5,23 @@
   z-index  : 1;
 
   &__historic {
-    position        : relative;
-    display         : flex;
-    flex-direction  : column;
-    align-items     : center;
-    background-color: $color-solid;
-    border-radius   : 10px;
-    z-index         : 1;
+    position      : relative;
+    display       : flex;
+    flex-direction: column;
+    align-items   : center;
+    gap           : 10px;
+    z-index       : 1;
 
     &_tabs {
       display       : flex;
       width         : 100%;
-      border-radius : 10px 10px 0 0;
+      border-radius : 10px;
       overflow      : hidden;
       flex-direction: row;
 
       &_tab {
         display         : block;
-        padding         : 10px;
+        padding         : 20px;
         width           : 33.334%;
         color           : $color-text-white;
         background-color: $color-secondary;
@@ -40,40 +39,70 @@
     }
 
     &_scores {
-      position    : relative;
-      width       : 100%;
-      max-height  : 520px;
-      overflow-y  : auto;
-      z-index     : 1;
+      position  : relative;
+      width     : 100%;
+      max-height: 520px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      z-index   : 1;
 
       &::-webkit-scrollbar-thumb {
-        background: $color-main;
+        border-radius: 4px;
+        background   : $color-main;
       }
       &::-webkit-scrollbar {
-        width: 2px;
+        width: 4px;
       }
       &::-webkit-scrollbar-track {
-        background: lighten($color--bg, 5%);
+        background: $color--bg;
       }
 
       &_row {
         display         : flex;
-        justify-content : space-around;
-        gap             : 10px;
-        padding         : 10px 20px;
-        background-color: $color--bg;
+        justify-content : space-between;
+        border-radius   : 10px;
+        background-color: darken($color--bg, 5);
+        margin-bottom   : 8px;
 
         &:nth-child(2n) {
-          background-color: darken($color--bg, 8);
+          background-color: darken($color--bg, 10);
+        }
+
+        &:last-child {
+          margin-bottom: 0;
         }
 
         .score_info {
+          position       : relative;
           display        : flex;
+          flex           : 1;
           justify-content: center;
-          align-items    : flex-start;
+          align-items    : center;
           font-size      : 14px;
+          padding        : 20px;
           color          : $color-text-black;
-          gap            : 5px;
+          gap            : 10px;
+
+          &:after {
+            content         : '';
+            width           : 1px;
+            position        : absolute;
+            top             : 10px;
+            bottom          : 10px;
+            right           : 0;
+            background-color: darken($color--bg, 20);
+            z-index         : 1;
+          }
+
+          &:last-child {
+            &:after {
+              display: none;
+            }
+          }
+
+          svg {
+            color: $color-main;
+          }
         }
 
         &.current {
@@ -81,6 +110,10 @@
     
           .score_info {
             color: $color--bg;
+
+            svg {
+              color: $color--bg;
+            }
           }
         }
 
@@ -105,10 +138,43 @@
         border-width: 2px;
         &_tab {
           font-size: 14px;
+          padding  : 15px 10px;
         }
       }
       &_scores {
         max-height: 440px;
+
+        &_row {
+          .score_info {
+            padding: 15px 10px;
+
+            &.hide_mobile {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-height: 790px) {
+  .gameResults {
+    &__historic {
+      &_scores {
+        max-height: 380px;
+      }
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .gameResults {
+    &__historic {
+      &_tabs {
+        &_tab {
+          font-size: 13px;
+        }
       }
     }
   }

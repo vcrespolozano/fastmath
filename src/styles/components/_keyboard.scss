@@ -10,15 +10,16 @@
   z-index        : 1;
 
   &__key {
-    display    : block;
-    width      : 60px;
-    height     : 60px;
-    color      : $color-main;
-    border     : 2px solid $color-secondary;
-    line-height: 56px;
-    font-size  : 28px;
-    text-align : center;
-    cursor     : pointer;
+    display      : block;
+    width        : 60px;
+    height       : 60px;
+    color        : $color-main;
+    border       : 2px solid $color-secondary;
+    line-height  : 56px;
+    font-size    : 28px;
+    text-align   : center;
+    cursor       : pointer;
+    border-radius: 10px;
     @include transition;
 
     @media (hover: hover) {

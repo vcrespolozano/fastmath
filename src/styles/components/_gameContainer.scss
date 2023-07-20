@@ -17,7 +17,10 @@
 
 @include tablet {
   .gameContainer {
-    width  : 95%;
-    padding: 25px;
+    width     : 95%;
+    padding   : 25px 15px;
+    top       : 145px;
+    transform : none;
+    max-height: none;
   }
 }

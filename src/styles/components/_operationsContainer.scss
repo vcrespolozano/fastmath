@@ -22,3 +22,10 @@
     z-index   : 2;
   }
 }
+
+@include tablet {
+  .operationsContainer {
+    height    : 180px;
+    margin-top: 0;
+  }
+}

@@ -119,16 +119,16 @@ const GameSelector = () => {
       <div className="gameSelector__otherButtons">
         <Button
           label="Ayuda"
-          width={windowSize > 768 ? '280px' : '100%'}
-          height={55}
+          width={windowSize > 768 ? '280px' : '48%'}
+          height={windowSize > 768 ? 55 : 45}
           onClick={() => setShowInstructions(true)}
           className="gameSelector__otherButtons_button"
           icon={BUTTON_ICONS.INFO}
         />
         <Button
           label="Resultados"
-          width={windowSize > 768 ? '280px' : '100%'}
-          height={55}
+          width={windowSize > 768 ? '280px' : '48%'}
+          height={windowSize > 768 ? 55 : 45}
           onClick={() => setShowResults(true)}
           className="gameSelector__otherButtons_button"
           icon={BUTTON_ICONS.SCORES}

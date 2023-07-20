@@ -49,7 +49,7 @@ Button.propTypes = {
   label: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
   className: PropTypes.string,
-  width: PropTypes.number,
+  width: PropTypes.string,
   height: PropTypes.number,
   color: PropTypes.string,
   icon: PropTypes.string,
@@ -57,7 +57,7 @@ Button.propTypes = {
 
 Button.defaultProps = {
   className: '',
-  width: 160,
+  width: '160px',
   height: 90,
   color: BUTTON_COLOR.MAIN,
   icon: null,

@@ -208,12 +208,13 @@ export const GameResults = () => {
         </div>
         <div className="gameResults__historic_scores">
           {showingScoresArr && showingScoresArr.length > 0 && showingScoresArr.map((scoreRow, index) => {
+            const animate_style = index % 2 === 0 ? 'animate__fadeInLeft' : 'animate__fadeInRight';
             return (
-              <div key={`result-${index}`} className={`gameResults__historic_scores_row ${scoreRow.id === resultId ? 'current' : ''}`}>
+              <div key={`result-${showingScores}-${index}`} className={`gameResults__historic_scores_row animate__animated ${animate_style} ${scoreRow.id === resultId ? 'current' : ''}`}>
                 <span className="score_info"><BsSpeedometer2 size={20} />{getDifficultyLabel(scoreRow.difficulty)}</span>
                 <span className="score_info"><AiOutlineCheck size={20} />{scoreRow.rightAnswers}</span>
                 {showingScores !== APP_GAME_MODES.SIN_FALLOS && (
-                    <span className="score_info"><RxCross1 size={20} />{scoreRow.wrongAnswers}</span>
+                    <span className="score_info hide_mobile"><RxCross1 size={20} />{scoreRow.wrongAnswers}</span>
                 )}
                 {showingScores === APP_GAME_MODES.CLASSIC && (
                   <span className="score_info"><BiTimeFive size={20} />{scoreRow.time}</span>
