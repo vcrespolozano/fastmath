@@ -21,7 +21,7 @@ const Container = () => {
   } = useContext(GlobalContext);
 
   useEffect(() => {
-    if (!transition) {
+    if (!transition && showResults) {
       setTransitionOver(false);
       setTransition(true);
     }

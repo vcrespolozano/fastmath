@@ -45,7 +45,7 @@ const Classic = () => {
           default:
             break;
         }
-        auxOperations.push(randomMathOperation(maxDigits1, maxDigits2));
+        auxOperations.push(randomMathOperation(maxDigits1, maxDigits2, null));
       }
       setOperations(auxOperations);
     }

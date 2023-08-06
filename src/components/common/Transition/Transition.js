@@ -1,13 +1,6 @@
-import { useState, useEffect, useContext } from 'react';
+import { useEffect, useContext } from 'react';
+import { FaPlus, FaMinus, FaTimes, FaDivide } from 'react-icons/fa';
 import { GlobalContext } from '../../../contexts/GlobalContext';
-import Text, {
-  TEXT_SIZE,
-  TEXT_WEIGHT,
-  TEXT_KIND,
-  TEXT_DISPLAY,
-  TEXT_ALIGN,
-  TEXT_COLOR,
-} from '../../common/Text/Text';
 
 const Transition = () => {
 
@@ -16,48 +9,20 @@ const Transition = () => {
     setTransitionOver,
   } = useContext(GlobalContext);
 
-  const [loaderPercent, setLoaderPercent] = useState(0);
-
   useEffect(() => {
-    const loaderInterval = setInterval(() => {
-      if (loaderPercent < 100) {
-        setLoaderPercent(prevLoaderPercent => {
-          if (prevLoaderPercent < 100) {
-            return prevLoaderPercent + 1;
-          } else {
-            clearInterval(loaderInterval);
-            return prevLoaderPercent;
-          }
-        });
-      }
-    }, 10);
-
-    return () => {
-      clearInterval(loaderInterval);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (loaderPercent === 100) {
+    setTimeout(() => {
       setTransition(false);
       setTransitionOver(true);
-    }
-  }, [loaderPercent, setTransition, setTransitionOver]);
+    }, 2000);
+  }, [setTransition, setTransitionOver]);
 
   return (
     <div className="transition">
-      <div className="transition_line">
-        <span className="transition_line_fill" style={{ width: `${loaderPercent}%` }} />
-        <Text
-          value={`${loaderPercent}%`}
-          size={TEXT_SIZE.NORMAL}
-          weight={TEXT_WEIGHT.MEDIUM}
-          kind={TEXT_KIND.SPAN}
-          display={TEXT_DISPLAY.BLOCK}
-          align={TEXT_ALIGN.CENTER}
-          className="transition_line_percent"
-          color={TEXT_COLOR.SECONDARY}
-        />
+      <div className="transition__circle">
+        <span className="transition__circle_icon animate__animated animate__heartBeat"><FaTimes size="55px" /></span>
+        <span className="transition__circle_icon animate__animated animate__heartBeat animate__delay-500ms"><FaPlus size="55px" /></span>
+        <span className="transition__circle_icon animate__animated animate__heartBeat animate__delay-1s"><FaMinus size="55px" /></span>
+        <span className="transition__circle_icon animate__animated animate__heartBeat animate__delay-1500ms"><FaDivide size="55px" /></span>
       </div>
     </div>
   )

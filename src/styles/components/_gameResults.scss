@@ -120,6 +120,10 @@
         &:last-child {
           border-bottom: none;
         }
+
+        &.noResult {
+          padding: 20px;
+        }
       }
     }
   }

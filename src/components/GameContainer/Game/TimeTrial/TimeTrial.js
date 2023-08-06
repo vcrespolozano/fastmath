@@ -52,7 +52,7 @@ const TimeTrial = () => {
 
   useEffect(() => {
     if (operationsSolved.length === 0 && !currentOperation && maxDigits1 > 0 && maxDigits2 > 0) {
-      const firstOperation = randomMathOperation(maxDigits1, maxDigits2);
+      const firstOperation = randomMathOperation(maxDigits1, maxDigits2, null);
       setCurrentOperation(firstOperation);
       setCurrentOperationIndex(0);
       const auxSolvedOperations = [firstOperation];
@@ -70,7 +70,7 @@ const TimeTrial = () => {
       auxSolvedOperations[auxCurrentOperationIndex] = auxCurrentOperation;
       // Preparo la siguiente operación
       if (maxDigits1 && maxDigits2) {
-        const newOperation = randomMathOperation(maxDigits1, maxDigits2);
+        const newOperation = randomMathOperation(maxDigits1, maxDigits2, null);
         setOperationsSolved([
           ...auxSolvedOperations,
           newOperation,

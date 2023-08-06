@@ -223,7 +223,7 @@ export const GameResults = () => {
             )
           })}
           {(!showingScoresArr || showingScoresArr.length === 0) && (
-            <div className="gameResults__historic_scores_row">
+            <div className="gameResults__historic_scores_row noResult">
               <Text
                 value="Todavía no has jugado en este modo"
                 size={TEXT_SIZE.NORMAL}
