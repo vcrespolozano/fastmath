@@ -24,6 +24,6 @@ export const GlobalContext = createContext({
   windowSize: null,
   transition: false,
   setTransition: (transition) => {},
-  transitionOver: false,
+  transitionOver: true,
   setTransitionOver: (transitionOver) => {},
 });

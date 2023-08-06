@@ -19,7 +19,7 @@ function Fastmath() {
   const [openedComboBoxId, setOpenedComboBoxId] = useState(null);
   const [windowSize, setWindowSize] = useState(window.innerWidth);
   const [transition, setTransition] = useState(false);
-  const [transitionOver, setTransitionOver] = useState(false);
+  const [transitionOver, setTransitionOver] = useState(true);
 
   const closeOpenedElements = (event) => {
     var target = event.target;
