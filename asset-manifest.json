@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/fastmath/static/css/main.75d61ccc.css",
-    "main.js": "/fastmath/static/js/main.024d4e0f.js",
+    "main.css": "/fastmath/static/css/main.a69665b5.css",
+    "main.js": "/fastmath/static/js/main.9db36f08.js",
     "static/media/Unbounded-Medium.ttf": "/fastmath/static/media/Unbounded-Medium.dfeb2212862fe279c770.ttf",
     "static/media/Unbounded-Light.ttf": "/fastmath/static/media/Unbounded-Light.e3a3b80220c351c823ee.ttf",
     "static/media/Unbounded-Regular.ttf": "/fastmath/static/media/Unbounded-Regular.d2a446434fd598e4bb22.ttf",
     "index.html": "/fastmath/index.html",
-    "main.75d61ccc.css.map": "/fastmath/static/css/main.75d61ccc.css.map",
-    "main.024d4e0f.js.map": "/fastmath/static/js/main.024d4e0f.js.map"
+    "main.a69665b5.css.map": "/fastmath/static/css/main.a69665b5.css.map",
+    "main.9db36f08.js.map": "/fastmath/static/js/main.9db36f08.js.map"
   },
   "entrypoints": [
-    "static/css/main.75d61ccc.css",
-    "static/js/main.024d4e0f.js"
+    "static/css/main.a69665b5.css",
+    "static/js/main.9db36f08.js"
   ]
 }
