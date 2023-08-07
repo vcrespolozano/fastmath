@@ -2,6 +2,7 @@ export const APP_GAME_MODES = {
   CLASSIC: 'clasico',
   CONTRARELOJ: 'contrareloj',
   SIN_FALLOS: 'sin_fallos',
+  CADENA: 'cadena',
 }
 
 export const APP_GAME_DIFFICULTIES = {

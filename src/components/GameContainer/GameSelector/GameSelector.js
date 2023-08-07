@@ -16,6 +16,7 @@ const MODES_ARR = [
   {key: APP_GAME_MODES.CLASSIC, label: 'Clásico'},
   {key: APP_GAME_MODES.CONTRARELOJ, label: 'Contrarreloj'},
   {key: APP_GAME_MODES.SIN_FALLOS, label: 'Sin fallos'},
+  {key: APP_GAME_MODES.CADENA, label: 'Cadena'},
 ]
 
 const DIFFICULTIES_ARR = [

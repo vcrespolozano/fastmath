@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useContext } from 'react';
+import { GlobalContext } from '../../../../contexts/GlobalContext';
 
 const Operation = ({
   op1,
@@ -9,18 +10,16 @@ const Operation = ({
   last
 }) => {
 
-  const [operationClass, setOperationClass] = useState(null);
+  const { setAnswerLight } = useContext(GlobalContext);
 
   useEffect(() => {
-    let auxClass = `operation ${last ? 'animate__animated animate__slideInUp' : ''}`;
     if (operatorSent && operator) {
-      auxClass += operator === operatorSent ? ' solved-right' : ' solved-wrong';
+      setAnswerLight(operator === operatorSent ? 'OK' : 'KO');
     }
-    setOperationClass(auxClass);
-  }, [last, operator, operatorSent]);
+  }, [operator, operatorSent]);
 
   return (
-    <div className={operationClass}>
+    <div className={`operation ${last ? 'animate__animated animate__slideInUp' : ''}`}>
       <span className="operation__number">{op1}</span>
       <span className="operation__operator">{operatorSent || '?'}</span>
       <span className="operation__number">{op2}</span>

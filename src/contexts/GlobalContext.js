@@ -1,29 +1,3 @@
 import { createContext } from 'react';
 
-export const GlobalContext = createContext({
-  countDownEnabled: false,
-  setCountDownEnabled: (countDownEnabled) => {},
-  mode: null,
-  setMode: (mode) => {},
-  difficulty: null,
-  setDifficulty: (difficulty) => {},
-  gameStarted: false,
-  setGameStarted: (gameStarted) => {},
-  gameEnded: false,
-  setGameEnded: (gameEnded) => {},
-  showInstructions: false,
-  setShowInstructions: (showInstructions) => {},
-  operationsSolved: [],
-  setOperationsSolved: (operationsSolved) => {},
-  timeUsed: 0,
-  setTimeUsed: (timeUsed) => {},
-  showResults: false,
-  setShowResults: (showResults) => {},
-  openedComboBoxId: null,
-  setOpenedComboBoxId: (openedComboBoxId) => {},
-  windowSize: null,
-  transition: false,
-  setTransition: (transition) => {},
-  transitionOver: true,
-  setTransitionOver: (transitionOver) => {},
-});
+export const GlobalContext = createContext();

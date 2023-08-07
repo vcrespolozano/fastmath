@@ -24,6 +24,7 @@ const MODE_LABELS = {
   CLASICO: 'Clásico',
   CONTRARELOJ: 'Contrarreloj',
   SIN_FALLOS: 'Sin fallos',
+  CADENA: 'Cadena',
 }
 
 export const GameResults = () => {
@@ -56,7 +57,8 @@ export const GameResults = () => {
     let auxScores = {
       clasico: [],
       contrarreloj: [],
-      sinFallos: []
+      sinFallos: [],
+      cadena: [],
     }
     if (currentScores) {
       const currentScoresParsed = JSON.parse(currentScores);
@@ -69,6 +71,8 @@ export const GameResults = () => {
             auxScores.contrarreloj.push(itemResult);
           } else if (itemResult.mode === APP_GAME_MODES.SIN_FALLOS) {
             auxScores.sinFallos.push(itemResult);
+          } else if (itemResult.mode === APP_GAME_MODES.CADENA) {
+            auxScores.cadena.push(itemResult);
           }
         });
       }
@@ -86,6 +90,9 @@ export const GameResults = () => {
       } else if (mode === APP_GAME_MODES.SIN_FALLOS) {
         auxShowingScores = APP_GAME_MODES.SIN_FALLOS;
         auxShowingScoresArr = scores.sinFallos;
+      } else if (mode === APP_GAME_MODES.CADENA) {
+        auxShowingScores = APP_GAME_MODES.CADENA;
+        auxShowingScoresArr = scores.cadena;
       }
       setShowingScores(auxShowingScores);
       setShowingScoresArr(auxShowingScoresArr);
@@ -99,6 +106,8 @@ export const GameResults = () => {
         auxShowingScoresArr = scores.contrarreloj;
       } else if (showingScores === APP_GAME_MODES.SIN_FALLOS) {
         auxShowingScoresArr = scores.sinFallos;
+      } else if (showingScores === APP_GAME_MODES.CADENA) {
+        auxShowingScoresArr = scores.cadena;
       }
       setShowingScoresArr(auxShowingScoresArr);
     }
@@ -170,6 +179,8 @@ export const GameResults = () => {
         auxScores.contrarreloj.push(newResult);
       } else if (mode === APP_GAME_MODES.SIN_FALLOS) {
         auxScores.sinFallos.push(newResult);
+      } else if (mode === APP_GAME_MODES.CADENA) {
+        auxScores.cadena.push(newResult);
       }
       setScoreSaved(true);
       setResultId(auxResultId);
@@ -205,6 +216,7 @@ export const GameResults = () => {
           <span className={`gameResults__historic_tabs_tab ${showingScores === APP_GAME_MODES.CLASSIC ? 'on' : ''}`} onClick={() => switchScoresMode(APP_GAME_MODES.CLASSIC)}>{MODE_LABELS.CLASICO}</span>
           <span className={`gameResults__historic_tabs_tab ${showingScores === APP_GAME_MODES.CONTRARELOJ ? 'on' : ''}`} onClick={() => switchScoresMode(APP_GAME_MODES.CONTRARELOJ)}>{MODE_LABELS.CONTRARELOJ}</span>
           <span className={`gameResults__historic_tabs_tab ${showingScores === APP_GAME_MODES.SIN_FALLOS ? 'on' : ''}`} onClick={() => switchScoresMode(APP_GAME_MODES.SIN_FALLOS)}>{MODE_LABELS.SIN_FALLOS}</span>
+          <span className={`gameResults__historic_tabs_tab ${showingScores === APP_GAME_MODES.CADENA ? 'on' : ''}`} onClick={() => switchScoresMode(APP_GAME_MODES.CADENA)}>{MODE_LABELS.CADENA}</span>
         </div>
         <div className="gameResults__historic_scores">
           {showingScoresArr && showingScoresArr.length > 0 && showingScoresArr.map((scoreRow, index) => {
@@ -216,7 +228,7 @@ export const GameResults = () => {
                 {showingScores !== APP_GAME_MODES.SIN_FALLOS && (
                     <span className="score_info hide_mobile"><RxCross1 size={20} />{scoreRow.wrongAnswers}</span>
                 )}
-                {showingScores === APP_GAME_MODES.CLASSIC && (
+                {(showingScores === APP_GAME_MODES.CLASSIC || showingScores === APP_GAME_MODES.CADENA) && (
                   <span className="score_info"><BiTimeFive size={20} />{scoreRow.time}</span>
                 )}
               </div>

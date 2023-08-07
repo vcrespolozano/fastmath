@@ -4,4 +4,37 @@
   align-items   : center;
   position      : relative;
   z-index       : 1;
+
+  &__answerLight {
+    position      : absolute;
+    right         : -50px;
+    left          : -50px;
+    top           : -50px;
+    bottom        : -50px;
+    opacity       : 0;
+    pointer-events: none;
+    background    : transparent;
+    z-index       : 1;
+    @include transition(200ms);
+
+    &.OK {
+      background: rgba(0, 211, 123, 0.10);
+      opacity: 1;
+    }
+    &.KO {
+      background: rgba(255, 39, 39, 0.10);
+      opacity: 1;
+    }
+  }
+}
+
+@include tablet {
+  .game {
+    &__answerLight {
+      right : -15px;
+      left  : -15px;
+      top   : -25px;
+      bottom: -25px;
+    }
+  }
 }

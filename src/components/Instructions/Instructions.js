@@ -112,6 +112,16 @@ const Instructions = () => {
               className="instructions__content_description"
               color={TEXT_COLOR.SECONDARY}
             />
+            <Text
+              value={instructionsData.gameModes.cadena}
+              size={TEXT_SIZE.NORMAL}
+              weight={TEXT_WEIGHT.REGULAR}
+              kind={TEXT_KIND.PARAGRAPH}
+              display={TEXT_DISPLAY.BLOCK}
+              align={TEXT_ALIGN.JUSTIFY}
+              className="instructions__content_description"
+              color={TEXT_COLOR.SECONDARY}
+            />
           </div>
           <div className="instructions__content_textBlock">
             <Text

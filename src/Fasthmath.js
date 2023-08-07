@@ -20,6 +20,7 @@ function Fastmath() {
   const [windowSize, setWindowSize] = useState(window.innerWidth);
   const [transition, setTransition] = useState(false);
   const [transitionOver, setTransitionOver] = useState(true);
+  const [answerLight, setAnswerLight] = useState(null);
 
   const closeOpenedElements = (event) => {
     var target = event.target;
@@ -75,6 +76,8 @@ function Fastmath() {
     setTransition,
     transitionOver,
     setTransitionOver,
+    answerLight,
+    setAnswerLight,
   }
 
   return (
