@@ -3,7 +3,7 @@ import { GlobalContext } from '../../../../contexts/GlobalContext';
 import OperationsContainer from '../OperationsContainer/OperationsContainer';
 import Keyboard from '../Keyboard/Keyboard';
 import Crono from '../Crono/Crono';
-import { randomMathOperation, getRandomNumber } from '../../../../handlers/maths';
+import { randomMathOperation, randomMathOperationChain, getRandomNumber } from '../../../../handlers/maths';
 import { NUM_OPERATIONS, APP_GAME_DIFFICULTIES } from '../../../../constants/constants';
 
 const Chain = () => {
@@ -46,7 +46,12 @@ const Chain = () => {
           default:
             break;
         }
-        const generatedOperation = randomMathOperation(maxDigits1, maxDigits2, null, lastResult);
+        let generatedOperation = {};
+        if (o === 0) {
+          generatedOperation = randomMathOperation(maxDigits1, maxDigits2, null);
+        } else if (lastResult) {
+          generatedOperation = randomMathOperationChain(maxDigits1, maxDigits2, null, lastResult);
+        }
         lastResult = generatedOperation.result;
         auxOperations.push(generatedOperation);
       }
