@@ -104,19 +104,9 @@ export const randomMathOperationChain = (numOfDigits1, numOfDigits2, forcedOpera
   }
 
   const forcedIncreaseOperation = Math.random() < 0.5 ? 0 : 2;
-  const forcedDecreaseOperation = Math.random() < 0.5 ? 1 : 3;
   // Evitamos que el si el num1 es 1 y la operación una resta o división, se haga suma o multiplicación
   if ((operation === 1 || operation === 3) && num1 === 1) {
     operation = forcedIncreaseOperation;
-  }
-  // Regulamos la dificultad
-  const num1Length = num1.toString().length;
-  if (
-    (difficulty === APP_GAME_DIFFICULTIES.FACIL && num1Length > 2)
-    || (difficulty === APP_GAME_DIFFICULTIES.NORMAL && num1Length > 3)
-    || (difficulty === APP_GAME_DIFFICULTIES.DIFICIL && num1Length > 5)
-  ) {
-    operation = forcedDecreaseOperation;
   }
 
   const returnObj = {
@@ -158,6 +148,20 @@ export const randomMathOperationChain = (numOfDigits1, numOfDigits2, forcedOpera
     default:
       break;
   }
+
+  // Regulamos las operaciones en base a la dificultad
+  const controlOperators = [0, 1, 3]; // Dejamos fuera la multiplicación para que no descontrole la cadena con números grandes
+  const controlOperatorRandomIndex = Math.floor(Math.random() * 3);
+  const forcedControlOperation = controlOperators[controlOperatorRandomIndex];
+  const resultLength = returnObj.result.toString().length;
+  if (
+    (difficulty === APP_GAME_DIFFICULTIES.FACIL && resultLength > 2)
+    || (difficulty === APP_GAME_DIFFICULTIES.NORMAL && resultLength > 3)
+    || (difficulty === APP_GAME_DIFFICULTIES.DIFICIL && resultLength > 5)
+  ) {
+    return randomMathOperationChain(numOfDigits1, numOfDigits2, forcedControlOperation, firstNumber, difficulty);
+  }
+
   // Para evitar operaciones con más de un operador posible
   if (hasInverseOperation(returnObj.result, returnObj.op1, returnObj.op2, returnObj.operator)) {
     return randomMathOperationChain(numOfDigits1, numOfDigits2, null, firstNumber, difficulty);
