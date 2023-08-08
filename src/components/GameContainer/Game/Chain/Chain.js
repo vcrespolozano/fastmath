@@ -50,7 +50,7 @@ const Chain = () => {
         if (o === 0) {
           generatedOperation = randomMathOperation(maxDigits1, maxDigits2, null);
         } else if (lastResult) {
-          generatedOperation = randomMathOperationChain(maxDigits1, maxDigits2, null, lastResult);
+          generatedOperation = randomMathOperationChain(maxDigits1, maxDigits2, null, lastResult, difficulty);
         }
         lastResult = generatedOperation.result;
         auxOperations.push(generatedOperation);

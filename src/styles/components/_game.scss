@@ -18,11 +18,11 @@
     @include transition(200ms);
 
     &.OK {
-      background: rgba(0, 211, 123, 0.10);
+      background: rgba(0, 211, 123, 0.20);
       opacity: 1;
     }
     &.KO {
-      background: rgba(255, 39, 39, 0.10);
+      background: rgba(255, 39, 39, 0.20);
       opacity: 1;
     }
   }
