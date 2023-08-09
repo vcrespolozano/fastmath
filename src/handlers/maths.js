@@ -123,7 +123,7 @@ export const randomMathOperationChain = (numOfDigits1, numOfDigits2, forcedOpera
       break;
     case 1:
       returnObj.operator = '-';
-      if (num2 > num1) {
+      if (num2 > num1 || num1 - num2 === 0) {
         while (num2 > num1 || (num1 - num2 === 0)) {
           num2 = getRandomNumberDigits(numOfDigits2, num1);
         }
